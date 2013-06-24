@@ -44,16 +44,29 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Action\ActionBase.cs" />
-     <Compile Include="Assets\Scripts\Character\CharacterInventory.cs" />
-     <Compile Include="Assets\Scripts\Character\CharacterMovement.cs" />
-     <Compile Include="Assets\Scripts\Item\ActionItem.cs" />
-     <Compile Include="Assets\Scripts\Item\ItemBase.cs" />
-     <Compile Include="Assets\Scripts\Map\ActionTile.cs" />
-     <Compile Include="Assets\Scripts\Map\Map.cs" />
-     <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
-     <Compile Include="Assets\Scripts\Sprite\SpriteAnimation.cs" />
-     <Compile Include="Assets\Scripts\Sprite\TileChanges.cs" />
+     <Compile Include="Assets\Scene Fight\Script\BoxAttacks.cs" />
+     <Compile Include="Assets\Scene Fight\Script\CharacterText.cs" />
+     <Compile Include="Assets\Scene Fight\Script\TimeCounter.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Action\ActionBase.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Character\CharacterInventory.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Character\CharacterMovement.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Item\ActionItem.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Item\ItemBase.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Map\ActionTile.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Map\Map.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Map\MapGenerator.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Sprite\SpriteAnimation.cs" />
+     <Compile Include="Assets\Scene GameMap\Script\Sprite\TileChanges.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\CharacterItemSheet.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\CharacterSheet.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\Item.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\Quest.cs" />
+     <Compile Include="Assets\Scene Store\Script\StoreBuy.cs" />
+     <Compile Include="Assets\Scene Store\Script\StoreSell.cs" />
+     <Compile Include="Assets\Scene WorldMap\Script\WorldMap Location.cs" />
+     <Compile Include="Assets\Scene WorldMap\Script\WorldMap.cs" />
+     <Compile Include="Assets\Scripts\Button.cs" />
+     <Compile Include="Assets\Scripts\ListItens.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
