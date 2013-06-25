@@ -68,8 +68,9 @@
      <Compile Include="Assets\Scene Inventory\Script\MenuController.cs" />
      <Compile Include="Assets\Scene Store\Script\StoreBuy.cs" />
      <Compile Include="Assets\Scene Store\Script\StoreSell.cs" />
-     <Compile Include="Assets\Scene WorldMap\Script\WorldMap Location.cs" />
-     <Compile Include="Assets\Scene WorldMap\Script\WorldMap.cs" />
+     <Compile Include="Assets\Scene WorldMap\Script\HudController.cs" />
+     <Compile Include="Assets\Scene WorldMap\Script\WorldMapController.cs" />
+     <Compile Include="Assets\Scene WorldMap\Script\WorldMapLocation.cs" />
      <Compile Include="Assets\Scripts\Core\DatabaseLoader.cs" />
      <Compile Include="Assets\Scripts\GUI\ButtonChangeScene.cs" />
      <Compile Include="Assets\Scripts\GUI\ListItens.cs" />

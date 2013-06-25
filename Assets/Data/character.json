@@ -1,9 +1,17 @@
-#pragma strict
-
-function Start () {
-
-}
-
-function Update () {
-
-}
+[
+	{
+		"id": "ch0000",
+		"name": "name",
+		"desc": "description",
+		"type": "",
+		"attribute": {
+			"life": 0,
+			"money": 0,
+			"strength": 0,
+			"agility": 0,
+			"endurance": 0,
+			"technology": 0,
+			"alchemy": 0,
+		}
+	}
+]

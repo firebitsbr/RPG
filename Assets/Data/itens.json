@@ -1,9 +1,12 @@
-#pragma strict
-
-function Start () {
-
-}
-
-function Update () {
-
-}
+[
+	{
+		"id": "it0000",
+		"name": "name",
+		"desc": "description",
+		"type": 0,
+		"targetType": 0,
+		"attributeType": 0,
+		"value": 0,
+		"price": 0,
+	}
+]

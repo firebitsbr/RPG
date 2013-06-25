@@ -1,0 +1,26 @@
+[
+	{
+		"id": "eq0000",
+		"name": "",
+		"desc": "",
+		"sprite": "",
+		"type": 0,
+		"value": 0,
+		"price": 0,
+		"attack": {
+			"id": 0,
+			"name": "",
+			"targetType": 0,
+			"attributeType": 0,
+			"details": [
+				{
+					"damage": 0,
+					"description": "",
+				}
+			]
+		},
+		"special": {
+
+		}
+	}
+]

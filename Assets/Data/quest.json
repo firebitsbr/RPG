@@ -1,9 +1,16 @@
-#pragma strict
-
-function Start () {
-
-}
-
-function Update () {
-
-}
+[
+	{
+		"id": "qu0000",
+		"name": "name",
+		"desc": "description",
+		"done": 0,
+		"detail": [
+			{
+				"id": "qi0000",
+				"npc": "ch00000",
+				"text": "",
+				"done": 0,
+			}
+		]
+	}
+]
