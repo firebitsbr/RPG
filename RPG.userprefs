@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MapGenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scene Inventory\Script\MenuController.cs">
     <Files>
-      <File FileName="Assets\Scripts\MapGenerator.cs" Line="22" Column="25" />
+      <File FileName="Assets\Data\itens.json.js" Line="1" Column="1" />
+      <File FileName="Assets\Scene Inventory\Script\MenuController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

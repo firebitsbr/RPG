@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class BoxAttacks : MonoBehaviour {
+public class GameSkill {
 
 	// Use this for initialization
+    public int _damage;
+    public TargetTypes _target;
+
 	void Start () {
 	
 	}
