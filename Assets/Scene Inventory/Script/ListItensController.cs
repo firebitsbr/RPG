@@ -49,7 +49,14 @@ public class ListItensController : MonoBehaviour {
         _max = (float)(10 - value) / 320;
     }
 
-    // Update is called once per frame
+
+    public void addItem(GameItem item)
+    {
+
+
+    }
+
+
     void Update()
     {
         
@@ -65,7 +72,6 @@ public class ListItensController : MonoBehaviour {
     void OnMouseDrag()
     {
         float newPos = (float)(Input.mousePosition.y * 0.005 - _height);
-        Debug.Log(newPos);
         if (newPos > _max)
         {
             newPos = _max;

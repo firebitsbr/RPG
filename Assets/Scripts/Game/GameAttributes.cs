@@ -4,16 +4,15 @@ using System.Collections;
 public class GameAttributes : MonoBehaviour {
 
 	// Use this for initialization
-    public int _agility;
-    public int _technology;
-    public int _alchemy;
-    public int _empathy;
-    public int _endurance;
-    public int _strenght;
+    private int _agility;
+    private int _technology;
+    private int _alchemy;
+    private int _endurance;
+    private int _strength;
 
-    public int _life;
-    public int _time;
-    public int _money;
+    private int _life;
+    private int _time;
+    private int _money;
 
 	void Start () {
 	
@@ -23,4 +22,46 @@ public class GameAttributes : MonoBehaviour {
 	void Update () {
 	
 	}
+
+
+    public int agility
+    {
+        get { return _agility; }
+        set { _agility = value; }
+    }
+    public int technology
+    {
+        get { return _technology; }
+        set { _technology = value; }
+    }
+    public int alchemy
+    {
+        get { return _alchemy; }
+        set { _alchemy = value; }
+    }
+    public int endurance
+    {
+        get { return _endurance; }
+        set { _endurance = value; }
+    }
+    public int strength
+    {
+        get { return _strength; }
+        set { _strength = value; }
+    }
+    public int life
+    {
+        get { return _life; }
+        set { _life = value; }
+    }
+    public int time
+    {
+        get { return _time; }
+        set { _time = value; }
+    }
+    public int money
+    {
+        get { return _money; }
+        set { _money = value; }
+    }
 }

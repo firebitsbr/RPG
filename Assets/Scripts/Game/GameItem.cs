@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameItem : MonoBehaviour {
+public class GameItem {
 
 	// Use this for initialization
 
@@ -9,6 +9,7 @@ public class GameItem : MonoBehaviour {
     private EquipmentType _equipmentType;
     private AlchemyType _alchemyType;
 
+    private string _name;
     private string _description;
     private int _price;
     private int _sprite;
@@ -70,6 +71,11 @@ public class GameItem : MonoBehaviour {
     {
         get { return _special; }
         set { _special = value; }
+    }
+    public string name
+    {
+        get { return _name; }
+        set { _name = value; }
     }
     public string description
     {

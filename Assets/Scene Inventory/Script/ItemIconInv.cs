@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class CharacterItemSheet : MonoBehaviour {
+public class ItemIconInv : MonoBehaviour
+{
 
 	// Use this for initialization
 	void Start () {

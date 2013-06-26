@@ -12,7 +12,7 @@ public class ItemDetailController : MonoBehaviour {
     public GameObject _textName;
     public GameObject _textDescription;
 
-    private GameItem _selectedItem;
+    private GameObject _selectedItem;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +31,15 @@ public class ItemDetailController : MonoBehaviour {
     public void hideAll()
     {
         _selectedItem = null;
+
+        _attackIcon.SetActive(false);
+        _attackText.SetActive(false);
+
+        _specialIcon.SetActive(false);
+        _specialText.SetActive(false);
+
+        _textName.SetActive(false);
+        _textDescription.SetActive(false);
     }
 
 	
@@ -39,20 +48,22 @@ public class ItemDetailController : MonoBehaviour {
 	    
 	}
 
-    public void showItemDetail(GameItem item)
+    public void showItemDetail(GameObject item)
     {
-        _selectedItem = item;
 
-        switch (_selectedItem.type)
+        _selectedItem = item;
+        GameItem itm = (_selectedItem.GetComponent("ItemSlotController") as ItemSlotController).item;
+
+        switch (itm.type)
         {
             case ItemType.Equipment:
                 _attackIcon.SetActive(true);
                 _attackText.SetActive(true);
-                (_attackText.GetComponent("GUIText") as GUIText).text = _selectedItem.special.description;
+                (_attackText.GetComponent("GUIText") as GUIText).text = itm.attack.name;
 
                 _specialIcon.SetActive(true);
                 _specialText.SetActive(true);
-                (_specialText.GetComponent("GUIText") as GUIText).text = _selectedItem.special.name;
+                (_specialText.GetComponent("GUIText") as GUIText).text = itm.special.name;
                 break;
             case ItemType.Alchemy:
                 _attackIcon.SetActive(false);
@@ -63,15 +74,17 @@ public class ItemDetailController : MonoBehaviour {
                 break;
         }
 
-        (_textName.GetComponent("GUIText") as GUIText).text = _selectedItem.name;
-        (_textDescription.GetComponent("GUIText") as GUIText).text = _selectedItem.description;
+        _textName.SetActive(true);
+        _textDescription.SetActive(true);
+        (_textName.GetComponent("GUIText") as GUIText).text = itm.name;
+        (_textDescription.GetComponent("GUIText") as GUIText).text = itm.description;
 
     }
 
 
 
 
-    public GameItem selectedItem
+    public GameObject selectedItem
     {
         get { return _selectedItem; }
         set { _selectedItem = value; }
