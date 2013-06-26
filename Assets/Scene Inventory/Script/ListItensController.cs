@@ -10,7 +10,7 @@ public class ListItensController : MonoBehaviour {
 
 	void Start () {
 
-        int total = 22;
+        int total = 40;
         int max = 100;
         _max = 0;
 

@@ -59,11 +59,15 @@
      <Compile Include="Assets\Scene GameMap\Script\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scene GameMap\Script\Sprite\SpriteAnimation.cs" />
      <Compile Include="Assets\Scene GameMap\Script\Sprite\TileChanges.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\ButonUseItem.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\ButtonDeleteItem.cs" />
      <Compile Include="Assets\Scene Inventory\Script\ButtonInventory.cs" />
      <Compile Include="Assets\Scene Inventory\Script\CharacterItemSheet.cs" />
      <Compile Include="Assets\Scene Inventory\Script\CharacterSheet.cs" />
      <Compile Include="Assets\Scene Inventory\Script\InventoryItem.cs" />
      <Compile Include="Assets\Scene Inventory\Script\InventoryQuest.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\ItemDetailController.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\ItemSlotController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\ListItensController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\MenuController.cs" />
      <Compile Include="Assets\Scene Store\Script\StoreBuy.cs" />
