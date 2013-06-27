@@ -7,12 +7,17 @@ public class ListItensController : MonoBehaviour {
     public GameObject slot;
     private float _height;
     private float _max;
+    private GameObject[] _slots;
+
+    // @TODO: insert item into inventory. better scroll
 
 	void Start () {
 
         int total = 40;
         int max = 100;
         _max = 0;
+
+        _slots = new GameObject[50];
 
         for (int i = 0; i < total; i++)
         {
@@ -30,10 +35,12 @@ public class ListItensController : MonoBehaviour {
                     lin = 180;
                     break;
             }
-            GUITexture itm = (Instantiate(slot) as GameObject).GetComponent("GUITexture") as GUITexture;
+            GameObject itmSlot = (Instantiate(slot) as GameObject);
+            GUITexture itm = itmSlot.GetComponent("GUITexture") as GUITexture;
             max = 270 - col * 50;
             itm.pixelInset = new Rect(lin, max, 44, 44);
             itm.transform.parent = this.transform;
+            _slots[i] = itmSlot;
         }
         if (max < 0)
         {
@@ -52,7 +59,10 @@ public class ListItensController : MonoBehaviour {
 
     public void addItem(GameItem item)
     {
-
+        for (int i = 0; i < 40; i++)
+        {
+            
+        }
 
     }
 

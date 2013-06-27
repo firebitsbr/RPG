@@ -3,7 +3,9 @@ using System.Collections;
 
 public class QuestController : MonoBehaviour {
 
-	// Use this for initialization
+
+    // @TODO: show quest. scroll list. show quest status
+
 	void Start () {
 	
 	}

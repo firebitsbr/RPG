@@ -7,6 +7,8 @@ public class ButtonInventory : MonoBehaviour {
     public Color _selectedColor;
     public GameObject _window;
 
+    // @TODO: nothing
+
 	void Start () {
 	
 

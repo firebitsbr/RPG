@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ItemIconInvChar : MonoBehaviour {
+public class SaveController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

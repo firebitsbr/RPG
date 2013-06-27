@@ -3,7 +3,8 @@ using System.Collections;
 
 public class MenuController : MonoBehaviour {
 
-	// Use this for initialization
+    // @TODO: nothing
+
 	void Start () {
         for (int i = 0; i < this.transform.GetChildCount(); i++)
         {

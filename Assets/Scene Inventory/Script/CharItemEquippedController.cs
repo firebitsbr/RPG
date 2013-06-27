@@ -8,7 +8,9 @@ public class CharItemEquippedController : MonoBehaviour {
     public GameObject _item3;
     public GameObject _item4;
 
-	// Use this for initialization
+
+    // @TODO: add item.
+
 	void Start () {
 	
 	}
@@ -17,4 +19,9 @@ public class CharItemEquippedController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void addItem(GameItem item)
+    {
+
+    }
 }

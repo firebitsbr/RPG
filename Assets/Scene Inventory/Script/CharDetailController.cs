@@ -5,7 +5,10 @@ public class CharDetailController : MonoBehaviour {
 
 
     private GameAttributes _character;
-	// Use this for initialization
+
+    // @TODO: load data from global player
+
+
 	void Start () {
 	
 	}

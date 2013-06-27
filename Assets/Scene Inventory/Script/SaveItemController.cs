@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ItemIconInv : MonoBehaviour
-{
+public class SaveItemController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

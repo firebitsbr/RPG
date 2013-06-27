@@ -6,8 +6,11 @@ public class ItemSlotController : MonoBehaviour {
     public int _iconNum = 1;
     public Texture _texture;
     private GameItem _item;
-    public bool _hasItem;
-	// Use this for initialization
+    public bool _hasItem = false;
+
+
+    // @TODO: nothing
+
 	void Start () {
 
         _item = new GameItem();
@@ -43,7 +46,12 @@ public class ItemSlotController : MonoBehaviour {
 
         _hasItem = true;
         _iconNum = slot.sprite;
+    }
 
+    public void removeItem()
+    {
+        _hasItem = false;
+        _item = null;
     }
 
     void OnMouseDown()
@@ -54,12 +62,7 @@ public class ItemSlotController : MonoBehaviour {
             ItemDetailController _detail = GameObject.Find("/WindowItem/BoxItemDetail").GetComponent("ItemDetailController") as ItemDetailController;
             _detail.showItemDetail(this.gameObject);
         }
-
-
     }
-
-
-
 
     public GameItem item
     {

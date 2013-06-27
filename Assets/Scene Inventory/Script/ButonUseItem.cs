@@ -3,7 +3,8 @@ using System.Collections;
 
 public class ButonUseItem : MonoBehaviour {
 
-	// Use this for initialization
+    // @TODO: verify if is item or equipment. add item to equipped
+
 	void Start () {
 	
 	}

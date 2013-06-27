@@ -14,7 +14,9 @@ public class ItemDetailController : MonoBehaviour {
 
     private GameObject _selectedItem;
 
-	// Use this for initialization
+    // @TODO: nothing
+
+
 	void Start () {
 
 

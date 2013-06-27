@@ -3,7 +3,9 @@ using System.Collections;
 
 public class ButtonDeleteItem : MonoBehaviour {
 
-	// Use this for initialization
+
+    // @TODO: nothing
+
 	void Start () {
 	
 	}
