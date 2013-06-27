@@ -43,7 +43,7 @@ public class CharEquippedController : MonoBehaviour {
                 break;
         }
 
-        ItemSlotController gamItm = (itm.GetComponent("ItemSlotController") as ItemSlotController);
+        ItemSlotController gamItm = itm.GetComponent<ItemSlotController>();
         gamItm.addToSlot(equipment);
 
     }
@@ -66,10 +66,10 @@ public class CharEquippedController : MonoBehaviour {
                 itm = _RightLeg;
                 break;
         }
-        ItemSlotController gamItm = (itm.GetComponent("ItemSlotController") as ItemSlotController);
+        ItemSlotController gamItm = itm.GetComponent<ItemSlotController>();
 
         // add item equipped to inventory
-        (GameObject.Find("/WindowItem/BoxListItens").GetComponent("ListItensController") as ListItensController).addItem(gamItm.item);
+        GameObject.Find("/WindowItem/BoxListItens").GetComponent<ListItensController>().addItem(gamItm.item);
         // remove equipped item from slot
         gamItm.removeItem();
     }

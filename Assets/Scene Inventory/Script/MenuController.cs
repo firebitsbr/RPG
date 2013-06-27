@@ -8,16 +8,14 @@ public class MenuController : MonoBehaviour {
 	void Start () {
         for (int i = 0; i < this.transform.GetChildCount(); i++)
         {
-            ButtonInventory but = this.transform.GetChild(i).GetComponent("ButtonInventory") as ButtonInventory;
+            ButtonInventory but = this.transform.GetChild(i).GetComponent<ButtonInventory>();
             if (but._window != null)
             {
                 but._window.SetActive(false);
             }
         }
-
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
@@ -26,7 +24,7 @@ public class MenuController : MonoBehaviour {
     {
         for (int i = 0; i < this.transform.GetChildCount(); i++)
         {
-            ButtonInventory but = this.transform.GetChild(i).GetComponent("ButtonInventory") as ButtonInventory;
+            ButtonInventory but = this.transform.GetChild(i).GetComponent<ButtonInventory>();
             if (but)
             {
                 but.SetSelected(false);

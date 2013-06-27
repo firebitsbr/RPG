@@ -4,6 +4,9 @@ using System.Collections;
 public class ButonUseItem : MonoBehaviour {
 
     // @TODO: verify if is item or equipment. add item to equipped
+    public GameObject _boxItem;
+    public GameObject _boxItemDetail;
+    public GameObject _boxEquipment;
 
 	void Start () {
 	
@@ -17,9 +20,25 @@ public class ButonUseItem : MonoBehaviour {
     {
         Debug.Log("USE ITEM");
 
+        ItemDetailController idc = _boxItemDetail.GetComponent<ItemDetailController>();
 
-        // ItemDetailController idc = GameObject.Find("/WindowItem/BoxItemDetail").GetComponent("ItemDetailController") as ItemDetailController;
+        GameItem itm = idc.selectedItem.GetComponent<ItemSlotController>().item;
 
-        // GameItem itm = (idc.selectedItem.GetComponent("ItemSlotController") as ItemSlotController).item;
+        switch (itm.type)
+        {
+            case ItemType.Alchemy:
+
+                _boxItem.GetComponent<CharItemEquippedController>().addItem(itm);
+                
+                break;
+            case ItemType.Equipment:
+
+                _boxEquipment.GetComponent<CharEquippedController>().addEquipment(itm);
+                
+                break;
+        }
+
+        _boxItemDetail.GetComponent<ItemDetailController>().hideAll();
+
     }
 }

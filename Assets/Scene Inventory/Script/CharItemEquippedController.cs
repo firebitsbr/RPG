@@ -3,16 +3,15 @@ using System.Collections;
 
 public class CharItemEquippedController : MonoBehaviour {
 
-    public GameObject _item1;
-    public GameObject _item2;
-    public GameObject _item3;
-    public GameObject _item4;
+    public GameObject[] itens = new GameObject[4];
 
 
-    // @TODO: add item.
+    // @TODO: nothing
 
 	void Start () {
-	
+
+        GameItem itm = new GameItem();
+        addItem(itm);
 	}
 	
 	// Update is called once per frame
@@ -20,8 +19,19 @@ public class CharItemEquippedController : MonoBehaviour {
 	
 	}
 
-    public void addItem(GameItem item)
+    public bool addItem(GameItem item)
     {
-
+        for (int i = 0; i < itens.Length; i++)
+        {
+            ItemSlotController slot = itens[i].GetComponent<ItemSlotController>();
+            if (!slot._hasItem)
+            {
+                Debug.Log("AddItem:" + i);
+                slot.addToSlot(item);
+                return true;
+            }
+        }
+        return false;
     }
+    
 }

@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scene Inventory\Script\ButonUseItem.cs" />
      <Compile Include="Assets\Scene Inventory\Script\ButtonDeleteItem.cs" />
      <Compile Include="Assets\Scene Inventory\Script\ButtonInventory.cs" />
+     <Compile Include="Assets\Scene Inventory\Script\ButtonRemoveEquipped.cs" />
      <Compile Include="Assets\Scene Inventory\Script\CharDetailController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\CharEquippedController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\CharItemDetailController.cs" />

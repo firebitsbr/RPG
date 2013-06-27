@@ -27,8 +27,8 @@ public class ButtonInventory : MonoBehaviour {
     {
         if (value)
         {
-            (this.transform.parent.gameObject.GetComponent("MenuController") as MenuController).updateButtons();
-            (this.GetComponent("GUITexture") as GUITexture).color = _selectedColor;
+            this.transform.parent.gameObject.GetComponent<MenuController>().updateButtons();
+            this.GetComponent<GUITexture>().color = _selectedColor;
             _selected = true;
             if (_window != null)
             {
@@ -37,7 +37,7 @@ public class ButtonInventory : MonoBehaviour {
         }
         else
         {
-            (this.GetComponent("GUITexture") as GUITexture).color = Color.gray;
+            this.GetComponent<GUITexture>().color = Color.gray;
             _selected = false;
             if (_window != null)
             {

@@ -21,13 +21,13 @@ public class ItemDetailController : MonoBehaviour {
 
 
         _attackIcon.SetActive(true);
-        (_attackText.GetComponent("GUIText") as GUIText).text = "attack\nDescription";
+        _attackText.GetComponent<GUIText>().text = "attack\nDescription";
 
         _specialIcon.SetActive(true);
-        (_specialText.GetComponent("GUIText") as GUIText).text = "Special\nDescription";
+        _specialText.GetComponent<GUIText>().text = "Special\nDescription";
 
-        (_textName.GetComponent("GUIText") as GUIText).text = "Item Name";
-        (_textDescription.GetComponent("GUIText") as GUIText).text = "Item Description";
+        _textName.GetComponent<GUIText>().text = "Item Name";
+        _textDescription.GetComponent<GUIText>().text = "Item Description";
 	}
 
     public void hideAll()
@@ -54,18 +54,18 @@ public class ItemDetailController : MonoBehaviour {
     {
 
         _selectedItem = item;
-        GameItem itm = (_selectedItem.GetComponent("ItemSlotController") as ItemSlotController).item;
+        GameItem itm = _selectedItem.GetComponent<ItemSlotController>().item;
 
         switch (itm.type)
         {
             case ItemType.Equipment:
                 _attackIcon.SetActive(true);
                 _attackText.SetActive(true);
-                (_attackText.GetComponent("GUIText") as GUIText).text = itm.attack.name;
+                _attackText.GetComponent<GUIText>().text = itm.attack.name;
 
                 _specialIcon.SetActive(true);
                 _specialText.SetActive(true);
-                (_specialText.GetComponent("GUIText") as GUIText).text = itm.special.name;
+                _specialText.GetComponent<GUIText>().text = itm.special.name;
                 break;
             case ItemType.Alchemy:
                 _attackIcon.SetActive(false);
@@ -78,8 +78,8 @@ public class ItemDetailController : MonoBehaviour {
 
         _textName.SetActive(true);
         _textDescription.SetActive(true);
-        (_textName.GetComponent("GUIText") as GUIText).text = itm.name;
-        (_textDescription.GetComponent("GUIText") as GUIText).text = itm.description;
+        _textName.GetComponent<GUIText>().text = itm.name;
+        _textDescription.GetComponent<GUIText>().text = itm.description;
 
     }
 
