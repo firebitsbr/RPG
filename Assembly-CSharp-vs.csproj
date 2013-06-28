@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scene Fight\Script\CharFightAnimation.cs" />
      <Compile Include="Assets\Scene Fight\Script\CharFightController.cs" />
      <Compile Include="Assets\Scene Fight\Script\CharacterText.cs" />
+     <Compile Include="Assets\Scene Fight\Script\FightController.cs" />
      <Compile Include="Assets\Scene Fight\Script\TimeCounter.cs" />
      <Compile Include="Assets\Scene GameMap\Script\Action\ActionBase.cs" />
      <Compile Include="Assets\Scene GameMap\Script\Character\CharacterInventory.cs" />
@@ -96,6 +97,10 @@
      <Compile Include="Assets\Scripts\Game\GameQuest.cs" />
      <Compile Include="Assets\Scripts\Game\GameSkill.cs" />
      <Compile Include="Assets\Scripts\Game\Structs.cs" />
+     <Compile Include="Assets\Scripts\Global\GlobalCharacter.cs" />
+     <Compile Include="Assets\Scripts\Global\GlobalMap.cs" />
+     <Compile Include="Assets\Scripts\Global\GlobalQuests.cs" />
+     <Compile Include="Assets\Scripts\Global\GlobalWorldMap.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleJSON.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

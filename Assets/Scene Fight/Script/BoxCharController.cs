@@ -5,6 +5,7 @@ public class BoxCharController : MonoBehaviour {
 
 
     public GameObject _enemies;
+    public Vector2[] _positions = new Vector2[3];
 
 	void Start () {
 	
@@ -14,4 +15,9 @@ public class BoxCharController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void addChar(GameCharacter value)
+    {
+
+    }
 }

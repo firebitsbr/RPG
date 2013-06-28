@@ -7,9 +7,9 @@ public class ButtonAction : MonoBehaviour
 
     public bool _selected = false;
     public Color _selectedColor;
-	// Use this for initialization
-
+	
     public GameObject boxAction;
+    public OptionType _option;
 
 	void Start () {
 
@@ -32,14 +32,14 @@ public class ButtonAction : MonoBehaviour
     {
         if (value)
         {
-            (this.transform.parent.gameObject.GetComponent("ButtonActionController") as ButtonActionController).updateButtons();
-            (this.GetComponent("GUITexture") as GUITexture).color = _selectedColor;
+            this.transform.parent.gameObject.GetComponent<ButtonActionController>().updateButtons();
+            this.GetComponent<GUITexture>().color = _selectedColor;
             boxAction.SetActive(true);
             _selected = true;
         }
         else
         {
-            (this.GetComponent("GUITexture") as GUITexture).color = Color.gray;
+            this.GetComponent<GUITexture>().color = Color.gray;
             boxAction.SetActive(false);
             _selected = false;
         }

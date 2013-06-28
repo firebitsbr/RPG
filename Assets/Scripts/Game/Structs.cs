@@ -21,3 +21,7 @@ public enum AlchemyType
 {
 
 };
+public enum OptionType
+{
+    Attack, Special, Item
+};

@@ -25,6 +25,25 @@ public class BoxAction : MonoBehaviour {
         addSkill(_sk);
 	}
 
+    public void loadCharSkill(GameCharacter value, OptionType opt)
+    {
+        switch (opt)
+        {
+            case OptionType.Attack:
+
+
+                break;
+            case OptionType.Special:
+
+
+                break;
+            case OptionType.Item:
+
+
+                break;
+        }
+    }
+
     public void addSkill(GameSkill skill)
     {
 
