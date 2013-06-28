@@ -5,6 +5,9 @@ public class ButtonActionController : MonoBehaviour {
 
 
     public GameObject _characterSlot;
+    public GameObject _boxAction;
+
+    private GameObject _charSelected;
     
 	void Start () {
 
@@ -13,11 +16,11 @@ public class ButtonActionController : MonoBehaviour {
             ButtonAction but = this.transform.GetChild(i).GetComponent("ButtonAction") as ButtonAction;
             if (but)
             {
-                but.boxAction = GameObject.Find("BoxActions");
+                but.boxAction = _boxAction;
             }
         }
 
-        GameObject.Find("BoxActions").SetActive(false);
+        _boxAction.SetActive(false);
 	}
 
     public void updateButtons()
