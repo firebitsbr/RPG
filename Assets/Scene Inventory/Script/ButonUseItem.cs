@@ -22,23 +22,24 @@ public class ButonUseItem : MonoBehaviour {
 
         ItemDetailController idc = _boxItemDetail.GetComponent<ItemDetailController>();
 
-        GameItem itm = idc.selectedItem.GetComponent<ItemSlotController>().item;
+        ItemSlotController itm = idc.selectedItem.GetComponent<ItemSlotController>();
 
-        switch (itm.type)
+        switch (itm.item.type)
         {
             case ItemType.Alchemy:
 
-                _boxItem.GetComponent<CharItemEquippedController>().addItem(itm);
+                _boxItem.GetComponent<CharItemEquippedController>().addItem(itm.item);
                 
                 break;
             case ItemType.Equipment:
 
-                _boxEquipment.GetComponent<CharEquippedController>().addEquipment(itm);
+                _boxEquipment.GetComponent<CharEquippedController>().addEquipment(itm.item);
                 
                 break;
         }
 
         _boxItemDetail.GetComponent<ItemDetailController>().hideAll();
+        itm.removeItem();
 
     }
 }

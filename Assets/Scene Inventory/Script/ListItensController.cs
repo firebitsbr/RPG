@@ -26,6 +26,7 @@ public class ListItensController : MonoBehaviour {
         GameItem test = new GameItem();
         test.sprite = 9;
         test.type = ItemType.Equipment;
+        test.equipmentType = EquipmentType.LeftArm;
         test.name = "item Test";
         test.description = "description of the item";
         test.attack = new GameSkill();
@@ -76,10 +77,8 @@ public class ListItensController : MonoBehaviour {
     {
         if (_numItens == _slots.Count)
         {
-            Debug.Log("add new row");
             addRowSlots();
         }
-        Debug.Log(_slots[_numItens]);
         (_slots[_numItens] as GameObject).GetComponent<ItemSlotController>().addToSlot(item);
         _numItens++;
     }

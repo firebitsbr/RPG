@@ -25,8 +25,10 @@ public class CharItemDetailController : MonoBehaviour {
 	
 	}
 
-    public void showItemDetail(GameItem item)
+    public void showItemDetail(GameObject obj)
     {
+        _selectedItem = obj;
+        GameItem item = obj.GetComponent<ItemSlotController>().item;
 
         _itemName.GetComponent<GUIText>().text = item.name;
         _itemDescription.GetComponent<GUIText>().text = item.name;
@@ -53,7 +55,6 @@ public class CharItemDetailController : MonoBehaviour {
 
                 break;
         }
-
     }
 
     public void hideAll()

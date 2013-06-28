@@ -66,8 +66,17 @@ public class ItemSlotController : MonoBehaviour {
         Debug.Log("Item clicked");
         if (_hasItem)
         {
-            ItemDetailController _detail = GameObject.Find("/WindowItem/BoxItemDetail").GetComponent<ItemDetailController>();
-            _detail.showItemDetail(this.gameObject);
+            GameObject boxList = GameObject.Find("/WindowItem/BoxItemDetail");
+            if(boxList != null) {
+                ItemDetailController _detail = boxList.GetComponent<ItemDetailController>();
+                _detail.showItemDetail(this.gameObject);
+            }
+            boxList = GameObject.Find("/WindowCharacter/BoxItemDetail");
+            if (boxList != null)
+            {
+                CharItemDetailController _detail = boxList.GetComponent<CharItemDetailController>();
+                _detail.showItemDetail(this.gameObject);
+            }
         }
         if (diff != null)
         {

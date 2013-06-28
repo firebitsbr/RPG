@@ -3,7 +3,8 @@ using System.Collections;
 
 public class ButtonActionController : MonoBehaviour {
 
-	// Use this for initialization
+
+    public GameObject _characterSlot;
     
 	void Start () {
 
