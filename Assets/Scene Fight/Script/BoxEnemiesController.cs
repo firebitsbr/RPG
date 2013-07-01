@@ -23,4 +23,17 @@ public class BoxEnemiesController : MonoBehaviour {
     {
 
     }
+
+    public void SetAllTarget()
+    {
+
+    }
+    public void SetOthersTarget()
+    {
+
+    }
+    public void SetSelfTarget()
+    {
+
+    }
 }

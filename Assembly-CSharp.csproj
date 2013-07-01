@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scene Fight\Script\BoxEnemiesController.cs" />
      <Compile Include="Assets\Scene Fight\Script\ButtonAction.cs" />
      <Compile Include="Assets\Scene Fight\Script\ButtonActionController.cs" />
+     <Compile Include="Assets\Scene Fight\Script\ButtonUseSkill.cs" />
      <Compile Include="Assets\Scene Fight\Script\CharFightAnimation.cs" />
      <Compile Include="Assets\Scene Fight\Script\CharFightController.cs" />
      <Compile Include="Assets\Scene Fight\Script\CharacterText.cs" />

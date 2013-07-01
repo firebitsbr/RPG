@@ -25,3 +25,7 @@ public enum OptionType
 {
     Attack, Special, Item
 };
+public enum ActionType
+{
+    GameSkill, GameItem
+};

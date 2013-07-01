@@ -3,34 +3,40 @@ using System.Collections;
 
 public class TimeCounter : MonoBehaviour {
 
-    public int _initial = 0;
-    public int _interval = 0;
-    public int _max = 0;
 
-    //private int _counter = 0;
 
-	// Use this for initialization
+    public GameObject counterBar;
+    private GameCharacter _chararcter;
+
+    private float _max;
+    private Rect _size;
+	
 	void Start () {
-        //_counter = 1;
-        //Debug.Log(_counter);
+
+        _size = this.gameObject.guiTexture.pixelInset;
+        counterBar.guiTexture.pixelInset = _size;
+        _max = _size.width;
+
 	}
 
-    public void startTimer()
+    public void Update()
     {
-
+        if (_chararcter != null)
+        {
+            float percent = _chararcter.attributes.time - _chararcter.timer;
+            _size.width = _max-(percent * _max / _chararcter.attributes.time);
+            counterBar.guiTexture.pixelInset = _size;
+        }
     }
-    public void pauseTimer()
+
+
+
+    public GameCharacter chararcter
     {
-
+        get { return _chararcter; }
+        set { _chararcter = value; }
     }
 
-    void Tick()
-    {
 
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    /***************************************************************************************************************/
 }

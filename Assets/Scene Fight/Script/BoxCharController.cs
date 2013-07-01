@@ -4,7 +4,7 @@ using System.Collections;
 public class BoxCharController : MonoBehaviour {
 
 
-    public GameCharacter[] _character;
+    public GameCharacter[] _character = new GameCharacter[3];
     public Vector2[] _positions = new Vector2[3];
 
     private int[] _order;
@@ -12,11 +12,31 @@ public class BoxCharController : MonoBehaviour {
 
 	void Start () {
         _character = new GameCharacter[3];
+
+        _character = GlobalCharacter.party;
+        _character[0].timer = 0;
+        _character[1].timer = 2;
+        _character[2].timer = 3;
+
+        _order = new int[3] { 0, 1, 2 };
 	}
 	
 	void Update () {
 	
 	}
+
+    public void SetAllTarget()
+    {
+
+    }
+    public void SetOthersTarget()
+    {
+
+    }
+    public void SetSelfTarget()
+    {
+
+    }
 
     public void UpdateTime()
     {

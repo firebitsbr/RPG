@@ -18,7 +18,6 @@ public class BoxAction : MonoBehaviour {
         _skills = new GameSkill[4];
         _buttons = new GameObject[4];
         //gameObject.SetActive(false);
-        _count = 0;
 
         GameSkill _sk = new GameSkill();
         addSkill(_sk);
@@ -29,6 +28,8 @@ public class BoxAction : MonoBehaviour {
 
     public void loadCharSkill(OptionType opt)
     {
+        _count = 0;
+        removeItens();
 
         switch (opt)
         {
@@ -71,6 +72,8 @@ public class BoxAction : MonoBehaviour {
     public void addItem(GameItem itm)
     {
 
+
+
     }
 
     public void addSkill(GameSkill skill)
@@ -80,13 +83,28 @@ public class BoxAction : MonoBehaviour {
         
         (obj as GameObject).transform.parent = this.transform;
 
-        (obj as GameObject).GetComponent<GUIText>().pixelOffset = new Vector2(65, 115 + 54 * _count);
+        (obj as GameObject).GetComponent<GUIText>().pixelOffset = new Vector2(65, 100 + 40 * _count);
         (obj as GameObject).GetComponent<GUIText>().text = skill.name;
+
+        (obj as GameObject).GetComponent<ButtonUseSkill>().action = ActionType.GameSkill;
+        (obj as GameObject).GetComponent<ButtonUseSkill>().skill = skill;
 
         _buttons.SetValue(obj, _count);
         _skills.SetValue(skill, _count);
 
         _count++;
+
+    }
+
+    public void removeItens()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (_buttons[i] != null)
+            {
+                Destroy(_buttons[i]);
+            }
+        }
     }
 
     public void resetItens()

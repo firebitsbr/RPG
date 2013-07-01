@@ -4,59 +4,55 @@ using System.Collections;
 public class ButtonActionController : MonoBehaviour {
 
 
-    public GameObject _characterSlot;
     public GameObject _boxAction;
 
-    private ArrayList _listActions;
+    public GameObject _character1;
+    public GameObject _character2;
+    public GameObject _character3;
+
+    public GameObject _buttonAction;
+    public GameObject _buttonSpecial;
+    public GameObject _buttonItem;
 
     private bool _buttonActive;
     
 	void Start () {
 
-        _listActions = new ArrayList();
 
-        for (int i = 0; i < this.transform.GetChildCount(); i++)
-        {
-            ButtonAction but = this.transform.GetChild(i).GetComponent<ButtonAction>();
-            if (but)
-            {
-                _listActions.Add(this.transform.GetChild(i).gameObject);
-                but.boxAction = _boxAction;
-            }
-        }
-
+        _buttonAction.GetComponent<ButtonAction>().boxAction = _boxAction;
+        _buttonSpecial.GetComponent<ButtonAction>().boxAction = _boxAction;
+        _buttonItem.GetComponent<ButtonAction>().boxAction = _boxAction;
+        
+        
         _boxAction.SetActive(false);
 
         hideButtons();
 	}
 
+
     public void hideButtons()
     {
-        for (int i = 0; i < _listActions.Count; i++)
-        {
-            (_listActions[i] as GameObject).SetActive(false);
-        }
+        _buttonAction.SetActive(false);
+        _buttonSpecial.SetActive(false);
+        _buttonItem.SetActive(false);
+        
         _buttonActive = false;
     }
+
     public void showButtons()
     {
-        for (int i = 0; i < _listActions.Count; i++)
-        {
-            (_listActions[i] as GameObject).SetActive(true);
-        }
+        _buttonAction.SetActive(true);
+        _buttonSpecial.SetActive(true);
+        _buttonItem.SetActive(true);
+
         _buttonActive = true;
     }
 
     public void updateButtons()
     {
-        for (int i = 0; i < this.transform.GetChildCount(); i++)
-        {
-            ButtonAction but = this.transform.GetChild(i).GetComponent<ButtonAction>();
-            if (but)
-            {
-                but.SetSelected(false);
-            }
-        }
+        _buttonAction.GetComponent<ButtonAction>().SetSelected(false);
+        _buttonSpecial.GetComponent<ButtonAction>().SetSelected(false);
+        _buttonItem.GetComponent<ButtonAction>().SetSelected(false);
     }
 
 

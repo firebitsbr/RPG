@@ -19,15 +19,26 @@ public class FightController : MonoBehaviour {
     private BoxAction _boxAct;
 
     private bool _running;
+    private ActionType _currentAction;
+    private GameSkill _currentSkill;
+    private GameItem _currentItem;
+    private GameCharacter _currentTarget;
 
 	void Start () {
+
+        GlobalCharacter.Init();
 
         _boxChar = _charController.GetComponent<BoxCharController>();
         _boxEnemy = _enemiesController.GetComponent<BoxEnemiesController>();
         _boxActions = _buttonController.GetComponent<ButtonActionController>();
         _boxAct = _boxController.GetComponent<BoxAction>();
 
-        _running = false;
+        _boxActions._character1.GetComponent<TimeCounter>().chararcter = GlobalCharacter.party[0];
+        _boxActions._character2.GetComponent<TimeCounter>().chararcter = GlobalCharacter.party[1];
+        _boxActions._character3.GetComponent<TimeCounter>().chararcter = GlobalCharacter.party[2];
+
+        _running = true;
+
 	}
 
     public void PauseTimer(bool value)
@@ -38,6 +49,19 @@ public class FightController : MonoBehaviour {
     public void setIniciative()
     {
 
+    }
+
+    public void SetTargets(TargetTypes targets)
+    {
+        switch (targets)
+        {
+            case TargetTypes.Enemy:
+                _boxEnemy.SetAllTarget();
+                break;
+            case TargetTypes.Party:
+                _boxChar.SetAllTarget();
+                break;
+        }
     }
 	
 	// Update is called once per frame
@@ -51,7 +75,33 @@ public class FightController : MonoBehaviour {
             if (_curr != null && !_boxActions.buttonActive)
             {
                 _boxAct.currentSelected = _curr;
+                _boxActions.showButtons();
             }
         }
 	}
+
+
+
+
+    public ActionType currentAction
+    {
+        get { return _currentAction; }
+        set { _currentAction = value; }
+    }
+    public GameSkill currentSkill
+    {
+        get { return _currentSkill; }
+        set { _currentSkill = value; }
+    }
+    public GameItem currentItem
+    {
+        get { return _currentItem; }
+        set { _currentItem = value; }
+    }
+    public GameCharacter currentTarget
+    {
+        get { return _currentTarget; }
+        set { _currentTarget = value; }
+    }
+    /************************************************************************************************************/
 }

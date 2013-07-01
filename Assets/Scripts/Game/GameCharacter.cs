@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameCharacter : MonoBehaviour {
+public class GameCharacter {
 
 
     private GameItem _leftLeg;
@@ -20,6 +20,7 @@ public class GameCharacter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _timer = 0;
+
 
 	}
 	
@@ -43,7 +44,7 @@ public class GameCharacter : MonoBehaviour {
         _timer += Time.deltaTime;
         if (_timer > _attributes.time)
         {
-            _timer = 0;
+            _timer = _attributes.time;
             _ready = true;
             return true;
         }
