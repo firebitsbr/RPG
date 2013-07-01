@@ -1,15 +1,21 @@
 using UnityEngine;
 using System.Collections;
 
-public class GlobalQuests : MonoBehaviour {
+public class GlobalQuests {
 
-	// Use this for initialization
-	void Start () {
+    private static ArrayList _quests;
+
+	static void Init() {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+
+
+
+
+    public ArrayList quests
+    {
+        get { return _quests; }
+        set { _quests = value; }
+    }
 }

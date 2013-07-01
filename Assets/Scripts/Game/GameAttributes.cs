@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameAttributes : MonoBehaviour {
+public class GameAttributes {
 
 	// Use this for initialization
     private int _agility;
@@ -22,6 +22,20 @@ public class GameAttributes : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void SetAttributes(int str, int agi, int end, int alc, int tec, int lif, int tim, int mon)
+    {
+        
+        _strength = str;
+        _agility = agi;
+        _endurance = end;
+        _alchemy = alc;
+        _technology = tec;
+        _life = lif;
+        _time = tim;
+        _money = mon;
+
+    }
 
 
     public int agility

@@ -4,7 +4,7 @@ using System.Collections;
 public class BoxCharController : MonoBehaviour {
 
 
-    public GameObject _enemies;
+    public ArrayList _character;
     public Vector2[] _positions = new Vector2[3];
 
 	void Start () {
@@ -16,7 +16,13 @@ public class BoxCharController : MonoBehaviour {
 	
 	}
 
-    public void addChar(GameCharacter value)
+    public void UpdateTime()
+    {
+
+    }
+
+
+    public void addCharacter(GameCharacter character)
     {
 
     }

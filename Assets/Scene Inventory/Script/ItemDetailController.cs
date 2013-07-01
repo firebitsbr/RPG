@@ -3,11 +3,11 @@ using System.Collections;
 
 public class ItemDetailController : MonoBehaviour {
 
-    public GameObject _attackIcon;
-    public GameObject _attackText;
+    public GameObject _attackName;
+    public GameObject _attackDesc;
     
-    public GameObject _specialIcon;
-    public GameObject _specialText;
+    public GameObject _specialName;
+    public GameObject _specialDesc;
 
     public GameObject _textName;
     public GameObject _textDescription;
@@ -20,25 +20,26 @@ public class ItemDetailController : MonoBehaviour {
 	void Start () {
 
 
-        _attackIcon.SetActive(true);
-        _attackText.GetComponent<GUIText>().text = "attack\nDescription";
+        _attackName.SetActive(false);
+        _attackDesc.SetActive(false);
+        
 
-        _specialIcon.SetActive(true);
-        _specialText.GetComponent<GUIText>().text = "Special\nDescription";
+        _specialName.SetActive(false);
+        _specialDesc.SetActive(false);
 
-        _textName.GetComponent<GUIText>().text = "Item Name";
-        _textDescription.GetComponent<GUIText>().text = "Item Description";
+        _textName.SetActive(false);
+        _textDescription.SetActive(false);
 	}
 
     public void hideAll()
     {
         _selectedItem = null;
 
-        _attackIcon.SetActive(false);
-        _attackText.SetActive(false);
+        _attackName.SetActive(false);
+        _attackDesc.SetActive(false);
 
-        _specialIcon.SetActive(false);
-        _specialText.SetActive(false);
+        _specialName.SetActive(false);
+        _specialDesc.SetActive(false);
 
         _textName.SetActive(false);
         _textDescription.SetActive(false);
@@ -59,20 +60,28 @@ public class ItemDetailController : MonoBehaviour {
         switch (itm.type)
         {
             case ItemType.Equipment:
-                _attackIcon.SetActive(true);
-                _attackText.SetActive(true);
-                _attackText.GetComponent<GUIText>().text = itm.attack.name;
 
-                _specialIcon.SetActive(true);
-                _specialText.SetActive(true);
-                _specialText.GetComponent<GUIText>().text = itm.special.name;
+                _attackName.SetActive(true);
+                _attackName.GetComponent<GUIText>().text = itm.attack.name;
+
+                _attackDesc.SetActive(true);
+                _attackDesc.GetComponent<GUIText>().text = itm.attack.description;
+
+                _specialName.SetActive(true);
+                _specialName.GetComponent<GUIText>().text = itm.attack.name;
+
+                _specialDesc.SetActive(true);
+                _specialDesc.GetComponent<GUIText>().text = itm.special.description;
+
                 break;
             case ItemType.Alchemy:
-                _attackIcon.SetActive(false);
-                _attackText.SetActive(false);
 
-                _specialIcon.SetActive(false);
-                _specialText.SetActive(false);
+                _attackName.SetActive(false);
+                _attackDesc.SetActive(false);
+
+                _specialName.SetActive(false);
+                _specialDesc.SetActive(false);
+
                 break;
         }
 
@@ -80,10 +89,7 @@ public class ItemDetailController : MonoBehaviour {
         _textDescription.SetActive(true);
         _textName.GetComponent<GUIText>().text = itm.name;
         _textDescription.GetComponent<GUIText>().text = itm.description;
-
     }
-
-
 
 
     public GameObject selectedItem

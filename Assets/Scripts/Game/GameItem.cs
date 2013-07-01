@@ -21,14 +21,24 @@ public class GameItem {
     private TargetTypes _target;
     private TargetAttribute _attribute;
 
-	void Start () {
-	    
-	}
+
+    public void setAttributes(string _nam, string _des, int _spr, int _pri)
+    {
+        _name = _nam;
+        _description = _des;
+        _sprite = _spr;
+        _price = _pri;
+    }
+
+    public void setAlchemyAttributes(int _dam, TargetTypes _tar, TargetAttribute _atr)
+    {
+        _damage = _dam;
+        _target = _tar;
+        _attribute = _atr;
+    }
 	
-	// Update is called once per frame
-	void Update () {
 	
-	}
+
 
     public ItemType type
     {

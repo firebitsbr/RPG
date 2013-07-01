@@ -1,15 +1,21 @@
 using UnityEngine;
 using System.Collections;
 
-public class GlobalWorldMap : MonoBehaviour {
+public class GlobalWorldMap {
 
-	// Use this for initialization
-	void Start () {
+
+    private static ArrayList _cities;
+
+	static void Init() {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+
+
+
+    public ArrayList cities
+    {
+        get { return _cities; }
+        set { _cities = value; }
+    }
 }

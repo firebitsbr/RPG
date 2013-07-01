@@ -3,7 +3,8 @@ using System.Collections;
 
 public class BoxEnemiesController : MonoBehaviour {
 
-    public GameObject _enemies;
+    public ArrayList _enemies;
+
 
 	void Start () {
 	
@@ -13,4 +14,13 @@ public class BoxEnemiesController : MonoBehaviour {
 	void Update () {
 	
 	}
+    public void UpdateTime()
+    {
+
+    }
+
+    public void addEnemy(GameCharacter enemy)
+    {
+
+    }
 }

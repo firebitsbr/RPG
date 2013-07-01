@@ -12,4 +12,6 @@ public class CharFightController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    
 }

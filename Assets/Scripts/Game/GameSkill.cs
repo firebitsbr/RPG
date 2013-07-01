@@ -16,8 +16,17 @@ public class GameSkill {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
 	}
+
+    public void SetAttributes(string _nam, string _des, int _dam, TargetTypes _tar, TargetAttribute _atr)
+    {
+        _name = _nam;
+        _description = _des;
+        _damage = _dam;
+        _target = _tar;
+        _attribute = _atr;
+    }
 
     public string name
     {
@@ -39,7 +48,7 @@ public class GameSkill {
         get { return _target; }
         set { _target = value; }
     }
-    public TargetAttribute attack
+    public TargetAttribute attribute
     {
         get { return _attribute; }
         set { _attribute = value; }

@@ -8,7 +8,7 @@ public class BoxAction : MonoBehaviour {
     private GameSkill[] _skills;
     private GameObject[] _buttons;
 
-    public GUITexture buttonAction;
+    public GameObject buttonAction;
     private int _count;
 
 	void Start () {
@@ -51,22 +51,12 @@ public class BoxAction : MonoBehaviour {
         
         (obj as GameObject).transform.parent = this.transform;
 
-        GUITexture text = ((obj as GameObject).GetComponent("GUITexture") as GUITexture);
-
-        text.pixelInset = new Rect(10, 80 + 54 * _count, 44, 44);
-        text.guiText.pixelOffset = new Vector2(65, 115 + 54 * _count);
+        (obj as GameObject).GetComponent<GUIText>().pixelOffset = new Vector2(65, 115 + 54 * _count);
 
         _buttons.SetValue(obj, _count);
         _skills.SetValue(skill, _count);
 
         _count++;
-
-        updateSize();
-    }
-    public void updateSize()
-    {
-        (GetComponent("GUITexture") as GUITexture).pixelInset = new Rect(0, 75, 210, 54 * _count);
-        gameObject.SetActive(true);
     }
 
     public void resetItens()

@@ -19,7 +19,7 @@ public enum EquipmentType
 };
 public enum AlchemyType
 {
-
+    HealLife, IncreaseDamage, IncreaseSpeed
 };
 public enum OptionType
 {
