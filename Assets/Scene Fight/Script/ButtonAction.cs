@@ -12,7 +12,7 @@ public class ButtonAction : MonoBehaviour
     public OptionType _option;
 
 	void Start () {
-
+        
 	}
 
     void OnGUI()
@@ -35,6 +35,7 @@ public class ButtonAction : MonoBehaviour
             this.transform.parent.gameObject.GetComponent<ButtonActionController>().updateButtons();
             this.GetComponent<GUITexture>().color = _selectedColor;
             boxAction.SetActive(true);
+            boxAction.GetComponent<BoxAction>().loadCharSkill(_option);
             _selected = true;
         }
         else
