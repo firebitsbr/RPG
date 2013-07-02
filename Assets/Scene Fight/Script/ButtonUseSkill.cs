@@ -22,7 +22,7 @@ public class ButtonUseSkill : MonoBehaviour {
     {
         _fight.boxAct.gameObject.SetActive(false);
 
-        switch (_action)
+        switch (_fight.currentAction)
         {
             case ActionType.GameItem:
                 Debug.Log("use item:" + _item.name);

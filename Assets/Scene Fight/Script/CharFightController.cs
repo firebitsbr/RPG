@@ -4,9 +4,13 @@ using System.Collections;
 public class CharFightController : MonoBehaviour {
 
     public bool _selectable;
+    private FightController _fight;
+    private GameObject _children;
 
 	void Start () {
-	
+        _fight = GameObject.Find("/Fight").GetComponent<FightController>();
+        _children = transform.GetChild(0).gameObject;
+        SetCurrent(false);
 	}
 	
 	// Update is called once per frame
@@ -14,11 +18,19 @@ public class CharFightController : MonoBehaviour {
 	
 	}
 
+    public void SetCurrent(bool value)
+    {
+        if (_children != null)
+        {
+            _children.SetActive(value);
+        }
+    }
+
     void OnMouseDown()
     {
         if (_selectable)
         {
-            Debug.Log("Set as Target");
+            _fight.UseSkill(this.gameObject);
         }
     }
 

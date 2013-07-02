@@ -23,6 +23,7 @@ public class GlobalCharacter {
 
         GameItem itm = new GameItem();
         itm.setAttributes("item", "desc", 10, 10);
+        itm.setAlchemyAttributes(10, TargetTypes.All, TargetAttribute.Life);
 
         _char.itens.SetValue(itm, 0);
         _char.itens.SetValue(itm, 1);

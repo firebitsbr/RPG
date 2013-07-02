@@ -33,12 +33,14 @@ public class BoxCharController : MonoBehaviour {
                 AddCharToScene(_character[i], i);
             }
         }
+
     }
     private void AddCharToScene(GameCharacter value, int pos)
     {
         GameObject _itm = Instantiate(_charModel) as GameObject;
         _itm.transform.position = _positions[pos];
         _itm.transform.parent = this.transform;
+        _itm.GetComponent<CharFightController>().SetCurrent(false);
 
         charsFight[pos] = _itm;
     }
@@ -46,6 +48,17 @@ public class BoxCharController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void CancelAllTargets()
+    {
+        for (int i = 0; i < charsFight.Length; i++)
+        {
+            if (charsFight[i] != null)
+            {
+                charsFight[i].GetComponent<CharFightController>().selectable = false;
+            }
+        }
+    }
 
     public void SetAllTarget()
     {
@@ -85,15 +98,24 @@ public class BoxCharController : MonoBehaviour {
             if (_character[i].ready && _order.IndexOf(i) < 0)
             {
                 _order.Add(i);
-                Debug.Log(_order.Count);
             }
         }
     }
 
-
     public void addCharacter(GameCharacter character, int num)
     {
         _character.SetValue(character, num);
+    }
+
+    public void removeCurrent()
+    {
+        for (int i = 0; i < charsFight.Length; i++)
+        {
+            if (charsFight[i] != null)
+            {
+                charsFight[i].GetComponent<CharFightController>().SetCurrent(false);
+            }
+        }
     }
 
     public GameCharacter GetCurrentReady()
@@ -102,6 +124,7 @@ public class BoxCharController : MonoBehaviour {
             int num = int.Parse(_order[0].ToString());
             if (_character[num].ready)
             {
+                charsFight[num].GetComponent<CharFightController>().SetCurrent(true);
                 _current = num;
                 return _character[num];
             }

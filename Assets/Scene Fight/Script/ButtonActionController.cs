@@ -32,6 +32,7 @@ public class ButtonActionController : MonoBehaviour {
 
     public void hideButtons()
     {
+        updateButtons();
         _buttonAction.SetActive(false);
         _buttonSpecial.SetActive(false);
         _buttonItem.SetActive(false);

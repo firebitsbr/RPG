@@ -51,6 +51,25 @@ public class FightController : MonoBehaviour {
 
     }
 
+    public void UseSkill(GameObject target)
+    {
+        switch (_currentAction)
+        {
+            case ActionType.GameItem:
+                Debug.Log("use item");
+                break;
+            case ActionType.GameSkill:
+                Debug.Log("use skill");
+                break;
+        }
+
+        _boxChar.removeCurrent();
+        _boxChar.CancelAllTargets();
+        _boxActions.hideButtons();
+        _boxAct.currentSelected.RestartTimer();
+
+    }
+
     public void SetTargets(TargetTypes targets)
     {
         switch (targets)
@@ -66,6 +85,13 @@ public class FightController : MonoBehaviour {
                 break;
             case TargetTypes.OtherParty:
                 _boxChar.SetOthersTarget();
+                break;
+            case TargetTypes.All:
+                _boxChar.SetAllTarget();
+                _boxEnemy.SetAllTarget();
+                break;
+            case TargetTypes.AllEnemies:
+                _boxEnemy.SetAllTarget();
                 break;
         }
     }
