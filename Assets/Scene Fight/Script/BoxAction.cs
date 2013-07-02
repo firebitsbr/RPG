@@ -17,7 +17,7 @@ public class BoxAction : MonoBehaviour {
 
         _skills = new GameSkill[4];
         _buttons = new GameObject[4];
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
 
         GameSkill _sk = new GameSkill();
         addSkill(_sk);

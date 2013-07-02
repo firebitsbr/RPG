@@ -31,9 +31,9 @@ public class GlobalCharacter {
 
 
         GameSkill _atk = new GameSkill();
-        _atk.SetAttributes("attack", "desc", 10, TargetTypes.Enemy, TargetAttribute.Life);
+        _atk.SetAttributes("attack", "desc", 10, TargetTypes.Self, TargetAttribute.Life);
         GameSkill _spe = new GameSkill();
-        _spe.SetAttributes("Special", "desc", 10, TargetTypes.Enemy, TargetAttribute.Life);
+        _spe.SetAttributes("Special", "desc", 10, TargetTypes.Party, TargetAttribute.Life);
 
         _char.attacks.SetValue(_atk, 0);
         _char.attacks.SetValue(_atk, 1);

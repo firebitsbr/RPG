@@ -20,6 +20,8 @@ public class ButtonUseSkill : MonoBehaviour {
 
     void OnMouseDown()
     {
+        _fight.boxAct.gameObject.SetActive(false);
+
         switch (_action)
         {
             case ActionType.GameItem:

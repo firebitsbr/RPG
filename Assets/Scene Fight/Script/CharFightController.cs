@@ -3,7 +3,8 @@ using System.Collections;
 
 public class CharFightController : MonoBehaviour {
 
-	// Use this for initialization
+    public bool _selectable;
+
 	void Start () {
 	
 	}
@@ -13,5 +14,28 @@ public class CharFightController : MonoBehaviour {
 	
 	}
 
-    
+    void OnMouseDown()
+    {
+        if (_selectable)
+        {
+            Debug.Log("Set as Target");
+        }
+    }
+
+
+    public bool selectable
+    {
+        get { return _selectable; }
+        set {
+            if (value)
+            {
+                this.gameObject.renderer.material.color = Color.red;
+            }
+            else
+            {
+                this.gameObject.renderer.material.color = Color.grey;
+            }
+            _selectable = value;
+        }
+    }
 }

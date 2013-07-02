@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum TargetTypes
 {
-    Self, Enemy, Party, AllEnemies, All
+    Self, Enemy, Party, AllEnemies, All, OtherParty
 };
 public enum TargetAttribute
 {

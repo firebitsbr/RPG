@@ -61,11 +61,18 @@ public class FightController : MonoBehaviour {
             case TargetTypes.Party:
                 _boxChar.SetAllTarget();
                 break;
+            case TargetTypes.Self:
+                _boxChar.SetSelfTarget();
+                break;
+            case TargetTypes.OtherParty:
+                _boxChar.SetOthersTarget();
+                break;
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
+
         if (_running)
         {
             _boxChar.UpdateTime();
@@ -81,6 +88,26 @@ public class FightController : MonoBehaviour {
 	}
 
 
+    public BoxCharController boxChar
+    {
+        get { return _boxChar; }
+        set { _boxChar = value; }
+    }
+    public BoxEnemiesController boxEnemy
+    {
+        get { return _boxEnemy; }
+        set { _boxEnemy = value; }
+    }
+    public ButtonActionController boxActions
+    {
+        get { return _boxActions; }
+        set { _boxActions = value; }
+    }
+    public BoxAction boxAct
+    {
+        get { return _boxAct; }
+        set { _boxAct = value; }
+    }
 
 
     public ActionType currentAction
