@@ -4,14 +4,22 @@ using System.Collections;
 public class GlobalCharacter {
 
     private static GameCharacter[] _party = new GameCharacter[3];
-    private static GameCharacter[] _npcs;
-	
+    private static ArrayList _npcs;
+    private static ArrayList _enemies;
 
 	public static void Init() {
 
         _party[0] = generetaChar();
         _party[1] = generetaChar();
         _party[2] = generetaChar();
+
+        _npcs = new ArrayList();
+        _enemies = new ArrayList();
+
+        for (int i = 0; i < 5; i++)
+        {
+            _enemies.Add(generetaChar());
+        }
 
 	}
 
@@ -32,9 +40,9 @@ public class GlobalCharacter {
 
 
         GameSkill _atk = new GameSkill();
-        _atk.SetAttributes("attack", "desc", 10, TargetTypes.Self, TargetAttribute.Life);
+        _atk.SetAttributes("attack", "desc", 10, TargetTypes.AllEnemies, TargetAttribute.Life);
         GameSkill _spe = new GameSkill();
-        _spe.SetAttributes("Special", "desc", 10, TargetTypes.Party, TargetAttribute.Life);
+        _spe.SetAttributes("Special", "desc", 10, TargetTypes.All, TargetAttribute.Life);
 
         _char.attacks.SetValue(_atk, 0);
         _char.attacks.SetValue(_atk, 1);
@@ -53,9 +61,14 @@ public class GlobalCharacter {
         get { return _party; }
         set { _party = value; }
     }
-    public static GameCharacter[] npcs
+    public static ArrayList npcs
     {
         get { return _npcs; }
         set { _npcs = value; }
+    }
+    public static ArrayList enemies
+    {
+        get { return _enemies; }
+        set { _enemies = value; }
     }
 }

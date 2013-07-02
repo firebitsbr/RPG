@@ -20,6 +20,11 @@ public class GlobalItens : MonoBehaviour {
 
 
 	}
+
+    public static void AddToInventory(GameObject obj)
+    {
+
+    }
 	
     public static GameItem generateAlchemy(AlchemyType type) {
 

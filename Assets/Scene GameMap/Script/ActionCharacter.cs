@@ -1,30 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
+public class ActionCharacter : MonoBehaviour {
 
-
-public class ActionTile: MonoBehaviour
-{
-    public const int ACTION_CHANGE_SPRITE = 1;
-    public const int ACTION_PICKUP_ITEM = 2;
-
-    public float spritePressed;
-    public int ActionType = 1;
-
-
-    private float oldSprite;
-
-    // Use this for initialization
-    void Start()
-    {
-        oldSprite = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public ActionTileType _actionType = ActionTileType.ChangeSprite;
+    
+	void Start () {
+	
+	}
 
     void OnCollisionEnter(Collision other)
     {
@@ -64,34 +47,24 @@ public class ActionTile: MonoBehaviour
 
     public void ClickAction()
     {
-        switch (ActionType)
+        switch (_actionType)
         {
-            case 1:
+            case ActionTileType.ChangeSprite:
 
-                if (oldSprite == 0)
-                {
-                    oldSprite = this.gameObject.GetComponent<TileChanges>().TileNumber;
-                    this.gameObject.GetComponent<TileChanges>().changeTile(spritePressed);
-                }
-                else
-                {
-                    this.gameObject.GetComponent<TileChanges>().changeTile(oldSprite);
-                    oldSprite = 0;
-                }
                 this.gameObject.GetComponent<TileChanges>().updateCollision();
 
                 break;
-            case 2:
-                Destroy(this.gameObject);
-                break;
+            case ActionTileType.PickupItem:
 
+                Destroy(this.gameObject);
+
+                break;
         }
-        
+
 
     }
     public void HoverAction()
-    { 
+    {
 
     }
 }
-

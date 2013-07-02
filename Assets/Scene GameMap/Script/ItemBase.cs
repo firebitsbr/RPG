@@ -4,7 +4,9 @@ using System.Collections;
 public class ItemBase : MonoBehaviour
 {
 
-	// Use this for initialization
+
+    private GameItem _item;
+
 	void Start ()
 	{
 	
@@ -15,5 +17,11 @@ public class ItemBase : MonoBehaviour
 	{
 	    
 	}
+
+    public GameItem item
+    {
+        get { return _item; }
+        set { _item = value; }
+    }
 }
 

@@ -24,12 +24,20 @@ public class CharacterMovement : MonoBehaviour
 	{
 		if(Input.GetKeyDown("space")) {
 
-            if (hoverObject != null && hoverObject.GetComponent<ActionTile>())
+            if (hoverObject != null)
             {
-                hoverObject.GetComponent<ActionTile>().ClickAction();
-				
+                if (hoverObject.GetComponent<ActionTile>())
+                {
+                    hoverObject.GetComponent<ActionTile>().ClickAction();
+                }
+                if (hoverObject.GetComponent<ActionCharacter>())
+                {
+                    hoverObject.GetComponent<ActionCharacter>().ClickAction();
+                }
+
+
 			} else {
-				Debug.Log("No Open DOOR");
+				Debug.Log("no action possible");
 			}
 		}
 	}

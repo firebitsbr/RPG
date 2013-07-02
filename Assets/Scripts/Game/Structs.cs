@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+public enum ActionTileType
+{
+    ChangeSprite, PickupItem, GotoLocation, Attack, ChangeOtherSprite, Bless, ShowMessage, TalkToNpc
+};
+public enum ActionCharacterType
+{
+    Npc, Monster, Talk
+};
 public enum TargetTypes
 {
     Self, Enemy, Party, AllEnemies, All, OtherParty
