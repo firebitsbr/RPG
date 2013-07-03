@@ -23,21 +23,10 @@ public class ListItensController : MonoBehaviour {
             addRowSlots();
         }
 
-        GameItem test = new GameItem();
-        test.sprite = 9;
-        test.type = ItemType.Equipment;
-        test.equipmentType = EquipmentType.LeftArm;
-        test.name = "item Test";
-        test.description = "description of the item";
-        test.attack = new GameSkill();
-        test.attack.name = "Skill Attack";
-        test.special = new GameSkill();
-        test.special.name = "Skill Special";
-
         
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < GlobalItens.inventory.Count; i++)
         {
-            addItem(test);
+            addItem(GlobalItens.inventory[i] as GameItem);
         }
         
 	}

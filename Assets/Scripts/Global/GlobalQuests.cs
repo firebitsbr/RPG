@@ -5,7 +5,7 @@ public class GlobalQuests {
 
     private static ArrayList _quests;
 
-	static void Init() {
+	public static void Init() {
 	
 	}
 

@@ -3,11 +3,12 @@ using System.Collections;
 
 public class ButtonRemoveEquipped : MonoBehaviour {
 
-    public GameObject _listItens;
-    public GameObject _itemDetail;
-	
+    private WindowCharacterController _windowChar;
+
 	void Start () {
-	
+
+        _windowChar = GameObject.Find("WindowCharacter").GetComponent<WindowCharacterController>();
+
 	}
 	
 	// Update is called once per frame
@@ -17,15 +18,16 @@ public class ButtonRemoveEquipped : MonoBehaviour {
 
     void OnMouseDown()
     {
-        GameObject itm = _itemDetail.GetComponent<CharItemDetailController>().selectedItem;
-        if (itm != null)
+        // _windowChar.
+        GameItem itm = _windowChar.currentItemSelected;
+        switch (itm.type)
         {
-            ItemSlotController slot = itm.GetComponent<ItemSlotController>();
-            _listItens.GetComponent<ListItensController>().addItem(slot.item);
-            slot.removeItem();
-
-            CharItemDetailController det = _itemDetail.GetComponent<CharItemDetailController>();
-            det.hideAll();
+            case ItemType.Alchemy:
+                GlobalCharacter.party[_windowChar.currentCharacterSelected].RemoveEquippedItem(itm);
+                break;
+            case ItemType.Equipment:
+                GlobalCharacter.party[_windowChar.currentCharacterSelected].RemoveEquippedEquipment(itm.equipmentType);
+                break;
         }
     }
 }

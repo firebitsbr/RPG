@@ -38,3 +38,7 @@ public enum ActionType
 {
     GameSkill, GameItem
 };
+public enum ItemList
+{
+    Skull = 0, Ring=1, FullChest = 2, EmptyChest = 3, Cristal = 4, Key = 5, Potion = 6, GreyPotion = 7,BigPotion = 8,LeftHand = 9,RightHand = 10,LeftLeg = 11,RightLeg = 12
+};

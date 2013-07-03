@@ -6,13 +6,11 @@ public class TileChanges : MonoBehaviour
 {
 	
 	public float TotalTiles;
-	public float TileNumber;
+	public int TileNumber;
 	// Use this for initialization
 	void Start ()
-	{	
-		float num = 1/TotalTiles;
-		Vector2 pt = new Vector2((num) * TileNumber,-1);
-		this.renderer.materials[0].SetTextureOffset("_MainTex", pt);
+	{
+        changeTile(TileNumber);
 	}
 	
 	// Update is called once per frame
@@ -21,7 +19,7 @@ public class TileChanges : MonoBehaviour
 	
 	}
     // update the tile 
-    public void changeTile(float _tile)
+    public void changeTile(int _tile)
     {
         TileNumber = _tile;
         Vector2 pt = new Vector2((1 / TotalTiles) * _tile, -1);

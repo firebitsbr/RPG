@@ -9,7 +9,8 @@ public class ItemBase : MonoBehaviour
 
 	void Start ()
 	{
-	
+        _item = GlobalItens.generateAlchemy(AlchemyType.HealLife);
+        this.GetComponent<TileChanges>().changeTile(_item.sprite);
 	}
 	
 	// Update is called once per frame

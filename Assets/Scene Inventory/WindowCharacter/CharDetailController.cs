@@ -4,10 +4,14 @@ using System.Collections;
 public class CharDetailController : MonoBehaviour {
 
 
-    private GameAttributes _character;
+    public GameObject _agility;
+    public GameObject _alchemy;
+    public GameObject _endurance;
+    public GameObject _strength;
+    public GameObject _technology;
 
-    // @TODO: load data from global player
-
+    public GameObject _life;
+    public GameObject _money;
 
 	void Start () {
 	
@@ -17,24 +21,16 @@ public class CharDetailController : MonoBehaviour {
 	void Update () {
 	
 	}
-    public void UpdateCharDetail()
+    public void UpdateCharDetail(GameCharacter _char)
     {
-        GameObject detail = GameObject.Find("/WindowCharacter/BoxCharDetail");
+        _agility.guiText.text = _char.attributes.agility.ToString();
+        _alchemy.guiText.text = _char.attributes.alchemy.ToString();
+        _endurance.guiText.text = _char.attributes.endurance.ToString();
+        _strength.guiText.text = _char.attributes.strength.ToString();
+        _technology.guiText.text = _char.attributes.technology.ToString();
 
-        (detail.GetComponent("Agility") as GUIText).text = _character.agility.ToString();
-        (detail.GetComponent("Alchemy") as GUIText).text = _character.alchemy.ToString();
-        (detail.GetComponent("Endurance") as GUIText).text = _character.endurance.ToString();
-        (detail.GetComponent("Strength") as GUIText).text = _character.strength.ToString();
-        (detail.GetComponent("Technology") as GUIText).text = _character.technology.ToString();
-
-        (detail.GetComponent("Life") as GUIText).text = _character.life.ToString();
-        (detail.GetComponent("Money") as GUIText).text = _character.money.ToString();
+        _life.guiText.text = _char.attributes.life.ToString();
+        _money.guiText.text = _char.attributes.money.ToString();
     }
 
-
-    public GameAttributes character
-    {
-        get { return _character; }
-        set { _character = value; }
-    }
 }

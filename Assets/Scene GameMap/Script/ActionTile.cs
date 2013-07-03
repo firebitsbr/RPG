@@ -6,10 +6,10 @@ using System.Collections;
 public class ActionTile: MonoBehaviour
 {
 
-    public float spritePressed;
+    public int spritePressed;
     public ActionTileType _actionType = ActionTileType.ChangeSprite;
 
-    private float oldSprite;
+    private int oldSprite;
 
     // Use this for initialization
     void Start()
@@ -80,13 +80,11 @@ public class ActionTile: MonoBehaviour
                 break;
             case ActionTileType.PickupItem:
 
-                GlobalItens.AddToInventory(this.gameObject);
+                GlobalItens.AddToInventory(this.GetComponent<ItemBase>().item);
                 Destroy(this.gameObject);
 
                 break;
         }
-        
-
     }
     public void HoverAction()
     { 

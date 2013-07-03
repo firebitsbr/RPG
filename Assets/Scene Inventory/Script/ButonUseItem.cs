@@ -28,12 +28,12 @@ public class ButonUseItem : MonoBehaviour {
         {
             case ItemType.Alchemy:
 
-                _boxItem.GetComponent<CharItemEquippedController>().addItem(itm.item);
+                //_boxItem.GetComponent<CharItemEquippedController>().addItem(itm.item);
                 
                 break;
             case ItemType.Equipment:
 
-                _boxEquipment.GetComponent<CharEquippedController>().addEquipment(itm.item);
+                //_boxEquipment.GetComponent<CharEquippedController>().addEquipment(itm.item);
                 
                 break;
         }

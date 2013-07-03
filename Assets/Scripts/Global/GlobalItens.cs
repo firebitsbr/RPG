@@ -6,7 +6,7 @@ public class GlobalItens : MonoBehaviour {
     private static ArrayList _itens;
     private static ArrayList _inventory;
 	
-	static void Init() {
+	public static void Init() {
 
         _inventory = new ArrayList();
         _inventory.Add(generateAlchemy(AlchemyType.HealLife));
@@ -21,9 +21,13 @@ public class GlobalItens : MonoBehaviour {
 
 	}
 
-    public static void AddToInventory(GameObject obj)
+    public static void AddToInventory(GameItem itm)
     {
-
+        _inventory.Add(itm);
+    }
+    public static void RemoveFromInventory(GameItem itm)
+    {
+        _inventory.Remove(itm);
     }
 	
     public static GameItem generateAlchemy(AlchemyType type) {
@@ -31,7 +35,7 @@ public class GlobalItens : MonoBehaviour {
         GameItem _itm = new GameItem();
         _itm.type = ItemType.Alchemy;
         _itm.alchemyType = type;
-        _itm.setAttributes("alchemy", "description", 3, 100);
+        _itm.setAttributes("alchemy", "description", 6, 100);
         _itm.setAlchemyAttributes(20, TargetTypes.Self, TargetAttribute.Life);
 
         return _itm;

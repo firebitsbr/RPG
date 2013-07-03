@@ -11,16 +11,8 @@ public class BoxChangeCharacter : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 	
 	}
-    public void PrevChar()
-    {
-
-    }
-    public void NextChar()
-    {
-
-    }
 }

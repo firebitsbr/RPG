@@ -17,6 +17,8 @@ public class GameCharacter {
     private bool _ready;
     private float _timer;
 
+    private string _name;
+
 	// Use this for initialization
 	void Start () {
         _timer = 0;
@@ -28,6 +30,51 @@ public class GameCharacter {
 	void Update () {
 	
 	}
+
+    public void RemoveEquippedEquipment(EquipmentType pos)
+    {
+        switch (pos)
+        {
+
+            case EquipmentType.LeftArm:
+
+                GlobalItens.AddToInventory(_leftArm);
+                _leftArm = null;
+
+                break;
+            case EquipmentType.RightArm:
+
+                GlobalItens.AddToInventory(_rightArm);
+                _rightArm = null;
+
+                break;
+            case EquipmentType.LeftLeg:
+
+                GlobalItens.AddToInventory(_leftLeg);
+                _leftLeg = null;
+
+                break;
+            case EquipmentType.RightLeg:
+                
+                GlobalItens.AddToInventory(_rightLeg);
+                _rightLeg = null;
+
+                break;
+        }
+    }
+
+    public void RemoveEquippedItem(GameItem itm)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (_itens[i] != null && _itens[i] == itm)
+            {
+                GlobalItens.AddToInventory(_itens[i]);
+                _itens[i] = null;
+            }
+        }
+    }
+
     public void RestartTimer()
     {
         _ready = false;
@@ -54,7 +101,11 @@ public class GameCharacter {
 
 
 
-
+    public string name
+    {
+        get { return _name; }
+        set { _name = value; }
+    }
     public bool ready
     {
         get { return _ready; }

@@ -10,8 +10,13 @@ public class GlobalCharacter {
 	public static void Init() {
 
         _party[0] = generetaChar();
+        _party[0].name = "Character 1";
+        
         _party[1] = generetaChar();
+        _party[1].name = "Character 2";
+
         _party[2] = generetaChar();
+        _party[2].name = "Character 3";
 
         _npcs = new ArrayList();
         _enemies = new ArrayList();
@@ -30,7 +35,7 @@ public class GlobalCharacter {
         _char.attributes.SetAttributes(10, 10, 10, 10, 10, 100, 10, 1000);
 
         GameItem itm = new GameItem();
-        itm.setAttributes("item", "desc", 10, 10);
+        itm.setAttributes("item", "desc", 6, 10);
         itm.setAlchemyAttributes(10, TargetTypes.All, TargetAttribute.Life);
 
         _char.itens.SetValue(itm, 0);

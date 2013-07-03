@@ -9,7 +9,7 @@ public class CharEquippedController : MonoBehaviour {
     public GameObject _LeftArm;
     public GameObject _RightArm;
 
-    // @TODO: update character detail
+    public GameObject[] itens = new GameObject[4];
 
 
 	void Start () {
@@ -20,6 +20,48 @@ public class CharEquippedController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void UpdateCharDetail(GameCharacter _char)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (_char.itens[i] != null)
+            {
+                addItem(_char.itens[i]);
+            }
+        }
+
+        if (_char.leftArm != null)
+        {
+            addEquipment(_char.leftArm);
+        }
+        if (_char.rightArm != null)
+        {
+            addEquipment(_char.rightArm);
+        }
+        if (_char.leftLeg != null)
+        {
+            addEquipment(_char.leftLeg);
+        }
+        if (_char.rightLeg != null)
+        {
+            addEquipment(_char.rightLeg);
+        }
+    }
+
+    public bool addItem(GameItem item)
+    {
+        for (int i = 0; i < itens.Length; i++)
+        {
+            ItemSlotController slot = itens[i].GetComponent<ItemSlotController>();
+            if (!slot.hasItem)
+            {
+                slot.addToSlot(item);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void addEquipment(GameItem equipment)
     {
@@ -49,31 +91,6 @@ public class CharEquippedController : MonoBehaviour {
 
     void removeEquipment(EquipmentType type)
     {
-        GameObject itm = null;
-        switch (type)
-        {
-            case EquipmentType.LeftArm:
-                itm = _LeftArm;
-                break;
-            case EquipmentType.LeftLeg:
-                itm = _LeftLeg;
-                break;
-            case EquipmentType.RightArm:
-                itm = _RightArm;
-                break;
-            case EquipmentType.RightLeg:
-                itm = _RightLeg;
-                break;
-        }
-        ItemSlotController gamItm = itm.GetComponent<ItemSlotController>();
-
-        // if there is a item equipped
-        if (gamItm._hasItem)
-        {
-            // add item equipped to inventory
-            GameObject.Find("/WindowItem/BoxListItens").GetComponent<ListItensController>().addItem(gamItm.item);
-            // remove equipped item from slot
-            gamItm.removeItem();
-        }
+        
     }
 }

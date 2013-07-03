@@ -20,7 +20,7 @@ public class ButtonDeleteItem : MonoBehaviour {
 
         ItemDetailController itm = GameObject.Find("/WindowItem/BoxItemDetail").GetComponent<ItemDetailController>();
 
-        itm.selectedItem.GetComponent<ItemSlotController>()._hasItem = false;
+        itm.selectedItem.GetComponent<ItemSlotController>().hasItem = false;
         GameObject.Find("/WindowItem/BoxItemDetail").GetComponent<ItemDetailController>().hideAll();
     }
 }

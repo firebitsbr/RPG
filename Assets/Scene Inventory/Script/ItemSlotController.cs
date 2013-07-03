@@ -5,15 +5,19 @@ public class ItemSlotController : MonoBehaviour {
 
     public int _iconNum = 1;
     public Texture _texture;
-    private GameItem _item;
-    public bool _hasItem = false;
     public Transform diff;
+
+    private GameItem _item;
+    private bool _hasItem = false;
+    private ItemDetailController _boxItem;
+    private WindowCharacterController _windowChar;
 
     // @TODO: nothing
 
 	void Start () {
 
-        
+        _windowChar = GameObject.Find("WindowCharacter").GetComponent<WindowCharacterController>();
+        _boxItem = GameObject.Find("BoxItemDetail").GetComponent<ItemDetailController>();
 	}
 	
 	// Update is called once per frame
@@ -66,17 +70,12 @@ public class ItemSlotController : MonoBehaviour {
         Debug.Log("Item clicked");
         if (_hasItem)
         {
-            GameObject boxList = GameObject.Find("/WindowItem/BoxItemDetail");
-            if(boxList != null) {
-                ItemDetailController _detail = boxList.GetComponent<ItemDetailController>();
-                _detail.showItemDetail(this.gameObject);
-            }
-            boxList = GameObject.Find("/WindowCharacter/BoxItemDetail");
-            if (boxList != null)
-            {
-                CharItemDetailController _detail = boxList.GetComponent<CharItemDetailController>();
-                _detail.showItemDetail(this.gameObject);
-            }
+            _windowChar.currentItemSelected = _item;
+            _boxItem.showItemDetail(this.gameObject);
+        }
+        else
+        {
+            Debug.Log("show itens do equip");
         }
         if (diff != null)
         {
@@ -88,5 +87,10 @@ public class ItemSlotController : MonoBehaviour {
     {
         get { return _item; }
         set { _item = value; }
+    }
+    public bool hasItem
+    {
+        get { return _hasItem; }
+        set { _hasItem = value; }
     }
 }

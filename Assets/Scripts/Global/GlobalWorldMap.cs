@@ -6,7 +6,7 @@ public class GlobalWorldMap {
 
     private static ArrayList _cities;
 
-	static void Init() {
+	public static void Init() {
 	
 	}
 
