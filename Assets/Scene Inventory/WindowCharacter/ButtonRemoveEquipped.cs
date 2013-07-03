@@ -18,16 +18,21 @@ public class ButtonRemoveEquipped : MonoBehaviour {
 
     void OnMouseDown()
     {
-        // _windowChar.
+        Debug.Log("remove equiped");
         GameItem itm = _windowChar.currentItemSelected;
         switch (itm.type)
         {
             case ItemType.Alchemy:
                 GlobalCharacter.party[_windowChar.currentCharacterSelected].RemoveEquippedItem(itm);
+
                 break;
             case ItemType.Equipment:
                 GlobalCharacter.party[_windowChar.currentCharacterSelected].RemoveEquippedEquipment(itm.equipmentType);
+
                 break;
         }
+
+        Camera.main.GetComponent<InventoryController>().UpdateCharacter();
+
     }
 }

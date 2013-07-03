@@ -28,8 +28,56 @@ public class ListItensController : MonoBehaviour {
         {
             addItem(GlobalItens.inventory[i] as GameItem);
         }
-        
 	}
+
+    public void ShowItens()
+    {
+        RemoveAllItens();
+        for (int i = 0; i < GlobalItens.inventory.Count; i++)
+        {
+            GameItem itm = GlobalItens.inventory[i] as GameItem;
+            if (itm.type == ItemType.Alchemy)
+            {
+                addItem(itm);
+            }
+        }
+    }
+    public void ShowEquipment(EquipmentType type)
+    {
+        RemoveAllItens();
+        for (int i = 0; i < GlobalItens.inventory.Count; i++)
+        {
+            GameItem itm = GlobalItens.inventory[i] as GameItem;
+            if (itm.type == ItemType.Equipment && itm.equipmentType == type)
+            {
+                addItem(itm);
+            }
+        }
+    }
+
+    public void RemoveAllItens()
+    {
+        for (int i = 0; i < transform.GetChildCount(); i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+        _numItens = 0;
+        _slots = new ArrayList();
+
+        for (int i = 0; i < 6; i++)
+        {
+            addRowSlots();
+        }
+    }
+
+    public void UpdateFromGlobal()
+    {
+        RemoveAllItens();
+        for (int i = 0; i < GlobalItens.inventory.Count; i++)
+        {
+            addItem(GlobalItens.inventory[i] as GameItem);
+        }
+    }
 
     void updateSize(int value)
     {
@@ -48,8 +96,8 @@ public class ListItensController : MonoBehaviour {
         for (int i = 0; i < 3; i++)
         {
             GameObject itmSlot = (Instantiate(slot) as GameObject);
-            itmSlot.GetComponent<ItemSlotController>().diff = this.transform;
-            itmSlot.GetComponent<ItemSlotController>().removeItem();
+            itmSlot.GetComponent<ItemSlotSlider>().diff = this.transform;
+            itmSlot.GetComponent<ItemSlotSlider>().removeItem();
             GUITexture itm = itmSlot.GetComponent<GUITexture>();
             itm.pixelInset = new Rect(lin[i], max, 44, 44);
             itm.transform.parent = this.transform;
@@ -68,7 +116,7 @@ public class ListItensController : MonoBehaviour {
         {
             addRowSlots();
         }
-        (_slots[_numItens] as GameObject).GetComponent<ItemSlotController>().addToSlot(item);
+        (_slots[_numItens] as GameObject).GetComponent<ItemSlotSlider>().addToSlot(item);
         _numItens++;
     }
 

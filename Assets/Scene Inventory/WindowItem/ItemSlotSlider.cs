@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ItemSlotController : MonoBehaviour {
+public class ItemSlotSlider : MonoBehaviour {
 
     public int _iconNum = 1;
     public Texture _texture;
@@ -10,13 +10,9 @@ public class ItemSlotController : MonoBehaviour {
     private GameItem _item;
     private bool _hasItem = false;
     private ItemDetailController _boxItem;
-    private WindowCharacterController _windowChar;
 
-    // @TODO: nothing
 
 	void Start () {
-
-        _windowChar = GameObject.Find("WindowCharacter").GetComponent<WindowCharacterController>();
         _boxItem = GameObject.Find("BoxItemDetail").GetComponent<ItemDetailController>();
 	}
 	
@@ -28,18 +24,9 @@ public class ItemSlotController : MonoBehaviour {
     {
         if (_hasItem)
         {
-            if (diff != null)
-            {
-                GUI.DrawTextureWithTexCoords(
-                        new Rect(guiTexture.pixelInset.x + 6, Screen.height - guiTexture.pixelInset.y - 38 - diff.position.y * Screen.height, 32, 32), 
-                        _texture, new Rect(0.05f * _iconNum, 0, 0.05f, 1f));
-            }
-            else
-            {
-                GUI.DrawTextureWithTexCoords(
-                        new Rect(guiTexture.pixelInset.x + 6, Screen.height - guiTexture.pixelInset.y - 38, 32, 32), 
-                        _texture, new Rect(0.05f * _iconNum, 0, 0.05f, 1f));
-            }
+            GUI.DrawTextureWithTexCoords(
+                    new Rect(guiTexture.pixelInset.x + 6, Screen.height - guiTexture.pixelInset.y - 38 - diff.position.y * Screen.height, 32, 32),
+                    _texture, new Rect(0.05f * _iconNum, 0, 0.05f, 1f));
         }
     }
 
@@ -59,10 +46,7 @@ public class ItemSlotController : MonoBehaviour {
 
     void OnMouseDrag()
     {
-        if (diff != null)
-        {
-            diff.GetComponent<ListItensController>().OnMouseDrag();
-        }
+        diff.GetComponent<ListItensController>().OnMouseDrag();
     }
 
     void OnMouseDown()
@@ -70,17 +54,13 @@ public class ItemSlotController : MonoBehaviour {
         Debug.Log("Item clicked");
         if (_hasItem)
         {
-            _windowChar.currentItemSelected = _item;
             _boxItem.showItemDetail(this.gameObject);
         }
         else
         {
             Debug.Log("show itens do equip");
         }
-        if (diff != null)
-        {
-            diff.GetComponent<ListItensController>().OnMouseDown();
-        }
+        diff.GetComponent<ListItensController>().OnMouseDown();
     }
 
     public GameItem item

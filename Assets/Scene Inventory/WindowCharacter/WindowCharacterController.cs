@@ -34,6 +34,17 @@ public class WindowCharacterController : MonoBehaviour {
 	
 	}
 
+    public void UpdateFromGlobal()
+    {
+
+        GameCharacter curr = GlobalCharacter.party[_currentCharacterSelected];
+        _boxCharChanger.GetComponent<BoxChangeCharacter>()._charName.guiText.text = curr.name;
+
+        _boxCharDetail.GetComponent<CharDetailController>().UpdateCharDetail(curr);
+        _boxEquipped.GetComponent<CharEquippedController>().UpdateCharDetail(curr);
+
+    }
+
 
     public int currentCharacterSelected
     {

@@ -66,12 +66,9 @@
      <Compile Include="Assets\Scene GameMap\Script\MapGenerator.cs" />
      <Compile Include="Assets\Scene GameMap\Script\SpriteAnimation.cs" />
      <Compile Include="Assets\Scene GameMap\Script\TileChanges.cs" />
-     <Compile Include="Assets\Scene Inventory\Script\ButonUseItem.cs" />
      <Compile Include="Assets\Scene Inventory\Script\ButtonInventory.cs" />
      <Compile Include="Assets\Scene Inventory\Script\InventoryController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\ItemDetailController.cs" />
-     <Compile Include="Assets\Scene Inventory\Script\ItemSlotController.cs" />
-     <Compile Include="Assets\Scene Inventory\Script\ListItensController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\MenuController.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\BoxChangeCharacter.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\ButtonChangeEquipment.cs" />
@@ -80,8 +77,12 @@
      <Compile Include="Assets\Scene Inventory\WindowCharacter\CharEquippedController.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\CharItemDetailController.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\CharacterSelector.cs" />
+     <Compile Include="Assets\Scene Inventory\WindowCharacter\ItemSlotController.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\WindowCharacterController.cs" />
+     <Compile Include="Assets\Scene Inventory\WindowItem\ButonUseItem.cs" />
      <Compile Include="Assets\Scene Inventory\WindowItem\ButtonDeleteItem.cs" />
+     <Compile Include="Assets\Scene Inventory\WindowItem\ItemSlotSlider.cs" />
+     <Compile Include="Assets\Scene Inventory\WindowItem\ListItensController.cs" />
      <Compile Include="Assets\Scene Inventory\WindowSave\SaveController.cs" />
      <Compile Include="Assets\Scene Inventory\WindowSave\SaveItemController.cs" />
      <Compile Include="Assets\Scene Inventory\windowQuest\QuestController.cs" />

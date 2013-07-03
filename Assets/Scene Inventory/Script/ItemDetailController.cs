@@ -11,14 +11,16 @@ public class ItemDetailController : MonoBehaviour {
 
     public GameObject _textName;
     public GameObject _textDescription;
+    public GameObject _buttonDelete;
 
-    private GameObject _selectedItem;
+    private InventoryController _inventoryController;
 
     // @TODO: nothing
 
 
 	void Start () {
 
+        _inventoryController = Camera.main.GetComponent<InventoryController>();
 
         _attackName.SetActive(false);
         _attackDesc.SetActive(false);
@@ -29,11 +31,13 @@ public class ItemDetailController : MonoBehaviour {
 
         _textName.SetActive(false);
         _textDescription.SetActive(false);
+        
+        _buttonDelete.SetActive(false);
+        
 	}
 
     public void hideAll()
     {
-        _selectedItem = null;
 
         _attackName.SetActive(false);
         _attackDesc.SetActive(false);
@@ -43,6 +47,7 @@ public class ItemDetailController : MonoBehaviour {
 
         _textName.SetActive(false);
         _textDescription.SetActive(false);
+        _buttonDelete.SetActive(false);
     }
 
 	
@@ -54,8 +59,9 @@ public class ItemDetailController : MonoBehaviour {
     public void showItemDetail(GameObject item)
     {
 
-        _selectedItem = item;
-        GameItem itm = _selectedItem.GetComponent<ItemSlotController>().item;
+        _inventoryController.itemSelected = item;
+        GameItem itm = _inventoryController.getItemSelected();
+
 
         switch (itm.type)
         {
@@ -89,12 +95,7 @@ public class ItemDetailController : MonoBehaviour {
         _textDescription.SetActive(true);
         _textName.GetComponent<GUIText>().text = itm.name;
         _textDescription.GetComponent<GUIText>().text = itm.description;
-    }
 
-
-    public GameObject selectedItem
-    {
-        get { return _selectedItem; }
-        set { _selectedItem = value; }
+        _buttonDelete.SetActive(true);
     }
 }

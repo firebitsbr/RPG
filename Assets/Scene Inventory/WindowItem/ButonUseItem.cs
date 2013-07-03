@@ -8,8 +8,10 @@ public class ButonUseItem : MonoBehaviour {
     public GameObject _boxItemDetail;
     public GameObject _boxEquipment;
 
+    private InventoryController _inventoryController;
+
 	void Start () {
-	
+        _inventoryController = camera.GetComponent<InventoryController>();
 	}
 	
 	// Update is called once per frame
@@ -18,13 +20,11 @@ public class ButonUseItem : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-        Debug.Log("USE ITEM");
 
-        ItemDetailController idc = _boxItemDetail.GetComponent<ItemDetailController>();
 
-        ItemSlotController itm = idc.selectedItem.GetComponent<ItemSlotController>();
+        GameItem itm = _inventoryController.getItemSelected();
 
-        switch (itm.item.type)
+        switch (itm.type)
         {
             case ItemType.Alchemy:
 
@@ -37,9 +37,6 @@ public class ButonUseItem : MonoBehaviour {
                 
                 break;
         }
-
-        _boxItemDetail.GetComponent<ItemDetailController>().hideAll();
-        itm.removeItem();
 
     }
 }

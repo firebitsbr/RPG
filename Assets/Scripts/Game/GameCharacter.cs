@@ -19,17 +19,47 @@ public class GameCharacter {
 
     private string _name;
 
-	// Use this for initialization
-	void Start () {
-        _timer = 0;
 
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public bool EquipItem(GameItem itm)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (_itens[i] == null)
+            {
+                _itens[i] = itm;
+                GlobalItens.RemoveFromInventory(itm);
+                return true;
+            }
+        }
+        return false;
+
+    }
+    public void EquipEquipment(GameItem itm, EquipmentType type)
+    {
+        switch (type)
+        {
+            case EquipmentType.LeftArm:
+                _leftArm = itm;
+
+                break;
+            case EquipmentType.LeftLeg:
+                _leftLeg = itm;
+
+                break;
+            case EquipmentType.RightArm:
+                _rightArm = itm;
+
+                break;
+            case EquipmentType.RightLeg:
+                _rightLeg = itm;
+
+                break;
+        }
+
+        GlobalItens.RemoveFromInventory(itm);
+    }
 
     public void RemoveEquippedEquipment(EquipmentType pos)
     {

@@ -4,10 +4,10 @@ using System.Collections;
 public class ButtonDeleteItem : MonoBehaviour {
 
 
-    // @TODO: nothing
+    InventoryController _invController;
 
 	void Start () {
-	
+        _invController = Camera.main.GetComponent<InventoryController>();
 	}
 	
 	// Update is called once per frame
@@ -16,11 +16,10 @@ public class ButtonDeleteItem : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-        Debug.Log("DELETE");
-
-        ItemDetailController itm = GameObject.Find("/WindowItem/BoxItemDetail").GetComponent<ItemDetailController>();
-
-        itm.selectedItem.GetComponent<ItemSlotController>().hasItem = false;
-        GameObject.Find("/WindowItem/BoxItemDetail").GetComponent<ItemDetailController>().hideAll();
+        if (_invController.itemSelected != null)
+        {
+            GlobalItens.RemoveFromInventory(_invController.getItemSelected());
+            _invController.UpdateItemList();
+        }
     }
 }

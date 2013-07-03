@@ -21,8 +21,24 @@ public class CharEquippedController : MonoBehaviour {
 	
 	}
 
+    public void ClearEquipment()
+    {
+        _LeftLeg = null;
+        _RightLeg = null;
+        _LeftArm = null;
+        _RightArm = null;
+
+        for (int i = 0; i < itens.Length; i++)
+        {
+            itens[i].GetComponent<ItemSlotController>().removeItem();
+        }
+
+    }
+
     public void UpdateCharDetail(GameCharacter _char)
     {
+        ClearEquipment();
+
         for (int i = 0; i < 4; i++)
         {
             if (_char.itens[i] != null)
@@ -65,9 +81,6 @@ public class CharEquippedController : MonoBehaviour {
 
     public void addEquipment(GameItem equipment)
     {
-
-        removeEquipment(equipment.equipmentType);
-
         GameObject itm = null;
         switch (equipment.equipmentType)
         {
@@ -87,10 +100,5 @@ public class CharEquippedController : MonoBehaviour {
 
         ItemSlotController gamItm = itm.GetComponent<ItemSlotController>();
         gamItm.addToSlot(equipment);
-    }
-
-    void removeEquipment(EquipmentType type)
-    {
-        
     }
 }
