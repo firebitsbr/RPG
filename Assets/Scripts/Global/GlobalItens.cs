@@ -41,13 +41,18 @@ public class GlobalItens : MonoBehaviour {
         return _itm;
     }
 
+    public static bool isInInventory(GameItem itm)
+    {
+        return (_inventory.IndexOf(itm) >= 0);
+    }
+
 
     public static GameItem generateEquipment(EquipmentType equip)
     {
         GameItem _itm = new GameItem();
         _itm.type = ItemType.Equipment;
         _itm.equipmentType = equip;
-        _itm.setAttributes("equipment", "description", 2, 100);
+        _itm.setAttributes("equipment", "description", 9, 100);
 
         _itm.attack = new GameSkill();
         _itm.attack.SetAttributes("attack skill", "description", 10, TargetTypes.Enemy, TargetAttribute.Life);

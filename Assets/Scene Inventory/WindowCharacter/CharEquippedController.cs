@@ -13,7 +13,21 @@ public class CharEquippedController : MonoBehaviour {
 
 
 	void Start () {
-	
+        _LeftArm.GetComponent<ItemSlotController>().itemTypeSlot = ItemType.Equipment;
+        _LeftLeg.GetComponent<ItemSlotController>().itemTypeSlot = ItemType.Equipment;
+        _RightArm.GetComponent<ItemSlotController>().itemTypeSlot = ItemType.Equipment;
+        _RightLeg.GetComponent<ItemSlotController>().itemTypeSlot = ItemType.Equipment;
+
+        _LeftArm.GetComponent<ItemSlotController>().equipTypeSlot = EquipmentType.LeftArm;
+        _LeftLeg.GetComponent<ItemSlotController>().equipTypeSlot = EquipmentType.LeftLeg;
+        _RightArm.GetComponent<ItemSlotController>().equipTypeSlot = EquipmentType.RightArm;
+        _RightLeg.GetComponent<ItemSlotController>().equipTypeSlot = EquipmentType.RightLeg;
+
+        for (int i = 0; i < itens.Length; i++)
+        {
+            itens[i].GetComponent<ItemSlotController>().itemTypeSlot = ItemType.Alchemy;
+        }
+
 	}
 	
 	// Update is called once per frame
@@ -23,10 +37,10 @@ public class CharEquippedController : MonoBehaviour {
 
     public void ClearEquipment()
     {
-        _LeftLeg = null;
-        _RightLeg = null;
-        _LeftArm = null;
-        _RightArm = null;
+        _LeftLeg.GetComponent<ItemSlotController>().removeItem();
+        _RightLeg.GetComponent<ItemSlotController>().removeItem();
+        _LeftArm.GetComponent<ItemSlotController>().removeItem();
+        _RightArm.GetComponent<ItemSlotController>().removeItem();
 
         for (int i = 0; i < itens.Length; i++)
         {

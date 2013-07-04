@@ -3,7 +3,8 @@ using System.Collections;
 
 public class ButtonChangeEquipment : MonoBehaviour {
 
-	// Use this for initialization
+    public GameObject _charController;
+
 	void Start () {
 	
 	}
@@ -12,4 +13,11 @@ public class ButtonChangeEquipment : MonoBehaviour {
 	void Update () {
 	
 	}
+    void OnMouseDown()
+    {
+
+        _charController.GetComponent<WindowCharacterController>().ShowListToEquip();
+        _charController.GetComponent<WindowCharacterController>().OpenChangeItem(true);
+
+    }
 }

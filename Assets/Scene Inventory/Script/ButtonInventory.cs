@@ -6,7 +6,7 @@ public class ButtonInventory : MonoBehaviour {
     public bool _selected = false;
     public Color _selectedColor;
     public GameObject _window;
-
+    public bool _restart = false;
     // @TODO: nothing
 
 	void Start () {

@@ -10,6 +10,7 @@ public class ListItensController : MonoBehaviour {
     private ArrayList _slots;
     private int _numItens;
 
+    public bool _startGlobal = true;
     // @TODO: insert item into inventory.
 
 	void Start () {
@@ -18,21 +19,18 @@ public class ListItensController : MonoBehaviour {
         _numItens = 0;
         _slots = new ArrayList();
 
-        for (int i = 0; i < 6; i++)
-        {
-            addRowSlots();
-        }
+        RemoveAllItens();
 
-        
-        for (int i = 0; i < GlobalItens.inventory.Count; i++)
+        if (_startGlobal)
         {
-            addItem(GlobalItens.inventory[i] as GameItem);
+            UpdateFromGlobal();
         }
 	}
 
     public void ShowItens()
     {
         RemoveAllItens();
+        Debug.Log("itens");
         for (int i = 0; i < GlobalItens.inventory.Count; i++)
         {
             GameItem itm = GlobalItens.inventory[i] as GameItem;
@@ -57,7 +55,8 @@ public class ListItensController : MonoBehaviour {
 
     public void RemoveAllItens()
     {
-        for (int i = 0; i < transform.GetChildCount(); i++)
+        Debug.Log("removeall");
+        for (int i = transform.GetChildCount()-1; i >= 0; i--)
         {
             Destroy(transform.GetChild(i).gameObject);
         }
@@ -73,6 +72,7 @@ public class ListItensController : MonoBehaviour {
     public void UpdateFromGlobal()
     {
         RemoveAllItens();
+        Debug.Log("global");
         for (int i = 0; i < GlobalItens.inventory.Count; i++)
         {
             addItem(GlobalItens.inventory[i] as GameItem);

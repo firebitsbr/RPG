@@ -55,6 +55,8 @@
      <Compile Include="Assets\Scene Fight\Script\CharacterText.cs" />
      <Compile Include="Assets\Scene Fight\Script\FightController.cs" />
      <Compile Include="Assets\Scene Fight\Script\TimeCounter.cs" />
+     <Compile Include="Assets\Scene GameMap\Chat\ChatController.cs" />
+     <Compile Include="Assets\Scene GameMap\Chat\ChatOption.cs" />
      <Compile Include="Assets\Scene GameMap\Script\ActionCharacter.cs" />
      <Compile Include="Assets\Scene GameMap\Script\ActionTile.cs" />
      <Compile Include="Assets\Scene GameMap\Script\CharacterInventory.cs" />
@@ -71,7 +73,9 @@
      <Compile Include="Assets\Scene Inventory\Script\ItemDetailController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\MenuController.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\BoxChangeCharacter.cs" />
+     <Compile Include="Assets\Scene Inventory\WindowCharacter\ButtonBackEquipment.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\ButtonChangeEquipment.cs" />
+     <Compile Include="Assets\Scene Inventory\WindowCharacter\ButtonConfirmChangeEquipment.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\ButtonRemoveEquipped.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\CharDetailController.cs" />
      <Compile Include="Assets\Scene Inventory\WindowCharacter\CharEquippedController.cs" />

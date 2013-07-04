@@ -5,12 +5,16 @@ public class ItemSlotController : MonoBehaviour {
 
     public int _iconNum = 1;
     public Texture _texture;
-    public Transform diff;
+    public int itemNum;
 
     private GameItem _item;
     private bool _hasItem = false;
     private ItemDetailController _boxItem;
     private WindowCharacterController _windowChar;
+
+    private ItemType _itemTypeSlot;
+    private EquipmentType _equipTypeSlot;
+
 
     // @TODO: nothing
 
@@ -51,16 +55,28 @@ public class ItemSlotController : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Debug.Log("Item clicked");
         if (_hasItem)
         {
+            Debug.Log("Item clicked");
             _windowChar.currentItemSelected = _item;
             _boxItem.showItemDetail(this.gameObject);
         }
-        else
-        {
-            Debug.Log("show itens do equip");
-        }
+
+        _windowChar.itemNumSelected = itemNum;
+        _windowChar.itemSelected = _itemTypeSlot;
+        _windowChar.equipmentSelected = _equipTypeSlot;
+        
+    }
+
+    public ItemType itemTypeSlot
+    {
+        get { return _itemTypeSlot; }
+        set { _itemTypeSlot = value; }
+    }
+    public EquipmentType equipTypeSlot
+    {
+        get { return _equipTypeSlot; }
+        set { _equipTypeSlot = value; }
     }
 
     public GameItem item
@@ -68,6 +84,7 @@ public class ItemSlotController : MonoBehaviour {
         get { return _item; }
         set { _item = value; }
     }
+
     public bool hasItem
     {
         get { return _hasItem; }

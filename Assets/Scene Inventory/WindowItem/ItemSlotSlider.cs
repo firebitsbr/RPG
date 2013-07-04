@@ -10,10 +10,13 @@ public class ItemSlotSlider : MonoBehaviour {
     private GameItem _item;
     private bool _hasItem = false;
     private ItemDetailController _boxItem;
-
+    private WindowCharacterController _windowChar;
 
 	void Start () {
+
+        _windowChar = GameObject.Find("WindowCharacter").GetComponent<WindowCharacterController>();
         _boxItem = GameObject.Find("BoxItemDetail").GetComponent<ItemDetailController>();
+
 	}
 	
 	// Update is called once per frame
@@ -33,7 +36,7 @@ public class ItemSlotSlider : MonoBehaviour {
     public void addToSlot(GameItem slot)
     {
         _item = slot;
-
+        Debug.Log(_item);
         _hasItem = true;
         _iconNum = slot.sprite;
     }
@@ -51,15 +54,12 @@ public class ItemSlotSlider : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Debug.Log("Item clicked");
         if (_hasItem)
         {
+            _windowChar.currentItemSelected = _item;
             _boxItem.showItemDetail(this.gameObject);
         }
-        else
-        {
-            Debug.Log("show itens do equip");
-        }
+        
         diff.GetComponent<ListItensController>().OnMouseDown();
     }
 
