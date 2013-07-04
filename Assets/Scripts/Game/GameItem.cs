@@ -21,6 +21,8 @@ public class GameItem {
     private TargetTypes _target;
     private TargetAttribute _attribute;
 
+    private GameAttributes _attributes;
+
 
     public void setAttributes(string _nam, string _des, int _spr, int _pri)
     {
@@ -71,6 +73,11 @@ public class GameItem {
         set { _attribute = value; }
     }
 
+    public GameAttributes attributes
+    {
+        get { return _attributes; }
+        set { _attributes = value; }
+    }
 
     public GameSkill attack
     {

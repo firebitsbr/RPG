@@ -107,6 +107,8 @@
      <Compile Include="Assets\Scripts\Game\GameNpc.cs" />
      <Compile Include="Assets\Scripts\Game\GamePlayer.cs" />
      <Compile Include="Assets\Scripts\Game\GameQuest.cs" />
+     <Compile Include="Assets\Scripts\Game\GameQuestItem.cs" />
+     <Compile Include="Assets\Scripts\Game\GameSaveItem.cs" />
      <Compile Include="Assets\Scripts\Game\GameSkill.cs" />
      <Compile Include="Assets\Scripts\Game\Structs.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalCharacter.cs" />

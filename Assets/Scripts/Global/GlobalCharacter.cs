@@ -32,7 +32,7 @@ public class GlobalCharacter {
     {
         GameCharacter _char = new GameCharacter();
         _char.attributes = new GameAttributes();
-        _char.attributes.SetAttributes(10, 10, 10, 10, 10, 100, 10, 1000);
+        _char.attributes.SetAttributes(10, 10, 10, 10, 10, 100, 50, 10, 1000);
 
         GameItem itm = new GameItem();
         itm.setAttributes("item", "desc", 6, 10);

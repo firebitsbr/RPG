@@ -3,13 +3,25 @@ using System.Collections;
 
 public class ChatController : MonoBehaviour {
 
-	// Use this for initialization
+    private ArrayList _text;
+    private GameObject _option1;
+    private GameObject _option2;
+
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 	
 	}
+
+    public void ShowText()
+    {
+
+    }
+    public void NextText()
+    {
+
+    }
 }

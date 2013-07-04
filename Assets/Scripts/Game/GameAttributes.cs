@@ -11,6 +11,7 @@ public class GameAttributes {
     private int _strength;
 
     private int _life;
+    private int _mana;
     private int _time;
     private int _money;
 
@@ -23,7 +24,7 @@ public class GameAttributes {
 	
 	}
 
-    public void SetAttributes(int str, int agi, int end, int alc, int tec, int lif, int tim, int mon)
+    public void SetAttributes(int str, int agi, int end, int alc, int tec, int lif, int man, int tim, int mon)
     {
         
         _strength = str;
@@ -32,6 +33,7 @@ public class GameAttributes {
         _alchemy = alc;
         _technology = tec;
         _life = lif;
+        _mana = man;
         _time = tim;
         _money = mon;
 
@@ -62,6 +64,11 @@ public class GameAttributes {
     {
         get { return _strength; }
         set { _strength = value; }
+    }
+    public int mana
+    {
+        get { return _mana; }
+        set { _mana = value; }
     }
     public int life
     {
