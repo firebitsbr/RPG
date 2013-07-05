@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActionCharacter : MonoBehaviour {
 
-    public ActionTileType _actionType = ActionTileType.ChangeSprite;
+    public ActionTextType _actionType = ActionTextType.CloseText;
     
 	void Start () {
 	
@@ -49,14 +49,13 @@ public class ActionCharacter : MonoBehaviour {
     {
         switch (_actionType)
         {
-            case ActionTileType.ChangeSprite:
+            case ActionTextType.NextText:
 
-                this.gameObject.GetComponent<TileChanges>().updateCollision();
+                //this.gameObject.GetComponent<TileChanges>().updateCollision();
 
                 break;
-            case ActionTileType.PickupItem:
+            default:
 
-                Destroy(this.gameObject);
 
                 break;
         }

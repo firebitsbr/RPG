@@ -3,12 +3,12 @@ using System.Collections;
 
 public class ChatOption : MonoBehaviour {
 
-	// Use this for initialization
+    private ActionTextType _actionFinish;
+
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}

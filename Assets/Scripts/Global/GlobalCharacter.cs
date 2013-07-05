@@ -11,12 +11,15 @@ public class GlobalCharacter {
 
         _party[0] = generetaChar();
         _party[0].name = "Character 1";
+        _party[0].sprite = 1;
         
         _party[1] = generetaChar();
         _party[1].name = "Character 2";
+        _party[0].sprite = 2;
 
         _party[2] = generetaChar();
         _party[2].name = "Character 3";
+        _party[0].sprite = 3;
 
         _npcs = new ArrayList();
         _enemies = new ArrayList();

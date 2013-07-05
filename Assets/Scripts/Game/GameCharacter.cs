@@ -18,6 +18,7 @@ public class GameCharacter {
     private float _timer;
 
     private string _name;
+    private int _sprite;
 
 
 
@@ -130,6 +131,12 @@ public class GameCharacter {
     }
 
 
+
+    public int sprite
+    {
+        get { return _sprite; }
+        set { _sprite = value; }
+    }
 
     public string name
     {

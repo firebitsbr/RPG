@@ -41,7 +41,7 @@ public class SpriteAnimation : MonoBehaviour
 			
 			num = 3 * direction + atualAnimation;
 			
-			Vector2 pt = new Vector2(0.05f * num, -1);
+			Vector2 pt = new Vector2(0.05f * num, -0.1f * 4);
 
 
             renderer.material.SetTextureOffset("_MainTex", pt);
