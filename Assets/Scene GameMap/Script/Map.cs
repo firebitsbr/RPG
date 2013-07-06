@@ -25,23 +25,50 @@ public class Map
 
     public static int[] COLLIDE = {0,1,2,3,14};
 
-    public static int[,] getMap() 
+    public static TileMapItem[,] getMap() 
     {
-        int[,] _map = new int[10, 10] 
-            {   { 1, 1, 1, 1, 1, 14, 1, 1, 1, 1 },
-                { 2, 6, 6, 6, 6,  6, 6, 6, 6, 1 },
-                { 2, 6, 6, 6, 6,  6, 6, 6, 6, 14 },
-                { 2, 6, 6, 6, 6,  6, 6, 6, 6, 1 },
-                { 2, 6, 6, 6, 6,  6, 6, 6, 6, 1 },
-                { 2, 6, 6, 6, 6,  6, 6, 6, 6, 14 },
-                { 2, 6, 6, 6, 6,  6, 6, 6, 6, 1 },
-                {14, 6, 6, 6, 6,  6, 6, 6, 6, 1 },
-                { 2, 6, 6, 6, 6,  6, 6, 6, 6, 1 },
-                { 1, 1, 1, 1, 1, 14, 1, 1, 1, 1 }
-            };
-        
 
-        return _map;
+        TileMapItem fl = new TileMapItem();
+        fl.layer1 = 6; fl.layer2 = -1; fl.collide = false;
+        TileMapItem wl = new TileMapItem();
+        wl.layer1 = 6; wl.layer2 = 2; wl.collide = true;
+        TileMapItem dr = new TileMapItem();
+        dr.layer1 = 6; dr.layer2 = 14; dr.collide = true;
+        dr.action = ActionTileType.ChangeSpriteToNotCollide;
+        dr.value = TILE_DOOR_WOOD_OPEN;
+
+        TileMapItem tt = new TileMapItem();
+        tt.layer1 = 6; tt.collide = true; tt.layer2 = TILE_CARPET;
+        tt.action = ActionTileType.GotoLocation;
+        tt.value = new int[2] { 6, 6 };
+
+        TileMapItem bb = new TileMapItem();
+        bb.layer1 = 6; bb.collide = true; bb.layer2 = TILE_STAIR_DOWN;
+        // bb.action = ActionTileType.ba;
+        bb.value = new int[2] { 6, 6 };
+
+        TileMapItem[,] tilemap = new TileMapItem[10, 10] {   
+            { wl, wl, wl, wl, wl, dr, wl, wl, wl, wl },
+            { wl, fl, fl, fl, fl, fl, fl, fl, fl, wl },
+            { wl, fl, fl, fl, fl, fl, fl, fl, fl, wl },
+            { wl, fl, fl, fl, fl, fl, fl, fl, fl, dr },
+            { wl, fl, fl, fl, fl, fl, fl, fl, fl, wl },
+            { dr, fl, fl, fl, fl, fl, fl, fl, fl, wl },
+            { wl, fl, fl, fl, fl, fl, fl, fl, fl, dr },
+            { wl, fl, fl, fl, fl, fl, fl, fl, fl, wl },
+            { wl, tt, fl, fl, fl, fl, fl, fl, fl, wl },
+            { wl, wl, wl, wl, dr, wl, wl, wl, wl, wl }
+        };
+
+        return tilemap;
     }
 }
 
+public struct TileMapItem
+{
+    public int layer1;
+    public int layer2;
+    public bool collide;
+    public ActionTileType action;
+    public object value;
+};

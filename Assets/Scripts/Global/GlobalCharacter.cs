@@ -31,7 +31,7 @@ public class GlobalCharacter {
 
 	}
 
-    private static GameCharacter generetaChar()
+    public static GameCharacter generetaChar()
     {
         GameCharacter _char = new GameCharacter();
         _char.attributes = new GameAttributes();

@@ -53,6 +53,12 @@ public class ChatController : MonoBehaviour {
         _option2.SetActive(false);
 	}
 
+    public void Init()
+    {
+        this.gameObject.SetActive(true);
+        _initTimer = true;
+    }
+
     public ArrayList SplitLines(string value)
     {
         ArrayList retorno = new ArrayList();

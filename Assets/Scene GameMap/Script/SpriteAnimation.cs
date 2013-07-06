@@ -16,12 +16,16 @@ public class SpriteAnimation : MonoBehaviour
 	private int direction;
 	private int countAnimation;
 	private int atualAnimation;
-	// Use this for initialization
+	
+
 	void Start ()
 	{
 		direction = 0;
 		countAnimation = 0;
 		atualAnimation = 0;
+
+        Vector2 pt = new Vector2(0.05f, -0.1f * this.GetComponent<GameCharacterController>().character.sprite);
+        renderer.material.SetTextureOffset("_MainTex", pt);
 	}
 	
 	// Update is called once per frame
@@ -41,8 +45,7 @@ public class SpriteAnimation : MonoBehaviour
 			
 			num = 3 * direction + atualAnimation;
 			
-			Vector2 pt = new Vector2(0.05f * num, -0.1f * 4);
-
+			Vector2 pt = new Vector2(0.05f * num, -0.1f * this.GetComponent<GameCharacterController>().character.sprite);
 
             renderer.material.SetTextureOffset("_MainTex", pt);
 			

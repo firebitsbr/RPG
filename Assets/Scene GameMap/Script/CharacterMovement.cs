@@ -28,7 +28,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 if (hoverObject.GetComponent<ActionTile>())
                 {
-                    hoverObject.GetComponent<ActionTile>().ClickAction();
+                    hoverObject.GetComponent<ActionTile>().ClickAction(this.gameObject);
                 }
                 if (hoverObject.GetComponent<ActionCharacter>())
                 {

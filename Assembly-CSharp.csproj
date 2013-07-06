@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scene Fight\Script\TimeCounter.cs" />
      <Compile Include="Assets\Scene GameMap\Chat\ChatController.cs" />
      <Compile Include="Assets\Scene GameMap\Chat\ChatOption.cs" />
+     <Compile Include="Assets\Scene GameMap\Hud\HudGameController.cs" />
      <Compile Include="Assets\Scene GameMap\Script\ActionCharacter.cs" />
      <Compile Include="Assets\Scene GameMap\Script\ActionTile.cs" />
      <Compile Include="Assets\Scene GameMap\Script\CharacterInventory.cs" />

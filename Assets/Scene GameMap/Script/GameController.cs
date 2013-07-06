@@ -3,7 +3,9 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	// Use this for initialization
+    public GameObject _hud;
+    public GameObject _chat;
+
 	void Start () {
         GlobalItens.Init();
         GlobalCharacter.Init();
@@ -15,4 +17,14 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void ShowTooltip(string value)
+    {
+        _hud.GetComponent<HudGameController>().ShowText(value);
+    }
+
+    public void ShowChat()
+    {
+        _chat.GetComponent<ChatController>().Init();
+    }
 }

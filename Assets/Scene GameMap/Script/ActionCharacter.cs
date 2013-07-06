@@ -16,6 +16,8 @@ public class ActionCharacter : MonoBehaviour {
         {
             other.gameObject.GetComponent<CharacterMovement>().setHoverObj(this.gameObject);
         }
+
+        Camera.main.GetComponent<GameController>().ShowTooltip(this.GetComponent<GameCharacterController>().character.name);
     }
 
     void OnCollisionExit(Collision other)
@@ -25,6 +27,8 @@ public class ActionCharacter : MonoBehaviour {
         {
             other.gameObject.GetComponent<CharacterMovement>().removeHoverObj(this.gameObject);
         }
+
+        Camera.main.GetComponent<GameController>().ShowTooltip("");
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,11 +51,13 @@ public class ActionCharacter : MonoBehaviour {
 
     public void ClickAction()
     {
+        Debug.Log("action npc");
+        Debug.Log(_actionType);
         switch (_actionType)
         {
-            case ActionTextType.NextText:
+            case ActionTextType.ShowText:
 
-                //this.gameObject.GetComponent<TileChanges>().updateCollision();
+                Camera.main.GetComponent<GameController>().ShowChat();
 
                 break;
             default:

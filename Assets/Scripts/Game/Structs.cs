@@ -4,46 +4,47 @@ using System.Collections;
 
 public enum ActionTileType
 {
-    ChangeSprite, PickupItem, GotoLocation, Attack, ChangeOtherSprite, Bless, ShowMessage, TalkToNpc
+    Unknown, ChangeSpriteToCollide, ChangeSpriteToNotCollide, ChangeOtherSpriteToCollide, ChangeOtherSpriteToNotCollide,
+    PickupItem, GotoLocation, Attack, Bless, ShowMessage, TalkToNpc, Battle
 };
 public enum ActionCharacterType
 {
-    Npc, Monster, Talk
+    Unknown, Npc, Monster, Talk
 };
 public enum TargetTypes
 {
-    Self, Enemy, Party, AllEnemies, All, OtherParty
+    Unknown, Self, Enemy, Party, AllEnemies, All, OtherParty
 };
 public enum TargetAttribute
 {
-    Strength, Agility, Endurance, Life, Money, Technology, Time, Alchemy
+    Unknown, Strength, Agility, Endurance, Life, Money, Technology, Time, Alchemy
 };
 public enum ItemType
 {
-    Alchemy, Equipment
+    Unknown, Alchemy, Equipment
 };
 public enum EquipmentType
 {
-    Arm, LeftArm, RightArm, Leg, LeftLeg, RightLeg
+    Unknown, Arm, LeftArm, RightArm, Leg, LeftLeg, RightLeg
 };
 public enum AlchemyType
 {
-    HealLife, IncreaseDamage, IncreaseSpeed
+    Unknown, HealLife, IncreaseDamage, IncreaseSpeed
 };
 public enum OptionType
 {
-    Attack, Special, Item
+    Unknown, Attack, Special, Item
 };
 public enum ActionType
 {
-    GameSkill, GameItem
+    Unknown, GameSkill, GameItem
 };
 public enum ItemList
 {
-    Skull = 0, Ring=1, FullChest = 2, EmptyChest = 3, Cristal = 4, Key = 5, Potion = 6, GreyPotion = 7,BigPotion = 8,LeftHand = 9,RightHand = 10,LeftLeg = 11,RightLeg = 12
+    Unknown, Skull = 0, Ring = 1, FullChest = 2, EmptyChest = 3, Cristal = 4, Key = 5, Potion = 6, GreyPotion = 7, BigPotion = 8, LeftHand = 9, RightHand = 10, LeftLeg = 11, RightLeg = 12
 };
 
 public enum ActionTextType
 {
-    NextText, FinishQuest, ReceiveItem, ReceiveDamage, ReceiveBonus, CloseText
+    Unknown, NextText, FinishQuest, ReceiveItem, ReceiveDamage, ReceiveBonus, CloseText, ShowText, ShowStore
 };

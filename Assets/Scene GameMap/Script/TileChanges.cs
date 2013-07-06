@@ -26,9 +26,9 @@ public class TileChanges : MonoBehaviour
         renderer.material.SetTextureOffset("_MainTex", pt);
     }
     // update collidion based on the Map.COLLIDE array
-    public void updateCollision()
+    public void updateCollision(bool value)
     {
-        this.rigidbody.detectCollisions = (bool)(Array.IndexOf(Map.COLLIDE, (int)TileNumber) >= 0);
+        this.rigidbody.detectCollisions = value;
     }
 }
 
