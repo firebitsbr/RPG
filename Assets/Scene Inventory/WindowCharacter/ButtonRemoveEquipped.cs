@@ -20,10 +20,12 @@ public class ButtonRemoveEquipped : MonoBehaviour {
     {
         Debug.Log("remove equiped");
         GameItem itm = _windowChar.currentItemSelected;
-        switch (itm.type)
+        
+        switch (_windowChar.itemSelected)
         {
             case ItemType.Alchemy:
-                GlobalCharacter.party[_windowChar.currentCharacterSelected].RemoveEquippedItem(itm);
+                Debug.Log(_windowChar.itemNumSelected);
+                GlobalCharacter.party[_windowChar.currentCharacterSelected].RemoveEquippedItem(itm, _windowChar.itemNumSelected);
 
                 break;
             case ItemType.Equipment:

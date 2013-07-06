@@ -19,13 +19,19 @@ public class ListItensController : MonoBehaviour {
         _numItens = 0;
         _slots = new ArrayList();
 
-        RemoveAllItens();
-
         if (_startGlobal)
         {
             UpdateFromGlobal();
         }
 	}
+
+    void OnEnable()
+    {
+        if (_startGlobal)
+        {
+            UpdateFromGlobal();
+        }
+    }
 
     public void ShowItens()
     {
@@ -72,7 +78,7 @@ public class ListItensController : MonoBehaviour {
     public void UpdateFromGlobal()
     {
         RemoveAllItens();
-        Debug.Log("global");
+        Debug.Log("global:" + GlobalItens.inventory.Count);
         for (int i = 0; i < GlobalItens.inventory.Count; i++)
         {
             addItem(GlobalItens.inventory[i] as GameItem);

@@ -5,25 +5,30 @@ public class GlobalItens : MonoBehaviour {
 
     private static ArrayList _itens;
     private static ArrayList _inventory;
+    private static bool _hasInit = false;
 	
 	public static void Init() {
 
-        _inventory = new ArrayList();
-        _inventory.Add(generateAlchemy(AlchemyType.HealLife));
-        _inventory.Add(generateAlchemy(AlchemyType.HealLife));
-        _inventory.Add(generateAlchemy(AlchemyType.HealLife));
-        _inventory.Add(generateAlchemy(AlchemyType.HealLife));
+        if (!_hasInit)
+        {
+            _inventory = new ArrayList();
+            _inventory.Add(generateAlchemy(AlchemyType.HealLife));
+            _inventory.Add(generateAlchemy(AlchemyType.HealLife));
+            _inventory.Add(generateAlchemy(AlchemyType.HealLife));
+            _inventory.Add(generateAlchemy(AlchemyType.HealLife));
 
-        _inventory.Add(generateEquipment(EquipmentType.LeftArm));
-        _inventory.Add(generateEquipment(EquipmentType.LeftArm));
-        _inventory.Add(generateEquipment(EquipmentType.LeftArm));
+            _inventory.Add(generateEquipment(EquipmentType.LeftArm));
+            _inventory.Add(generateEquipment(EquipmentType.LeftArm));
+            _inventory.Add(generateEquipment(EquipmentType.LeftArm));
 
-
+            _hasInit = true;
+        }
 	}
 
     public static void AddToInventory(GameItem itm)
     {
         _inventory.Add(itm);
+        Debug.Log(_inventory.Count);
     }
     public static void RemoveFromInventory(GameItem itm)
     {
@@ -35,7 +40,7 @@ public class GlobalItens : MonoBehaviour {
         GameItem _itm = new GameItem();
         _itm.type = ItemType.Alchemy;
         _itm.alchemyType = type;
-        _itm.setAttributes("alchemy", "description", 6, 100);
+        _itm.setAttributes("alchemy", "description", 7, 100);
         _itm.setAlchemyAttributes(20, TargetTypes.Self, TargetAttribute.Life);
 
         return _itm;
@@ -53,6 +58,7 @@ public class GlobalItens : MonoBehaviour {
         _itm.type = ItemType.Equipment;
         _itm.equipmentType = equip;
         _itm.setAttributes("equipment", "description", 9, 100);
+        _itm.attributes.SetAttributes(4, 4, 4, 4, 4, 44, 44, 0, 0);
 
         _itm.attack = new GameSkill();
         _itm.attack.SetAttributes("attack skill", "description", 10, TargetTypes.Enemy, TargetAttribute.Life);

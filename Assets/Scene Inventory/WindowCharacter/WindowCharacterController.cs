@@ -41,6 +41,7 @@ public class WindowCharacterController : MonoBehaviour {
         {
             _boxItemList.SetActive(false);
             _boxEquipped.SetActive(true);
+            OpenChangeItem(false);
             LoadCharDetail(0);
         }
     }

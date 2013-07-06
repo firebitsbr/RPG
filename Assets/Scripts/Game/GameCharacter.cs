@@ -19,7 +19,7 @@ public class GameCharacter {
 
     private string _name;
     private int _sprite;
-
+    private Vector2 _position;
 
 
 
@@ -43,18 +43,26 @@ public class GameCharacter {
         {
             case EquipmentType.LeftArm:
                 _leftArm = itm;
-
-                break;
-            case EquipmentType.LeftLeg:
-                _leftLeg = itm;
+                _attacks[0] = itm.attack;
+                _specials[0] = itm.special;
 
                 break;
             case EquipmentType.RightArm:
                 _rightArm = itm;
+                _attacks[1] = itm.attack;
+                _specials[1] = itm.special;
+
+                break;
+            case EquipmentType.LeftLeg:
+                _leftLeg = itm;
+                _attacks[2] = itm.attack;
+                _specials[2] = itm.special;
 
                 break;
             case EquipmentType.RightLeg:
                 _rightLeg = itm;
+                _attacks[3] = itm.attack;
+                _specials[3] = itm.special;
 
                 break;
         }
@@ -71,38 +79,44 @@ public class GameCharacter {
 
                 GlobalItens.AddToInventory(_leftArm);
                 _leftArm = null;
+                _attacks[0] = null;
+                _specials[0] = null;
 
                 break;
             case EquipmentType.RightArm:
 
                 GlobalItens.AddToInventory(_rightArm);
                 _rightArm = null;
+                _attacks[1] = null;
+                _specials[1] = null;
 
                 break;
             case EquipmentType.LeftLeg:
 
                 GlobalItens.AddToInventory(_leftLeg);
                 _leftLeg = null;
+                _attacks[2] = null;
+                _specials[2] = null;
 
                 break;
             case EquipmentType.RightLeg:
                 
                 GlobalItens.AddToInventory(_rightLeg);
                 _rightLeg = null;
+                _attacks[3] = null;
+                _specials[3] = null;
 
                 break;
         }
     }
 
-    public void RemoveEquippedItem(GameItem itm)
+    public void RemoveEquippedItem(GameItem itm, int pos)
     {
-        for (int i = 0; i < 4; i++)
+
+        if (_itens[pos] != null && _itens[pos] == itm)
         {
-            if (_itens[i] != null && _itens[i] == itm)
-            {
-                GlobalItens.AddToInventory(_itens[i]);
-                _itens[i] = null;
-            }
+            GlobalItens.AddToInventory(_itens[pos]);
+            _itens[pos] = null;
         }
     }
 
@@ -131,7 +145,11 @@ public class GameCharacter {
     }
 
 
-
+    public Vector2 position
+    {
+        get { return _position; }
+        set { _position = value; }
+    }
     public int sprite
     {
         get { return _sprite; }

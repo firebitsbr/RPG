@@ -20,7 +20,7 @@ public class ItemDetailController : MonoBehaviour {
 
 	void Start () {
 
-        _inventoryController = Camera.main.GetComponent<InventoryController>();
+        _inventoryController = Camera.mainCamera.GetComponent<InventoryController>();
 
         _attackName.SetActive(false);
         _attackDesc.SetActive(false);
@@ -58,10 +58,9 @@ public class ItemDetailController : MonoBehaviour {
 
     public void showItemDetail(GameObject item)
     {
-
+        
         _inventoryController.itemSelected = item;
         GameItem itm = _inventoryController.getItemSelected();
-
 
         switch (itm.type)
         {

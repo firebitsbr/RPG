@@ -16,7 +16,6 @@ public class InventoryController : MonoBehaviour {
         GlobalCharacter.Init();
         GlobalItens.Init();
 
-
 	}
 
 	void Update () {

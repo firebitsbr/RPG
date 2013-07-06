@@ -5,7 +5,7 @@ public class ItemSlotSlider : MonoBehaviour {
 
     public int _iconNum = 1;
     public Texture _texture;
-    public Transform diff;
+    private Transform _diff;
 
     private GameItem _item;
     private bool _hasItem = false;
@@ -14,7 +14,7 @@ public class ItemSlotSlider : MonoBehaviour {
 
 	void Start () {
 
-        _windowChar = GameObject.Find("WindowCharacter").GetComponent<WindowCharacterController>();
+        _windowChar = Camera.main.GetComponent<InventoryController>()._characterController.GetComponent<WindowCharacterController>();
         _boxItem = GameObject.Find("BoxItemDetail").GetComponent<ItemDetailController>();
 
 	}
@@ -27,6 +27,7 @@ public class ItemSlotSlider : MonoBehaviour {
     {
         if (_hasItem)
         {
+            GUI.color = _item.color;
             GUI.DrawTextureWithTexCoords(
                     new Rect(guiTexture.pixelInset.x + 6, Screen.height - guiTexture.pixelInset.y - 38 - diff.position.y * Screen.height, 32, 32),
                     _texture, new Rect(0.05f * _iconNum, 0, 0.05f, 1f));
@@ -49,7 +50,7 @@ public class ItemSlotSlider : MonoBehaviour {
 
     void OnMouseDrag()
     {
-        diff.GetComponent<ListItensController>().OnMouseDrag();
+        _diff.GetComponent<ListItensController>().OnMouseDrag();
     }
 
     void OnMouseDown()
@@ -59,8 +60,17 @@ public class ItemSlotSlider : MonoBehaviour {
             _windowChar.currentItemSelected = _item;
             _boxItem.showItemDetail(this.gameObject);
         }
-        
-        diff.GetComponent<ListItensController>().OnMouseDown();
+
+        _diff.GetComponent<ListItensController>().OnMouseDown();
+    }
+
+    public Transform diff
+    {
+        get { return _diff; }
+        set { 
+            _diff = value; 
+
+        }
     }
 
     public GameItem item

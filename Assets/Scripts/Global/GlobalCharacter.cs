@@ -6,29 +6,33 @@ public class GlobalCharacter {
     private static GameCharacter[] _party = new GameCharacter[3];
     private static ArrayList _npcs;
     private static ArrayList _enemies;
+    private static bool _hasInit = false;
 
 	public static void Init() {
 
-        _party[0] = generetaChar();
-        _party[0].name = "Character 1";
-        _party[0].sprite = 1;
-        
-        _party[1] = generetaChar();
-        _party[1].name = "Character 2";
-        _party[0].sprite = 2;
-
-        _party[2] = generetaChar();
-        _party[2].name = "Character 3";
-        _party[0].sprite = 3;
-
-        _npcs = new ArrayList();
-        _enemies = new ArrayList();
-
-        for (int i = 0; i < 5; i++)
+        if (!_hasInit)
         {
-            _enemies.Add(generetaChar());
-        }
+            _party[0] = generetaChar();
+            _party[0].name = "Character 1";
+            _party[0].sprite = 1;
 
+            _party[1] = generetaChar();
+            _party[1].name = "Character 2";
+            _party[0].sprite = 2;
+
+            _party[2] = generetaChar();
+            _party[2].name = "Character 3";
+            _party[0].sprite = 3;
+
+            _npcs = new ArrayList();
+            _enemies = new ArrayList();
+
+            for (int i = 0; i < 5; i++)
+            {
+                _enemies.Add(generetaChar());
+            }
+            _hasInit = true;
+        }
 	}
 
     public static GameCharacter generetaChar()
@@ -37,14 +41,11 @@ public class GlobalCharacter {
         _char.attributes = new GameAttributes();
         _char.attributes.SetAttributes(10, 10, 10, 10, 10, 100, 50, 10, 1000);
 
-        GameItem itm = new GameItem();
-        itm.setAttributes("item", "desc", 6, 10);
-        itm.setAlchemyAttributes(10, TargetTypes.All, TargetAttribute.Life);
 
-        _char.itens.SetValue(itm, 0);
-        _char.itens.SetValue(itm, 1);
-        _char.itens.SetValue(itm, 2);
-        _char.itens.SetValue(itm, 3);
+        _char.itens.SetValue(GlobalItens.generateAlchemy(AlchemyType.HealLife), 0);
+        _char.itens.SetValue(GlobalItens.generateAlchemy(AlchemyType.HealLife), 1);
+        _char.itens.SetValue(GlobalItens.generateAlchemy(AlchemyType.HealLife), 2);
+        _char.itens.SetValue(GlobalItens.generateAlchemy(AlchemyType.HealLife), 3);
 
 
         GameSkill _atk = new GameSkill();

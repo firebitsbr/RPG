@@ -24,6 +24,11 @@ public class TileChanges : MonoBehaviour
         TileNumber = _tile;
         Vector2 pt = new Vector2((1 / TotalTiles) * _tile, -1);
         renderer.material.SetTextureOffset("_MainTex", pt);
+        if (this.GetComponent<ItemBase>() != null)
+        {
+            renderer.material.color = this.GetComponent<ItemBase>().item.color;
+        }
+
     }
     // update collidion based on the Map.COLLIDE array
     public void updateCollision(bool value)

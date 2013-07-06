@@ -33,6 +33,7 @@ public class ItemSlotController : MonoBehaviour {
     {
         if (_hasItem)
         {
+            GUI.color = _item.color;
             GUI.DrawTextureWithTexCoords(
                     new Rect(guiTexture.pixelInset.x + 6, Screen.height - guiTexture.pixelInset.y - 38, 32, 32), 
                     _texture, new Rect(0.05f * _iconNum, 0, 0.05f, 1f));

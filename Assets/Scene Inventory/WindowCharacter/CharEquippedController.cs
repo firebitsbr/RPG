@@ -57,7 +57,7 @@ public class CharEquippedController : MonoBehaviour {
         {
             if (_char.itens[i] != null)
             {
-                addItem(_char.itens[i]);
+                addItem(_char.itens[i], i);
             }
         }
 
@@ -79,18 +79,13 @@ public class CharEquippedController : MonoBehaviour {
         }
     }
 
-    public bool addItem(GameItem item)
+    public void addItem(GameItem item, int pos)
     {
-        for (int i = 0; i < itens.Length; i++)
+        ItemSlotController slot = itens[pos].GetComponent<ItemSlotController>();
+        if (!slot.hasItem)
         {
-            ItemSlotController slot = itens[i].GetComponent<ItemSlotController>();
-            if (!slot.hasItem)
-            {
-                slot.addToSlot(item);
-                return true;
-            }
+            slot.addToSlot(item);
         }
-        return false;
     }
 
     public void addEquipment(GameItem equipment)

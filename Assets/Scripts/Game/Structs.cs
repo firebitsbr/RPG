@@ -33,7 +33,7 @@ public enum AlchemyType
 };
 public enum OptionType
 {
-    Unknown, Attack, Special, Item
+    Unknown, Attack, Special, Item, Defense
 };
 public enum ActionType
 {

@@ -30,5 +30,8 @@ public class ButtonConfirmChangeEquipment : MonoBehaviour {
                     break;
             }
         }
+        _charController.GetComponent<WindowCharacterController>().HideListToEquip();
+        _charController.GetComponent<WindowCharacterController>().OpenChangeItem(false);
+        Camera.main.GetComponent<InventoryController>().UpdateCharacter();
     }
 }

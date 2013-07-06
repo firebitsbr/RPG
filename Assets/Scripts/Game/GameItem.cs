@@ -22,14 +22,17 @@ public class GameItem {
     private TargetAttribute _attribute;
 
     private GameAttributes _attributes;
-
+    private Color _color;
 
     public void setAttributes(string _nam, string _des, int _spr, int _pri)
     {
+        _attributes = new GameAttributes();
         _name = _nam;
         _description = _des;
         _sprite = _spr;
         _price = _pri;
+        
+        _color = new Color(Random.Range(0, 10) * 0.1f, Random.Range(0, 10) * 0.1f, Random.Range(0, 10) * 0.1f);
     }
 
     public void setAlchemyAttributes(int _dam, TargetTypes _tar, TargetAttribute _atr)
@@ -38,10 +41,14 @@ public class GameItem {
         _target = _tar;
         _attribute = _atr;
     }
-	
-	
 
 
+
+    public Color color
+    {
+        get { return _color; }
+        set { _color = value; }
+    }
     public ItemType type
     {
         get { return _type; }
