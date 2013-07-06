@@ -33,10 +33,18 @@ public class ChatController : MonoBehaviour {
     private ActionTextType _actionFinish;
 
 	void Start () {
-        _text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in diam consectetur, dictum sapien quis, placerat nunc. "+
-            "Nullam mattis ligula sed sem ullamcorper, at tristique diam pellentesque. In cursus a elit dapibus faucibus. Mauris ultrices imperdiet nisi, "+
-            "non fringilla nunc vulputate quis. Nulla eget blandit metus. Morbi placerat nisl ipsum, nec malesuada lacus dapibus sed. "+
-            "Pellentesque malesuada lobortis felis, a ultricies nisi. Etiam dignissim enim et orci euismod, vitae dignissim nulla pretium. "+
+        
+        this.gameObject.SetActive(false);
+
+        
+	}
+
+    public void Init()
+    {
+        _text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in diam consectetur, dictum sapien quis, placerat nunc. " +
+            "Nullam mattis ligula sed sem ullamcorper, at tristique diam pellentesque. In cursus a elit dapibus faucibus. Mauris ultrices imperdiet nisi, " +
+            "non fringilla nunc vulputate quis. Nulla eget blandit metus. Morbi placerat nisl ipsum, nec malesuada lacus dapibus sed. " +
+            "Pellentesque malesuada lobortis felis, a ultricies nisi. Etiam dignissim enim et orci euismod, vitae dignissim nulla pretium. " +
             "Vivamus libero nunc, placerat gravida elit vitae, facilisis dapibus ipsum.";
 
         _textFormatted = SplitLines(_text);
@@ -45,18 +53,24 @@ public class ChatController : MonoBehaviour {
         this.guiText.text = "";
         _indx = 0;
         _timerCount = 0;
-        //_initTimer = true;
-        this.gameObject.SetActive(false);
 
+
+        _actionFinish = ActionTextType.ShowOptions;
 
         _option1.SetActive(false);
         _option2.SetActive(false);
-	}
 
-    public void Init()
-    {
+        _option1.GetComponent<ChatOption>().guiText.text = "Battle";
+        _option2.GetComponent<ChatOption>().guiText.text = "Cancel";
+
+        _option1.GetComponent<ChatOption>().actionFinish = ActionTextType.Battle;
+        _option2.GetComponent<ChatOption>().actionFinish = ActionTextType.CloseText;
+
+
         this.gameObject.SetActive(true);
         _initTimer = true;
+
+
     }
 
     public ArrayList SplitLines(string value)
@@ -103,15 +117,35 @@ public class ChatController : MonoBehaviour {
             _timerCount = 0;
             _indx = 0;
             _currentText++;
-            this.guiText.text = "";
             if (_currentText >= _textFormatted.Count)
             {
-                this.gameObject.SetActive(false);
+                onFinishText(_actionFinish);
             }
             else
             {
+                this.guiText.text = "";
                 _initTimer = true;
             }
+        }
+    }
+
+    public void onFinishText(ActionTextType action)
+    {
+        switch (action)
+        {
+            case ActionTextType.ShowOptions:
+
+                _option1.SetActive(true);
+                _option2.SetActive(true);
+
+                break;
+            case ActionTextType.CloseText:
+            default:
+                this.gameObject.SetActive(false);
+                break;
+            case ActionTextType.Battle:
+                Application.LoadLevel("Fight");
+                break;
         }
     }
 	

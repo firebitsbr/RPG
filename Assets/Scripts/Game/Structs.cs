@@ -46,5 +46,5 @@ public enum ItemList
 
 public enum ActionTextType
 {
-    Unknown, NextText, FinishQuest, ReceiveItem, ReceiveDamage, ReceiveBonus, CloseText, ShowText, ShowStore
+    Unknown, NextText, FinishQuest, ReceiveItem, ReceiveDamage, ReceiveBonus, CloseText, ShowText, ShowStore, ShowOptions, Battle
 };

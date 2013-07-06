@@ -12,4 +12,18 @@ public class ChatOption : MonoBehaviour {
 	void Update () {
 	
 	}
+    void OnMouseDown()
+    {
+        Debug.Log("option click");
+
+        this.transform.parent.GetComponent<ChatController>().onFinishText(_actionFinish);
+    }
+
+
+
+    public ActionTextType actionFinish
+    {
+        get { return _actionFinish; }
+        set { _actionFinish = value; }
+    }
 }

@@ -52,7 +52,6 @@ public class ActionCharacter : MonoBehaviour {
     public void ClickAction()
     {
         Debug.Log("action npc");
-        Debug.Log(_actionType);
         switch (_actionType)
         {
             case ActionTextType.ShowText:

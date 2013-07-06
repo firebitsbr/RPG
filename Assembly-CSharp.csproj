@@ -114,6 +114,7 @@
      <Compile Include="Assets\Scripts\Game\Structs.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalCharacter.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalItens.cs" />
+     <Compile Include="Assets\Scripts\Global\GlobalMap.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalQuests.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalWorldMap.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleJSON.cs" />
