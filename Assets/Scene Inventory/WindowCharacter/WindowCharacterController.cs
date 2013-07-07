@@ -17,6 +17,7 @@ public class WindowCharacterController : MonoBehaviour {
     public GameObject _buttonCharBack;
     public GameObject _buttonCharEquip;
 
+    private GameObject _slotSelected;
     private GameItem _currentItemSelected;
 
     private int _currentCharacterSelected;
@@ -28,9 +29,6 @@ public class WindowCharacterController : MonoBehaviour {
 
 	void Start () {
 
-        _boxItemList.SetActive(false);
-        _boxEquipped.SetActive(true);
-        OpenChangeItem(false);
         LoadCharDetail(0);
         _started = true;
 	}
@@ -39,9 +37,6 @@ public class WindowCharacterController : MonoBehaviour {
     {
         if (_started)
         {
-            _boxItemList.SetActive(false);
-            _boxEquipped.SetActive(true);
-            OpenChangeItem(false);
             LoadCharDetail(0);
         }
     }
@@ -57,6 +52,11 @@ public class WindowCharacterController : MonoBehaviour {
 
     public void LoadCharDetail(int charNum)
     {
+        _boxItemList.SetActive(false);
+        _boxEquipped.SetActive(true);
+        OpenChangeItem(false);
+        slotSelected = null;
+
         _currentCharacterSelected = charNum;
         GameCharacter curr = GlobalCharacter.party[_currentCharacterSelected];
         _boxCharChanger.GetComponent<BoxChangeCharacter>()._charName.guiText.text = curr.name;
@@ -128,4 +128,20 @@ public class WindowCharacterController : MonoBehaviour {
         get { return _currentItemSelected; }
         set { _currentItemSelected = value; }
     }
+
+    public GameObject slotSelected
+    {
+        get { return _slotSelected; }
+        set {
+            if (_slotSelected != null)
+            {
+                _slotSelected.guiTexture.color = Color.grey;
+            }
+            _slotSelected = value;
+            if (_slotSelected != null) {
+                _slotSelected.guiTexture.color = new Color(0.2f,0.2f,0.2f,0.5f);
+            }
+        }
+    }
+    
 }

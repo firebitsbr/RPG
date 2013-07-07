@@ -9,8 +9,8 @@ public class GameCharacter {
     private GameItem _leftArm;
     private GameItem _rightArm;
     private GameAttributes _attributes;
-    private GameAttributes _base;
-    private GameAttributes _damage;
+    private GameAttributes _baseAttr;
+    private GameAttributes _damageAttr;
     private GameItem[] _itens = new GameItem[4];
 
     private GameSkill[] _attacks = new GameSkill[4];
@@ -23,7 +23,14 @@ public class GameCharacter {
     private int _sprite;
     private Vector2 _position;
 
+    public GameCharacter()
+    {
+        _attributes = new GameAttributes();
+        _baseAttr = new GameAttributes();
+        _damageAttr = new GameAttributes();
 
+        UpdateAttributesEquipment();
+    }
 
     public bool EquipItem(GameItem itm)
     {
@@ -71,6 +78,8 @@ public class GameCharacter {
         }
 
         GlobalItens.RemoveFromInventory(itm);
+
+        UpdateAttributesEquipment();
     }
 
     public void RemoveEquippedEquipment(EquipmentType pos)
@@ -111,6 +120,45 @@ public class GameCharacter {
 
                 break;
         }
+        UpdateAttributesEquipment();
+    }
+
+    public void UpdateAttributesEquipment()
+    {
+        _attributes = baseAttr;
+        if (this.leftArm != null)
+        {
+            _attributes.agility += this.leftArm.attributes.agility;
+            _attributes.alchemy += this.leftArm.attributes.alchemy;
+            _attributes.endurance += this.leftArm.attributes.endurance;
+            _attributes.strength += this.leftArm.attributes.strength;
+            _attributes.technology += this.leftArm.attributes.technology;
+        }
+        if (this.leftLeg != null)
+        {
+            _attributes.agility += this.leftLeg.attributes.agility;
+            _attributes.alchemy += this.leftLeg.attributes.alchemy;
+            _attributes.endurance += this.leftLeg.attributes.endurance;
+            _attributes.strength += this.leftLeg.attributes.strength;
+            _attributes.technology += this.leftLeg.attributes.technology;
+        }
+        if (this.rightArm != null)
+        {
+            _attributes.agility += this.rightArm.attributes.agility;
+            _attributes.alchemy += this.rightArm.attributes.alchemy;
+            _attributes.endurance += this.rightArm.attributes.endurance;
+            _attributes.strength += this.rightArm.attributes.strength;
+            _attributes.technology += this.rightArm.attributes.technology;
+        }
+        if (this.rightLeg != null)
+        {
+            _attributes.agility += this.rightLeg.attributes.agility;
+            _attributes.alchemy += this.rightLeg.attributes.alchemy;
+            _attributes.endurance += this.rightLeg.attributes.endurance;
+            _attributes.strength += this.rightLeg.attributes.strength;
+            _attributes.technology += this.rightLeg.attributes.technology;
+        }
+
     }
 
     public void RemoveEquippedItem(GameItem itm, int pos)
@@ -193,6 +241,16 @@ public class GameCharacter {
     {
         get { return _attributes; }
         set { _attributes = value; }
+    }
+    public GameAttributes baseAttr
+    {
+        get { return _baseAttr; }
+        set { _baseAttr = value; }
+    }
+    public GameAttributes damageAttr
+    {
+        get { return _damageAttr; }
+        set { _damageAttr = value; }
     }
     public GameItem leftLeg
     {

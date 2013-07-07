@@ -38,8 +38,7 @@ public class GlobalCharacter {
     public static GameCharacter generetaChar()
     {
         GameCharacter _char = new GameCharacter();
-        _char.attributes = new GameAttributes();
-        _char.attributes.SetAttributes(10, 10, 10, 10, 10, 100, 50, 10, 1000);
+        _char.baseAttr.SetAttributes(10, 10, 10, 10, 10, 100, 50, 10, 1000);
         _char.sprite = Random.Range(1, 5);
 
 

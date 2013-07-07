@@ -58,7 +58,6 @@ public class ItemDetailController : MonoBehaviour {
 
     public void showItemDetail(GameObject item)
     {
-        
         _inventoryController.itemSelected = item;
         GameItem itm = _inventoryController.getItemSelected();
 

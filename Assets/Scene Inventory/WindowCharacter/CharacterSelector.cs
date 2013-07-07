@@ -27,5 +27,6 @@ public class CharacterSelector : MonoBehaviour {
         }
 
         _windowChar.LoadCharDetail(curr);
+
     }
 }

@@ -63,6 +63,7 @@ public class ItemSlotController : MonoBehaviour {
             _boxItem.showItemDetail(this.gameObject);
         }
 
+        _windowChar.slotSelected = this.gameObject;
         _windowChar.itemNumSelected = itemNum;
         _windowChar.itemSelected = _itemTypeSlot;
         _windowChar.equipmentSelected = _equipTypeSlot;
