@@ -58,10 +58,7 @@ public class GlobalItens : MonoBehaviour {
         _itm.type = ItemType.Equipment;
         _itm.equipmentType = equip;
         _itm.setAttributes("equipment", "description", 9, 100);
-        _itm.attributes.SetAttributes(4, 4, 4, 4, 4, 44, 44, 0, 0);
-
-        _itm.attack = new GameSkill();
-        _itm.attack.SetAttributes("attack skill", "description", 10, TargetTypes.Enemy, TargetAttribute.Life);
+        _itm.attributes.SetAttributes(4, 4, 4, 4, 4, 44, 0);
 
         _itm.special = new GameSkill();
         _itm.special.SetAttributes("special skill", "description", 15, TargetTypes.Enemy, TargetAttribute.Life);

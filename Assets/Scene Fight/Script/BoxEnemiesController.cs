@@ -86,7 +86,7 @@ public class BoxEnemiesController : MonoBehaviour {
     {
         for (int i = 0; i < _character.Length; i++)
         {
-            _character[i].UpdateTimer();
+            //_character[i].UpdateTimer();
             if (_character[i].ready && _order.IndexOf(i) < 0)
             {
                 //charsFight[i].GetComponent<CharFightController>().SetCurrent(true);

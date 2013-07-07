@@ -12,14 +12,18 @@ public class FightController : MonoBehaviour {
     public GameObject _enemiesController;
     public GameObject _buttonController;
     public GameObject _boxController;
+    public GameObject _boxBattleDetail;
+
+    public GameObject[] _buttons;
+    public GameObject _charLife;
+    public GameObject _charName;
 
     private BoxCharController _boxChar;
     private BoxEnemiesController _boxEnemy;
-    private ButtonActionController _boxActions;
     private BoxAction _boxAct;
 
     private bool _running;
-    private ActionType _currentAction;
+    private OptionType _currentAction;
     private GameSkill _currentSkill;
     private GameItem _currentItem;
     private GameCharacter _currentTarget;
@@ -30,16 +34,26 @@ public class FightController : MonoBehaviour {
 
         _boxChar = _charController.GetComponent<BoxCharController>();
         _boxEnemy = _enemiesController.GetComponent<BoxEnemiesController>();
-        _boxActions = _buttonController.GetComponent<ButtonActionController>();
         _boxAct = _boxController.GetComponent<BoxAction>();
-
-        _boxActions._character1.GetComponent<TimeCounter>().chararcter = GlobalCharacter.party[0];
-        _boxActions._character2.GetComponent<TimeCounter>().chararcter = GlobalCharacter.party[1];
-        _boxActions._character3.GetComponent<TimeCounter>().chararcter = GlobalCharacter.party[2];
 
         _running = true;
 
+        for (int i = 0; i < _buttons.Length; i++)
+        {
+            _buttons[i].GetComponent<ButtonAction>().character = GlobalCharacter.player;
+            _buttons[i].GetComponent<ButtonAction>().fight = this;
+        }
+
+        HideText();
+        UpdateAttributes();
 	}
+
+    public void UpdateAttributes()
+    {
+        int currLife = GlobalCharacter.player.attributes.life - GlobalCharacter.player.damageAttr.life;
+        _charName.guiText.text = GlobalCharacter.player.name;
+        _charLife.guiText.text = currLife + "/" + GlobalCharacter.player.attributes.life;
+    }
 
     public void PauseTimer(bool value)
     {
@@ -51,47 +65,59 @@ public class FightController : MonoBehaviour {
 
     }
 
+    public void ResetButtonTimer()
+    {
+        for (int i = 0; i < _buttons.Length; i++)
+        {
+            _buttons[i].GetComponent<ButtonAction>().ready = false;
+        }
+    }
+
     public void UseSkill(GameObject target)
     {
+        Debug.Log("click on target");
         switch (_currentAction)
         {
-            case ActionType.GameItem:
-                Debug.Log("use item");
+            case OptionType.Item:
+                ShowText("Item used");
                 break;
-            case ActionType.GameSkill:
-                Debug.Log("use skill");
+            case OptionType.Special:
+                ShowText("Special used");
+                break;
+            case OptionType.Attack:
+                ShowText("Attack");
+                break;
+            case OptionType.Defense:
+                ShowText("Defense");
                 break;
         }
 
-        _boxChar.removeCurrent();
         _boxChar.CancelAllTargets();
-        _boxActions.hideButtons();
-        _boxAct.currentSelected.RestartTimer();
+        ResetButtonTimer();
 
     }
 
     public void SetTargets(TargetTypes targets)
     {
+        ShowText("Select your target");
         switch (targets)
         {
             case TargetTypes.Enemy:
                 _boxEnemy.SetAllTarget();
                 break;
-            case TargetTypes.Party:
-                _boxChar.SetAllTarget();
-                break;
             case TargetTypes.Self:
                 _boxChar.SetSelfTarget();
                 break;
-            case TargetTypes.OtherParty:
-                _boxChar.SetOthersTarget();
-                break;
             case TargetTypes.All:
-                _boxChar.SetAllTarget();
+                _boxChar.SetSelfTarget();
                 _boxEnemy.SetAllTarget();
                 break;
             case TargetTypes.AllEnemies:
                 _boxEnemy.SetAllTarget();
+                break;
+            default:
+                _boxChar.CancelAllTargets();
+                _boxEnemy.CancelAllTargets();
                 break;
         }
     }
@@ -101,19 +127,26 @@ public class FightController : MonoBehaviour {
 
         if (_running)
         {
-            _boxChar.UpdateTime();
             _boxEnemy.UpdateTime();
-
-            GameCharacter _curr = _boxChar.GetCurrentReady();
-            if (_curr != null && !_boxActions.buttonActive)
-            {
-                _boxAct.currentSelected = _curr;
-                _boxActions.showButtons();
-            }
         }
 	}
 
+    public void ShowText(string value)
+    {
+        _boxBattleDetail.guiText.text = value;
+        _boxBattleDetail.SetActive(true);
+    }
+    public void HideText()
+    {
+        _boxBattleDetail.SetActive(false);
+    }
 
+
+    public GameObject boxBattleDetail
+    {
+        get { return _boxBattleDetail; }
+        set { _boxBattleDetail = value; }
+    }
     public BoxCharController boxChar
     {
         get { return _boxChar; }
@@ -124,11 +157,6 @@ public class FightController : MonoBehaviour {
         get { return _boxEnemy; }
         set { _boxEnemy = value; }
     }
-    public ButtonActionController boxActions
-    {
-        get { return _boxActions; }
-        set { _boxActions = value; }
-    }
     public BoxAction boxAct
     {
         get { return _boxAct; }
@@ -136,7 +164,7 @@ public class FightController : MonoBehaviour {
     }
 
 
-    public ActionType currentAction
+    public OptionType currentAction
     {
         get { return _currentAction; }
         set { _currentAction = value; }

@@ -6,9 +6,8 @@ public class ButtonActionController : MonoBehaviour {
 
     public GameObject _boxAction;
 
-    public GameObject _character1;
-    public GameObject _character2;
-    public GameObject _character3;
+    public GameObject _charName;
+    public GameObject _charLife;
 
     public GameObject _buttonAction;
     public GameObject _buttonSpecial;

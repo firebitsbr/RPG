@@ -3,9 +3,6 @@ using System.Collections;
 
 public class ItemDetailController : MonoBehaviour {
 
-    public GameObject _attackName;
-    public GameObject _attackDesc;
-    
     public GameObject _specialName;
     public GameObject _specialDesc;
 
@@ -22,10 +19,6 @@ public class ItemDetailController : MonoBehaviour {
 
         _inventoryController = Camera.mainCamera.GetComponent<InventoryController>();
 
-        _attackName.SetActive(false);
-        _attackDesc.SetActive(false);
-        
-
         _specialName.SetActive(false);
         _specialDesc.SetActive(false);
 
@@ -38,9 +31,6 @@ public class ItemDetailController : MonoBehaviour {
 
     public void hideAll()
     {
-
-        _attackName.SetActive(false);
-        _attackDesc.SetActive(false);
 
         _specialName.SetActive(false);
         _specialDesc.SetActive(false);
@@ -65,23 +55,14 @@ public class ItemDetailController : MonoBehaviour {
         {
             case ItemType.Equipment:
 
-                _attackName.SetActive(true);
-                _attackName.GetComponent<GUIText>().text = itm.attack.name;
-
-                _attackDesc.SetActive(true);
-                _attackDesc.GetComponent<GUIText>().text = itm.attack.description;
-
                 _specialName.SetActive(true);
-                _specialName.GetComponent<GUIText>().text = itm.attack.name;
+                _specialName.GetComponent<GUIText>().text = itm.special.name;
 
                 _specialDesc.SetActive(true);
                 _specialDesc.GetComponent<GUIText>().text = itm.special.description;
 
                 break;
             case ItemType.Alchemy:
-
-                _attackName.SetActive(false);
-                _attackDesc.SetActive(false);
 
                 _specialName.SetActive(false);
                 _specialDesc.SetActive(false);

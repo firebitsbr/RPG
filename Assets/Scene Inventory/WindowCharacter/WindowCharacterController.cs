@@ -20,7 +20,6 @@ public class WindowCharacterController : MonoBehaviour {
     private GameObject _slotSelected;
     private GameItem _currentItemSelected;
 
-    private int _currentCharacterSelected;
     private ItemType _itemSelected;
     private EquipmentType _equipmentSelected;
     private int _itemNumSelected;
@@ -57,12 +56,10 @@ public class WindowCharacterController : MonoBehaviour {
         OpenChangeItem(false);
         slotSelected = null;
 
-        _currentCharacterSelected = charNum;
-        GameCharacter curr = GlobalCharacter.party[_currentCharacterSelected];
-        _boxCharChanger.GetComponent<BoxChangeCharacter>()._charName.guiText.text = curr.name;
+        _boxCharChanger.GetComponent<BoxChangeCharacter>()._charName.guiText.text = GlobalCharacter.player.name;
 
-        _boxCharDetail.GetComponent<CharDetailController>().UpdateCharDetail(curr);
-        _boxEquipped.GetComponent<CharEquippedController>().UpdateCharDetail(curr);
+        _boxCharDetail.GetComponent<CharDetailController>().UpdateCharDetail();
+        _boxEquipped.GetComponent<CharEquippedController>().UpdateCharDetail();
     }
 
     public void HideListToEquip()
@@ -90,11 +87,10 @@ public class WindowCharacterController : MonoBehaviour {
     public void UpdateFromGlobal()
     {
 
-        GameCharacter curr = GlobalCharacter.party[_currentCharacterSelected];
-        _boxCharChanger.GetComponent<BoxChangeCharacter>()._charName.guiText.text = curr.name;
+        _boxCharChanger.GetComponent<BoxChangeCharacter>()._charName.guiText.text = GlobalCharacter.player.name;
 
-        _boxCharDetail.GetComponent<CharDetailController>().UpdateCharDetail(curr);
-        _boxEquipped.GetComponent<CharEquippedController>().UpdateCharDetail(curr);
+        _boxCharDetail.GetComponent<CharDetailController>().UpdateCharDetail();
+        _boxEquipped.GetComponent<CharEquippedController>().UpdateCharDetail();
 
     }
 
@@ -115,12 +111,6 @@ public class WindowCharacterController : MonoBehaviour {
     {
         get { return _itemSelected; }
         set { _itemSelected = value; }
-    }
-
-    public int currentCharacterSelected
-    {
-        get { return _currentCharacterSelected; }
-        set { _currentCharacterSelected = value; }
     }
 
     public GameItem currentItemSelected

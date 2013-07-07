@@ -6,11 +6,11 @@ public class ButtonUseSkill : MonoBehaviour {
 
     private GameSkill _skill;
     private GameItem _item;
-    private ActionType _action;
+    private OptionType _action;
     private FightController _fight;
 
 	void Start () {
-        _fight = GameObject.Find("Fight").GetComponent<FightController>();
+        _fight = Camera.main.GetComponent<FightController>();
 	}
 	
 	
@@ -24,7 +24,7 @@ public class ButtonUseSkill : MonoBehaviour {
 
         switch (_fight.currentAction)
         {
-            case ActionType.GameItem:
+            case OptionType.Item:
                 Debug.Log("use item:" + _item.name);
 
                 _fight.SetTargets(_item.target);
@@ -32,7 +32,7 @@ public class ButtonUseSkill : MonoBehaviour {
                 _fight.currentItem = _item;
 
                 break;
-            case ActionType.GameSkill:
+            case OptionType.Special:
                 Debug.Log("use skill:" + _skill.name);
 
                 _fight.SetTargets(_skill.target);
@@ -47,7 +47,7 @@ public class ButtonUseSkill : MonoBehaviour {
 
 
 
-    public ActionType action
+    public OptionType action
     {
         get { return _action; }
         set { _action = value; }

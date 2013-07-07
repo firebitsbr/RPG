@@ -21,17 +21,17 @@ public class CharDetailController : MonoBehaviour {
 	void Update () {
 	
 	}
-    public void UpdateCharDetail(GameCharacter _char)
+    public void UpdateCharDetail()
     {
 
-        _agility.guiText.text = _char.attributes.agility.ToString();
-        _alchemy.guiText.text = _char.attributes.alchemy.ToString();
-        _endurance.guiText.text = _char.attributes.endurance.ToString();
-        _strength.guiText.text = _char.attributes.strength.ToString();
-        _technology.guiText.text = _char.attributes.technology.ToString();
+        _agility.guiText.text = GlobalCharacter.player.attributes.agility.ToString();
+        _alchemy.guiText.text = GlobalCharacter.player.attributes.alchemy.ToString();
+        _endurance.guiText.text = GlobalCharacter.player.attributes.endurance.ToString();
+        _strength.guiText.text = GlobalCharacter.player.attributes.strength.ToString();
+        _technology.guiText.text = GlobalCharacter.player.attributes.technology.ToString();
 
-        _life.guiText.text = _char.attributes.life.ToString();
-        _money.guiText.text = _char.attributes.money.ToString();
+        _life.guiText.text = GlobalCharacter.player.attributes.life.ToString();
+        _money.guiText.text = GlobalCharacter.player.attributes.money.ToString();
     }
 
 }

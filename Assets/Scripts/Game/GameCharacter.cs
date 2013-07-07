@@ -13,7 +13,6 @@ public class GameCharacter {
     private GameAttributes _damageAttr;
     private GameItem[] _itens = new GameItem[4];
 
-    private GameSkill[] _attacks = new GameSkill[4];
     private GameSkill[] _specials = new GameSkill[4];
 
     private bool _ready;
@@ -53,25 +52,21 @@ public class GameCharacter {
         {
             case EquipmentType.LeftArm:
                 _leftArm = itm;
-                _attacks[0] = itm.attack;
                 _specials[0] = itm.special;
 
                 break;
             case EquipmentType.RightArm:
                 _rightArm = itm;
-                _attacks[1] = itm.attack;
                 _specials[1] = itm.special;
 
                 break;
             case EquipmentType.LeftLeg:
                 _leftLeg = itm;
-                _attacks[2] = itm.attack;
                 _specials[2] = itm.special;
 
                 break;
             case EquipmentType.RightLeg:
                 _rightLeg = itm;
-                _attacks[3] = itm.attack;
                 _specials[3] = itm.special;
 
                 break;
@@ -91,7 +86,6 @@ public class GameCharacter {
 
                 GlobalItens.AddToInventory(_leftArm);
                 _leftArm = null;
-                _attacks[0] = null;
                 _specials[0] = null;
 
                 break;
@@ -99,7 +93,6 @@ public class GameCharacter {
 
                 GlobalItens.AddToInventory(_rightArm);
                 _rightArm = null;
-                _attacks[1] = null;
                 _specials[1] = null;
 
                 break;
@@ -107,7 +100,6 @@ public class GameCharacter {
 
                 GlobalItens.AddToInventory(_leftLeg);
                 _leftLeg = null;
-                _attacks[2] = null;
                 _specials[2] = null;
 
                 break;
@@ -115,7 +107,6 @@ public class GameCharacter {
                 
                 GlobalItens.AddToInventory(_rightLeg);
                 _rightLeg = null;
-                _attacks[3] = null;
                 _specials[3] = null;
 
                 break;
@@ -171,31 +162,6 @@ public class GameCharacter {
         }
     }
 
-    public void RestartTimer()
-    {
-        _ready = false;
-        _timer = 0;
-    }
-
-    public bool UpdateTimer()
-    {
-        if (_ready)
-        {
-            return true;
-        }
-
-        _timer += Time.deltaTime;
-        if (_timer > _attributes.time)
-        {
-            _timer = _attributes.time;
-            _ready = true;
-            return true;
-        }
-
-        return false;
-    }
-
-
     public Vector2 position
     {
         get { return _position; }
@@ -221,11 +187,6 @@ public class GameCharacter {
     {
         get { return _timer; }
         set { _timer = value; }
-    }
-    public GameSkill[] attacks
-    {
-        get { return _attacks; }
-        set { _attacks = value; }
     }
     public GameSkill[] specials
     {

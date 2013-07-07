@@ -11,20 +11,27 @@ public class GameAttributes {
     private int _strength;
 
     private int _life;
-    private int _mana;
-    private int _time;
     private int _money;
 
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private int _timeAttack;
+    private int _timeSpecial;
+    private int _timeItem;
+    private int _timeDefense;
 
-    public void SetAttributes(int str, int agi, int end, int alc, int tec, int lif, int man, int tim, int mon)
+    public GameAttributes()
+    {
+
+    }
+	
+    public void SetTimers(int atk, int spe, int def, int itm)
+    {
+        _timeAttack = atk;
+        _timeDefense = def;
+        _timeItem = itm;
+        _timeSpecial = spe;
+    }
+
+    public void SetAttributes(int str, int agi, int end, int alc, int tec, int lif, int mon)
     {
         
         _strength = str;
@@ -33,8 +40,6 @@ public class GameAttributes {
         _alchemy = alc;
         _technology = tec;
         _life = lif;
-        _mana = man;
-        _time = tim;
         _money = mon;
 
     }
@@ -65,20 +70,30 @@ public class GameAttributes {
         get { return _strength; }
         set { _strength = value; }
     }
-    public int mana
-    {
-        get { return _mana; }
-        set { _mana = value; }
-    }
     public int life
     {
         get { return _life; }
         set { _life = value; }
     }
-    public int time
+    public int timeAttack
     {
-        get { return _time; }
-        set { _time = value; }
+        get { return _timeAttack; }
+        set { _timeAttack = value; }
+    }
+    public int timeDefense
+    {
+        get { return _timeDefense; }
+        set { _timeDefense = value; }
+    }
+    public int timeItem
+    {
+        get { return _timeItem; }
+        set { _timeItem = value; }
+    }
+    public int timeSpecial
+    {
+        get { return _timeSpecial; }
+        set { _timeSpecial = value; }
     }
     public int money
     {

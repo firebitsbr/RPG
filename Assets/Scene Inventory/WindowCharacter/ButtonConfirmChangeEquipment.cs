@@ -20,13 +20,12 @@ public class ButtonConfirmChangeEquipment : MonoBehaviour {
 
         if (GlobalItens.isInInventory(itm))
         {
-            int curr = _charController.GetComponent<WindowCharacterController>().currentCharacterSelected;
             switch(itm.type) {
                 case ItemType.Alchemy:
-                    GlobalCharacter.party[curr].EquipItem(itm);
+                    GlobalCharacter.player.EquipItem(itm);
                     break;
                 case ItemType.Equipment:
-                    GlobalCharacter.party[curr].EquipEquipment(itm, itm.equipmentType);
+                    GlobalCharacter.player.EquipEquipment(itm, itm.equipmentType);
                     break;
             }
         }

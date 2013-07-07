@@ -12,7 +12,6 @@ public class BoxAction : MonoBehaviour {
     public GameObject buttonAction;
     private int _count;
 
-    private GameCharacter _currentSelected;
     private FightController _fight;
 
 	void Start () {
@@ -33,46 +32,31 @@ public class BoxAction : MonoBehaviour {
 
         switch (opt)
         {
-            case OptionType.Attack:
-
-                _fight.currentAction = ActionType.GameSkill;
-                
-                for (int i = 0; i < 4; i++)
-                {
-                    if (_currentSelected.attacks[i] != null)
-                    {
-                        addSkill(_currentSelected.attacks[i]);
-                    }
-                }
-
-                break;
             case OptionType.Special:
 
-                _fight.currentAction = ActionType.GameSkill;
-
                 for (int i = 0; i < 4; i++)
                 {
-                    if (_currentSelected.specials[i] != null)
+                    if (GlobalCharacter.player.specials[i] != null)
                     {
-                        addSkill(_currentSelected.specials[i]);
+                        addSkill(GlobalCharacter.player.specials[i]);
                     }
                 }
 
                 break;
             case OptionType.Item:
 
-                _fight.currentAction = ActionType.GameItem;
-
                 for (int i = 0; i < 4; i++)
                 {
-                    if (_currentSelected.itens[i] != null)
+                    if (GlobalCharacter.player.itens[i] != null)
                     {
-                        addItem(_currentSelected.itens[i]);
+                        addItem(GlobalCharacter.player.itens[i]);
                     }
                 }
 
                 break;
         }
+        this.guiTexture.pixelInset = new Rect(135, 60, 220, _count * 40);
+        _fight.currentAction = opt;
     }
 
     public void addItem(GameItem itm)
@@ -82,10 +66,10 @@ public class BoxAction : MonoBehaviour {
 
         (obj as GameObject).transform.parent = this.transform;
 
-        (obj as GameObject).GetComponent<GUIText>().pixelOffset = new Vector2(65, 100 + 40 * _count);
+        (obj as GameObject).GetComponent<GUIText>().pixelOffset = new Vector2(210, 80 + 40 * _count);
         (obj as GameObject).GetComponent<GUIText>().text = itm.name;
 
-        (obj as GameObject).GetComponent<ButtonUseSkill>().action = ActionType.GameSkill;
+        (obj as GameObject).GetComponent<ButtonUseSkill>().action = OptionType.Item;
         (obj as GameObject).GetComponent<ButtonUseSkill>().item = itm;
 
         _buttons.SetValue(obj, _count);
@@ -102,10 +86,10 @@ public class BoxAction : MonoBehaviour {
         
         (obj as GameObject).transform.parent = this.transform;
 
-        (obj as GameObject).GetComponent<GUIText>().pixelOffset = new Vector2(65, 100 + 40 * _count);
+        (obj as GameObject).GetComponent<GUIText>().pixelOffset = new Vector2(210, 80 + 40 * _count);
         (obj as GameObject).GetComponent<GUIText>().text = skill.name;
 
-        (obj as GameObject).GetComponent<ButtonUseSkill>().action = ActionType.GameSkill;
+        (obj as GameObject).GetComponent<ButtonUseSkill>().action = OptionType.Special;
         (obj as GameObject).GetComponent<ButtonUseSkill>().skill = skill;
 
         _buttons.SetValue(obj, _count);
@@ -130,11 +114,5 @@ public class BoxAction : MonoBehaviour {
     {
         _skills = new GameSkill[4];
         _itens = new GameItem[4];
-    }
-
-    public GameCharacter currentSelected
-    {
-        get { return _currentSelected; }
-        set { _currentSelected = value; }
     }
 }

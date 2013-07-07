@@ -49,33 +49,33 @@ public class CharEquippedController : MonoBehaviour {
 
     }
 
-    public void UpdateCharDetail(GameCharacter _char)
+    public void UpdateCharDetail()
     {
         ClearEquipment();
 
         for (int i = 0; i < 4; i++)
         {
-            if (_char.itens[i] != null)
+            if (GlobalCharacter.player.itens[i] != null)
             {
-                addItem(_char.itens[i], i);
+                addItem(GlobalCharacter.player.itens[i], i);
             }
         }
 
-        if (_char.leftArm != null)
+        if (GlobalCharacter.player.leftArm != null)
         {
-            addEquipment(_char.leftArm);
+            addEquipment(GlobalCharacter.player.leftArm);
         }
-        if (_char.rightArm != null)
+        if (GlobalCharacter.player.rightArm != null)
         {
-            addEquipment(_char.rightArm);
+            addEquipment(GlobalCharacter.player.rightArm);
         }
-        if (_char.leftLeg != null)
+        if (GlobalCharacter.player.leftLeg != null)
         {
-            addEquipment(_char.leftLeg);
+            addEquipment(GlobalCharacter.player.leftLeg);
         }
-        if (_char.rightLeg != null)
+        if (GlobalCharacter.player.rightLeg != null)
         {
-            addEquipment(_char.rightLeg);
+            addEquipment(GlobalCharacter.player.rightLeg);
         }
     }
 

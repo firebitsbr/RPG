@@ -10,13 +10,14 @@ public class CharFightController : MonoBehaviour {
 
 	void Start () {
         _fight = Camera.main.GetComponent<FightController>();
+        _character = GlobalCharacter.player;
         _children = transform.GetChild(0).gameObject;
         SetCurrent(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
 	}
 
     public void SetCurrent(bool value)

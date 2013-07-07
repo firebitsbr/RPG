@@ -14,7 +14,6 @@ public class GameItem {
     private int _price;
     private int _sprite;
 
-    private GameSkill _attack;
     private GameSkill _special;
 
     private int _damage;
@@ -86,11 +85,6 @@ public class GameItem {
         set { _attributes = value; }
     }
 
-    public GameSkill attack
-    {
-        get { return _attack; }
-        set { _attack = value; }
-    }
     public GameSkill special
     {
         get { return _special; }
