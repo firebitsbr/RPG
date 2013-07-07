@@ -9,6 +9,8 @@ public class GameCharacter {
     private GameItem _leftArm;
     private GameItem _rightArm;
     private GameAttributes _attributes;
+    private GameAttributes _base;
+    private GameAttributes _damage;
     private GameItem[] _itens = new GameItem[4];
 
     private GameSkill[] _attacks = new GameSkill[4];
@@ -37,6 +39,7 @@ public class GameCharacter {
         return false;
 
     }
+    
     public void EquipEquipment(GameItem itm, EquipmentType type)
     {
         switch (type)

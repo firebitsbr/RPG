@@ -6,9 +6,10 @@ public class CharFightController : MonoBehaviour {
     public bool _selectable;
     private FightController _fight;
     private GameObject _children;
+    private GameCharacter _character;
 
 	void Start () {
-        _fight = GameObject.Find("/Fight").GetComponent<FightController>();
+        _fight = Camera.main.GetComponent<FightController>();
         _children = transform.GetChild(0).gameObject;
         SetCurrent(false);
 	}
@@ -49,5 +50,12 @@ public class CharFightController : MonoBehaviour {
             }
             _selectable = value;
         }
+    }
+
+
+    public GameCharacter character
+    {
+        get { return _character; }
+        set { _character = value; }
     }
 }

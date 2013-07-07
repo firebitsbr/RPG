@@ -42,7 +42,6 @@ public class BoxEnemiesController : MonoBehaviour {
                 AddCharToScene(_character[i], i);
             }
         }
-
     }
 
     private void AddCharToScene(GameCharacter value, int pos)
@@ -51,6 +50,7 @@ public class BoxEnemiesController : MonoBehaviour {
         _itm.transform.position = _positions[pos];
         _itm.transform.parent = this.transform;
         _itm.GetComponent<CharFightController>().SetCurrent(false);
+        _itm.GetComponent<CharFightController>().character = value;
 
         charsFight[pos] = _itm;
     }

@@ -13,6 +13,7 @@ public class ButtonActionController : MonoBehaviour {
     public GameObject _buttonAction;
     public GameObject _buttonSpecial;
     public GameObject _buttonItem;
+    public GameObject _buttonDefense;
 
     private bool _buttonActive;
     
@@ -22,6 +23,7 @@ public class ButtonActionController : MonoBehaviour {
         _buttonAction.GetComponent<ButtonAction>().boxAction = _boxAction;
         _buttonSpecial.GetComponent<ButtonAction>().boxAction = _boxAction;
         _buttonItem.GetComponent<ButtonAction>().boxAction = _boxAction;
+        _buttonDefense.GetComponent<ButtonAction>().boxAction = _boxAction;
         
         
         _boxAction.SetActive(false);
@@ -36,6 +38,7 @@ public class ButtonActionController : MonoBehaviour {
         _buttonAction.SetActive(false);
         _buttonSpecial.SetActive(false);
         _buttonItem.SetActive(false);
+        _buttonDefense.SetActive(false);
         
         _buttonActive = false;
     }
@@ -45,6 +48,7 @@ public class ButtonActionController : MonoBehaviour {
         _buttonAction.SetActive(true);
         _buttonSpecial.SetActive(true);
         _buttonItem.SetActive(true);
+        _buttonDefense.SetActive(true);
 
         _buttonActive = true;
     }
@@ -54,6 +58,7 @@ public class ButtonActionController : MonoBehaviour {
         _buttonAction.GetComponent<ButtonAction>().SetSelected(false);
         _buttonSpecial.GetComponent<ButtonAction>().SetSelected(false);
         _buttonItem.GetComponent<ButtonAction>().SetSelected(false);
+        _buttonDefense.GetComponent<ButtonAction>().SetSelected(false);
     }
 
 

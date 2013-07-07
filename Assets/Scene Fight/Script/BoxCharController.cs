@@ -12,6 +12,9 @@ public class BoxCharController : MonoBehaviour {
     private int _current;
 
 	void Start () {
+
+        GlobalCharacter.Init();
+
         _character = new GameCharacter[3];
 
         _character = GlobalCharacter.party;
@@ -41,6 +44,7 @@ public class BoxCharController : MonoBehaviour {
         _itm.transform.position = _positions[pos];
         _itm.transform.parent = this.transform;
         _itm.GetComponent<CharFightController>().SetCurrent(false);
+        _itm.GetComponent<CharFightController>().character = value;
 
         charsFight[pos] = _itm;
     }

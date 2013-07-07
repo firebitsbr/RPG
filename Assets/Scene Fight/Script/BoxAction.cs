@@ -22,7 +22,7 @@ public class BoxAction : MonoBehaviour {
         _buttons = new GameObject[4];
         gameObject.SetActive(false);
 
-        _fight = GameObject.Find("/Fight").GetComponent<FightController>();
+        _fight = Camera.main.GetComponent<FightController>();
 
 	}
 
