@@ -46,5 +46,5 @@ public enum ActionTextType
 };
 public enum NpcAction
 {
-    Unknown, WalkTo, Talk, TurnLeft, TurnRight, TurnDown, TurnUp, PlayAnimation
+    Unknown, WalkTo, Talk, TurnLeft, TurnRight, TurnDown, TurnUp, PlayAnimation, WalkAndTalk, WalkTalkFollow, Follow
 };
