@@ -2,49 +2,36 @@
 using System.Collections;
 
 
-public enum ActionTileType
+public struct NpcTalk
 {
-    Unknown, ChangeSpriteToCollide, ChangeSpriteToNotCollide, ChangeOtherSpriteToCollide, ChangeOtherSpriteToNotCollide,
-    PickupItem, GotoLocation, Attack, Bless, ShowMessage, TalkToNpc, Battle
+    float speed;
+    string text;
+    NpcAction onDone;
 };
-public enum ActionCharacterType
+public struct NpcPlayAnimation
 {
-    Unknown, Npc, Monster, Talk
+    int[] animation;
+    float speed;
 };
-public enum TargetTypes
+public struct NPCWalkAndTalk
 {
-    Unknown, Self, Enemy, Party, AllEnemies, All, OtherParty
+    NpcWalkTo walkTo;
+    NpcTalk talk;
 };
-public enum TargetAttribute
+public struct NpcFollow
 {
-    Unknown, Strength, Agility, Endurance, Life, Money, Technology, Time, Alchemy
+    GameObject target;
+    float speed;
 };
-public enum ItemType
+public struct NpcWalkTo
 {
-    Unknown, Alchemy, Equipment
+    Vector3 destin;
+    NpcAction onDonw;
 };
-public enum EquipmentType
+public struct NpcWalkTalkFollow
 {
-    Unknown, Arm, LeftArm, RightArm, Leg, LeftLeg, RightLeg
+    NpcWalkTo walk;
+    NpcTalk talk;
+    NpcFollow follow;
 };
-public enum AlchemyType
-{
-    Unknown, HealLife, IncreaseDamage, IncreaseSpeed
-};
-public enum OptionType
-{
-    Unknown, Attack, Special, Item, Defense
-};
-public enum ItemList
-{
-    Skull = 0, Ring = 1, FullChest = 2, EmptyChest = 3, Cristal = 4, Key = 5, Potion = 6, GreyPotion = 7, BigPotion = 8, LeftHand = 9, RightHand = 10, LeftLeg = 11, RightLeg = 12
-};
-
-public enum ActionTextType
-{
-    Unknown, NextText, FinishQuest, ReceiveItem, ReceiveDamage, ReceiveBonus, CloseText, ShowText, ShowStore, ShowOptions, Battle
-};
-public enum NpcAction
-{
-    Unknown, WalkTo, Talk, TurnLeft, TurnRight, TurnDown, TurnUp, PlayAnimation, WalkAndTalk, WalkTalkFollow, Follow
-};
+/*********************************************************************************************************************/
