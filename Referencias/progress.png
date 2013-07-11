@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML>
+<HEAD>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <TITLE>Notificação de Segurança da Informação</TITLE>
+  <script src="/mwg-internal/de5fs23hu73ds/files/javascript/sw.js" type="text/javascript" ></script>
+  <link rel="stylesheet" href="/mwg-internal/de5fs23hu73ds/files/default/stylesheet.css" />
+<STYLE>
+#topo {
+	background-image: url('/mwg-internal/de5fs23hu73ds/files/default/img/RBS_PROXY_MEIO.png');
+}
+#meio {
+	background-image: url('/mwg-internal/de5fs23hu73ds/files/default/img/RBS_PROXY_MEIO.png');
+	padding-left: 130px;
+	padding-right: 130px;
+	padding-top: -35px;
+	padding-bottom: 35px;
+}
+body {
+	background-image: url('/mwg-internal/de5fs23hu73ds/files/default/img/RBS_PROXY_FUNDO.png');
+}
+table {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	border-collapse:collapse; border-spacing:0;
+	max-width: 850px;
+}
+tr {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	border-collapse:collapse; border-spacing:0;
+}
+td {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	border-collapse:collapse; border-spacing:0;
+	table-layout:fixed; word-wrap: break-word;
+}
+</STYLE>
+<TITLE>Notificação de Segurança da Informação</TITLE>
+</HEAD>
+<body onload="swOnLoad();">
+<CENTER><BR>
+ <TABLE style='{width: 850px; table-layout:fixed; word-wrap: break-word;}'>
+  <TR>
+   <TD ID=topo>
+    <IMG SRC='/mwg-internal/de5fs23hu73ds/files/default/img/RBS_PROXY_TOPO.png'>
+   </TD> 
+  </TR><TR>
+   <TD ID=meio>
+  <!--"If you opened this file and can see this text, then you've probably tried to download a file using
+the 'save target as' option in the context menu when right clicking the object. Since  McAfee Web Gateway
+is used for virus scanning your browser is redirected to a page that will show the download
+progress, and by chosing the 'save target as' option you were saving this progress page. To avoid
+this situation please use a simple click with the left mouse button to download the object. This
+will correctly redirect your browser to display the download progress and allow you to save the
+desired object."-->
+
+<!-- FileName: progress.html
+     Language: [en]
+-->
+<!--Title-->
+<table class='titleTable' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>
+  <tr>
+    <td class='titleData'>
+      Download em andamento
+    </td>
+  </tr>
+</table>
+<!--/Title-->
+
+<!--Content-->
+<table class="contentTable">
+  <tr>
+    <td class="contentData">
+     O arquivo está sendo baixado e analisado por nossas ferramentas de segurança : <script type="text/javascript">break_line("http://cghub.com/forum/attachment.php?attachmentid=3841&d=1247645265");</script>
+    </td>
+  </tr>
+</table>
+<!--/Content-->
+
+<!--Info-->
+<table class="infoTable">
+  <tr>
+    <td class="infoData">
+    Por favor aguarde ...
+      <script type='text/javascript'>
+        printProgressBar(20,"/mwg-internal/de5fs23hu73ds/files/default/img/blue.png","/mwg-internal/de5fs23hu73ds/files/default/img/grey.png",15,20);
+      </script>
+    </td>
+  </tr>
+</table>
+<table class='infoTable'>
+  <tr>
+    <td class='infoData'>
+    <meta id="downloadText" content="Transferido |a of |b">
+    <meta id="scanningText" content="Scanning in progress ( |a  s)">
+    <b><span id="progress">Transferido |a of |b</span>.</b>
+    </td>
+  </tr>
+  <tr>
+  <td class='printInfoData' style="text-align:center">
+  <form action="/mwg-internal/de5fs23hu73ds/progress" method="get">
+  <input type="hidden" name="id" value="qcdX0WPmBd"><input type="hidden" name="Cancel" value="1"><input type="submit" value="Cancel"></form>
+  </td>
+  </tr>
+</table>
+<!--/Info-->
+<meta id="progresspage" content="1"><meta id="progresspageid" content="qcdX0WPmBd">
+
+	 <BR>
+	 <CENTER>Gerado em <span id="time">2013-07-11 13:29:57</span><!--BR> -->
+   </TD>
+  </TR><TR>
+   <TD>
+    <IMG SRC='/mwg-internal/de5fs23hu73ds/files/default/img/RBS_PROXY_RODAPE.png'>
+   </TD>
+  </TR>
+ </TABLE>
+</BODY>
+</HTML>
+
