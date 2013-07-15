@@ -1,0 +1,59 @@
+-- Sempre o NPC tem uma primeira conversa onde conta historia
+-- Após isso sempre tem alguma frase padrão perguntando se o que ele pediu ja foi feito
+-- Aparece menu com opção para repetir o texto, fazer alguma pergunta extra ou concluir a missao
+-- Ao clicar em concluir missao, verica se a fase está comprida e altera o texto
+
+
+
+
+-Ações
+-- Ir de um ponto ao outro do mapa em busca de pistas
+-- Cada lugar gasta um certo tempo para chegar, e um tempo no lugar
+-- Alguns lugares podem ser mais perigosos, ou ter emboscadas
+-- Pessoas podem bloquear você de chegar em certos lugares
+-- encontros aleatorios no mapa enquanto caminha pela cidade
+
+
+-NPC
+--Dono do Museu
+
+--- Fala sobre seus problemas
+--- Ao ajuda-lo, ele diz detalhes sobre o funcionamento do local
+--- (ao contar sobre ter descoberto o ladrao) Diz que precisa de mais informações a repeito (?)
+--- (ao contar sobre a familia que deseja rouba-lo) Diz que tem um plano para pegar a familia 
+--- (ao contar que fez o planejado) Diz quer irá fazer a parte dele
+
+
+
+--Familia Roubada
+
+
+
+--Ladrões
+
+-Secundarios
+--Funcionarios do museu
+--Comerciantes de itens
+--Visitantes
+--Compradores de itens
+--Rainha
+--Guardas Realeza
+--Guardas
+
+
+-RANDOM
+-- Nomes das pessoas
+-- Locais no mapa
+-- Lugar das pessoas
+-- Pistas (?)
+-- Item
+-- Emboscadas
+
+
+
+
+http://www.4shared.com/office/w4tI0y3g/Edgar_Alan_Poe_-_Obras_Quase_C.htm
+http://en.wikipedia.org/wiki/Sheridan_Le_Fanu
+http://en.wikipedia.org/wiki/Robert_Louis_Stevenson
+https://en.wikipedia.org/wiki/Gothic_fiction
+https://en.wikipedia.org/wiki/George_W._M._Reynolds

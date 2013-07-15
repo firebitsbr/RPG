@@ -6,12 +6,10 @@ public class GlobalQuests {
     private static ArrayList _quests;
 
 	public static void Init() {
-	
+	    
+
+
 	}
-
-
-
-
 
     public ArrayList quests
     {

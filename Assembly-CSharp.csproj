@@ -99,6 +99,7 @@
      <Compile Include="Assets\Scripts\Core\DatabaseLoader.cs" />
      <Compile Include="Assets\Scripts\GUI\ButtonChangeScene.cs" />
      <Compile Include="Assets\Scripts\GUI\ListItens.cs" />
+     <Compile Include="Assets\Scripts\Game\Enums.cs" />
      <Compile Include="Assets\Scripts\Game\GameAttributes.cs" />
      <Compile Include="Assets\Scripts\Game\GameCharacter.cs" />
      <Compile Include="Assets\Scripts\Game\GameCity.cs" />
@@ -117,6 +118,7 @@
      <Compile Include="Assets\Scripts\Global\GlobalQuests.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalWorldMap.cs" />
      <Compile Include="Assets\Scripts\Utils\SimpleJSON.cs" />
+     <None Include="Assets\Data\history1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,8 +8,32 @@
 			{
 				"id": "qi0000",
 				"npc": "ch00000",
-				"text": "",
-				"done": 0,
+				"action": [
+					{
+						"type": "Talk",
+						"value": "string",
+					},
+					{
+						"type": "Talk",
+						"x": 0, 
+						"y": 0,
+						"speed": 0,
+					},
+					{
+						"type": "Animation",
+						"x1": 0,
+						"x2": 0,
+						"speed": 0,
+					},
+				],
+				"response": {
+					"GoToItem": [
+						{"npc": "np0001", "value": 1}
+					],
+					"GiveItem": "it0001",
+					"Fight": "ft0001",
+					"End": true,
+				},
 			}
 		]
 	}

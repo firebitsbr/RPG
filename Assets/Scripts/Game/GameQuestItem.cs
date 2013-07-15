@@ -1,15 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameQuestItem : MonoBehaviour {
+public class GameQuestItem {
 
-	// Use this for initialization
+	
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
