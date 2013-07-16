@@ -5,11 +5,14 @@ public class GameCharacterController : MonoBehaviour {
 
 
     private GameCharacter _character;
+    public bool isPlayer = false;
 
 	void Start () {
-        _character = GlobalCharacter.generetaChar();
-        _character.name = "NPC Teste";
-        _character.sprite = Random.Range(1, 4);
+        if (isPlayer)
+        {
+            _character = GlobalCharacter.generetaChar();
+            _character.sprite = Random.Range(1, 4);
+        }
 	}
 	
 	// Update is called once per frame

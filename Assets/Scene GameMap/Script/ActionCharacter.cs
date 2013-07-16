@@ -4,6 +4,8 @@ using System.Collections;
 public class ActionCharacter : MonoBehaviour {
 
     public ActionTextType _actionType = ActionTextType.CloseText;
+
+    private object _actionData;
     
 	void Start () {
 	
@@ -59,6 +61,34 @@ public class ActionCharacter : MonoBehaviour {
                 Camera.main.GetComponent<GameController>().ShowChat();
 
                 break;
+            case ActionTextType.Battle:
+
+                break;
+            case ActionTextType.FinishQuest:
+
+                break;
+            case ActionTextType.NextText:
+
+                break;
+            case ActionTextType.ReceiveBonus:
+
+                break;
+            case ActionTextType.ReceiveDamage:
+
+                break;
+            case ActionTextType.PlayAnimation:
+                // dados[], speed
+
+                break;
+            case ActionTextType.Follow:
+                // target
+
+                break;
+            case ActionTextType.WalkTo:
+                // x,y,speed
+
+
+                break;
             default:
 
 
@@ -67,8 +97,11 @@ public class ActionCharacter : MonoBehaviour {
 
 
     }
-    public void HoverAction()
-    {
 
+
+    public object actionData
+    {
+        get { return _actionData; }
+        set { _actionData = value; }
     }
 }

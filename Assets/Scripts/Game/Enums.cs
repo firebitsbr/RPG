@@ -42,9 +42,10 @@ public enum ItemList
 
 public enum ActionTextType
 {
-    Unknown, NextText, FinishQuest, ReceiveItem, ReceiveDamage, ReceiveBonus, CloseText, ShowText, ShowStore, ShowOptions, Battle
+    Unknown, NextText, FinishQuest, ReceiveItem, ReceiveDamage, ReceiveBonus, CloseText, ShowText, ShowStore, ShowOptions, Battle,
+    WalkTo, Talk, TurnLeft, TurnRight, TurnDown, TurnUp, PlayAnimation, WalkAndTalk, WalkTalkFollow, Follow
 };
-public enum NpcAction
+public enum InputType
 {
-    Unknown, WalkTo, Talk, TurnLeft, TurnRight, TurnDown, TurnUp, PlayAnimation, WalkAndTalk, WalkTalkFollow, Follow
+    Unknown, WorldMap
 };

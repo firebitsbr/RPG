@@ -4,34 +4,40 @@ using System.Collections;
 
 public struct NpcTalk
 {
-    float speed;
-    string text;
-    NpcAction onDone;
+    public float speed;
+    public string text;
+    public ActionTextType onDone;
 };
 public struct NpcPlayAnimation
 {
-    int[] animation;
-    float speed;
+    public int[] animation;
+    public float speed;
 };
 public struct NPCWalkAndTalk
 {
-    NpcWalkTo walkTo;
-    NpcTalk talk;
+    public NpcWalkTo walkTo;
+    public NpcTalk talk;
 };
 public struct NpcFollow
 {
-    GameObject target;
-    float speed;
+    public GameObject target;
+    public float speed;
 };
 public struct NpcWalkTo
 {
-    Vector3 destin;
-    NpcAction onDonw;
+    public Vector3 destin;
+    public ActionTextType onDonw;
 };
 public struct NpcWalkTalkFollow
 {
-    NpcWalkTo walk;
-    NpcTalk talk;
-    NpcFollow follow;
+    public NpcWalkTo walk;
+    public NpcTalk talk;
+    public NpcFollow follow;
+};
+public struct SpriteAnim
+{
+    public string name;
+    public int[] data;
+    public float speed;
 };
 /*********************************************************************************************************************/

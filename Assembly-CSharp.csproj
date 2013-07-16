@@ -113,6 +113,7 @@
      <Compile Include="Assets\Scripts\Game\GameSkill.cs" />
      <Compile Include="Assets\Scripts\Game\Structs.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalCharacter.cs" />
+     <Compile Include="Assets\Scripts\Global\GlobalInput.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalItens.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalMap.cs" />
      <Compile Include="Assets\Scripts\Global\GlobalQuests.cs" />

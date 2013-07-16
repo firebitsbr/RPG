@@ -43,6 +43,12 @@ public class CharacterMovement : MonoBehaviour
 	}
 	
 	void FixedUpdate () {
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("action button");
+        }
 	
 		if(Input.GetKey("left")) {
 			scriptAnim.moveLeft();
@@ -70,7 +76,7 @@ public class CharacterMovement : MonoBehaviour
             this.rigidbody.velocity = new Vector3(0, this.rigidbody.velocity.y, 0);
 		}
 		if(!Input.GetKey("up") && !Input.GetKey("down") && !Input.GetKey("right") && !Input.GetKey("left")) {
-			scriptAnim.isMoving = false;
+			scriptAnim.hasAnim = false;
 		}
 	}
 	

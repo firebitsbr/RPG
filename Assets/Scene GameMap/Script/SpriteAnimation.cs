@@ -9,41 +9,77 @@ public class SpriteAnimation : MonoBehaviour
 	public static int RIGHT = 1;
 	
 	
-	public bool isMoving = false;
-	public int animationSpeed;
+	public bool hasAnim = false;
+	public float animationSpeed;
+    private SpriteAnim _currAnimation;
+    private ArrayList _animation;
 	
 	
-	private int direction;
 	private int countAnimation;
 	private int atualAnimation;
 	
 
 	void Start ()
 	{
-		direction = 0;
 		countAnimation = 0;
 		atualAnimation = 0;
 
         Vector2 pt = new Vector2(0.05f, -0.1f * this.GetComponent<GameCharacterController>().character.sprite);
         renderer.material.SetTextureOffset("_MainTex", pt);
+
+        _animation = new ArrayList();
+
+        addAnimation("up",    new int[3] { 9,10,11 }, 5);
+        addAnimation("down",  new int[3] { 0, 1, 2 }, 5);
+        addAnimation("right", new int[3] { 3, 4, 5 }, 5);
+        addAnimation("left",  new int[3] { 6, 7, 8 }, 5);
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    public void addAnimation(string name, int[] data, float speed)
+    {
+        for (var i = 0; i < _animation.Count; i++)
+        {
+            if (((SpriteAnim)_animation[i]).name == name)
+            {
+                _animation.RemoveAt(i);
+            }
+        }
+
+        SpriteAnim anim = new SpriteAnim();
+        anim.name = name;
+        anim.data = data;
+        anim.speed = speed;
+
+        _animation.Add(anim);
+    }
+
+    public void playAnimation(string name)
+    {
+        for (var i = 0; i < _animation.Count; i++)
+        {
+            if (((SpriteAnim)_animation[i]).name == name)
+            {
+                _currAnimation = (SpriteAnim)_animation[i];
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
 	{
 		float num = 0;
-		if(isMoving) {
-			
+        if (hasAnim)
+        {
 			countAnimation++;
-			if(countAnimation > animationSpeed) {
+			if(countAnimation > _currAnimation.speed) {
 				atualAnimation++;
-				if(atualAnimation >= 3) {
+				if(atualAnimation >= _currAnimation.data.Length) {
 					atualAnimation = 0;
 				}
 				countAnimation = 0;
 			}
-			
-			num = 3 * direction + atualAnimation;
+
+            num = _currAnimation.data[atualAnimation];
 			
 			Vector2 pt = new Vector2(0.05f * num, -0.1f * this.GetComponent<GameCharacterController>().character.sprite);
 
@@ -55,20 +91,19 @@ public class SpriteAnimation : MonoBehaviour
 	}
 	
 	public void moveUp() {
-		direction = SpriteAnimation.UP;
-		isMoving = true;
+        hasAnim = true;
+        this.playAnimation("up");
 	}
 	public void moveDown() {
-		direction = SpriteAnimation.DOWN;
-		isMoving = true;
+        hasAnim = true;
+        this.playAnimation("down");
 	}
 	public void moveLeft() {
-		direction = SpriteAnimation.LEFT;
-		isMoving = true;
+        hasAnim = true;
+        this.playAnimation("left");
 	}
 	public void moveRight() {
-		direction = SpriteAnimation.RIGHT;
-		isMoving = true;
+        hasAnim = true;
+        this.playAnimation("right");
 	}
 }
-
