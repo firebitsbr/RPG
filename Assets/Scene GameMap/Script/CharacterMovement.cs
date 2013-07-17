@@ -41,13 +41,42 @@ public class CharacterMovement : MonoBehaviour
 			}
 		}
 	}
+
+    public void moveTo(float _x, float _y) {
+
+        Debug.Log(_x + "____" + _y);
+        float dist = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y), new Vector2(_x, _y));
+
+        Debug.Log(dist);
+    }
 	
 	void FixedUpdate () {
 
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("action button");
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            if (Physics.Raycast(ray, out hit))
+            {
+                moveTo(hit.transform.position.x, hit.transform.position.y);
+                if (hit.collider.gameObject.GetComponent<ItemBase>() != null)
+                {
+                    //Debug.Log("ITEM");
+
+                } 
+                else if(hit.collider.gameObject.GetComponent<TileChanges>() != null) 
+                {
+                    //Debug.Log("TILE");
+
+                }
+                else if (hit.collider.gameObject.GetComponent<GameCharacterController>() != null)
+                {
+                    //Debug.Log("CHARACTER");
+
+                }
+            }
         }
 	
 		if(Input.GetKey("left")) {
