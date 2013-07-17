@@ -10,8 +10,8 @@ public class GlobalInput {
     {
         if (!_hasInit)
         {
-            
 
+            _type = InputType.GameMap;
             _hasInit = true;
         }
     }

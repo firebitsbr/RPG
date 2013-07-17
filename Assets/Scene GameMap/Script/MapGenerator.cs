@@ -7,11 +7,13 @@ public class MapGenerator : MonoBehaviour
 	
 	public Vector2 RoomSize;
 	public GameObject tile;
+
+    private ArrayList _mapTiles;
 	
-	// Use this for initialization
 	void Start ()
 	{
-        //generateMap();
+
+        _mapTiles = new ArrayList();
         loadMap(Map.getMap(), 10, 10);
 	}
 
@@ -25,6 +27,8 @@ public class MapGenerator : MonoBehaviour
 
             tc.changeTile(itm.layer1);
             tc.updateCollision(false);
+
+            _mapTiles.Add(inst);
         }
         if (itm.layer2 >= 0)
         {
@@ -59,15 +63,23 @@ public class MapGenerator : MonoBehaviour
                         break;
                 }
             }
+            _mapTiles.Add(inst);
 
             tc.changeTile(itm.layer2);
             tc.updateCollision(itm.collide);
         }
     }
+
+    public void cleanMap()
+    {
+        for (int i = 0; i < _mapTiles.Count; i++)
+        {
+            Destroy(_mapTiles[i] as GameObject);
+        }
+    }
     
     void loadMap(TileMapItem[,] map, int w, int h)
     {
-        
         for (int i = 0; i < w; i++)
         {
             for (int j = 0; j < h; j++)

@@ -2,6 +2,11 @@
 using System.Collections;
 
 
+public enum ObjectType
+{
+    Unknown, Character, Tile, Item
+};
+
 public enum ActionTileType
 {
     Unknown, ChangeSpriteToCollide, ChangeSpriteToNotCollide, ChangeOtherSpriteToCollide, ChangeOtherSpriteToNotCollide,
@@ -9,7 +14,7 @@ public enum ActionTileType
 };
 public enum ActionCharacterType
 {
-    Unknown, Npc, Monster, Talk
+    Unknown, Npc, Monster
 };
 public enum TargetTypes
 {
@@ -47,5 +52,5 @@ public enum ActionTextType
 };
 public enum InputType
 {
-    Unknown, WorldMap
+    Unknown, WorldMap, GameMap, Chat
 };

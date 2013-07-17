@@ -10,50 +10,40 @@ public class CharacterMovement : MonoBehaviour
 	bool[] canMove;
 	//private Vector3 speed = new Vector3(0, 0, 0);
 	GameObject hoverObject;
-	// Use this for initialization
+
+    private Vector2 _targetPos;
+    private GameObject _target;
+    private ObjectType _targetType;
+
 	void Start ()
 	{
 		canMove = new bool[4];
 		canMove[0] = canMove[1] = canMove[2] = canMove[3] = true;
 		scriptAnim = this.gameObject.GetComponent<SpriteAnimation>();
 		rigidbody.detectCollisions = true;
+
+        _targetPos = new Vector2(this.transform.position.x, this.transform.position.y);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if(Input.GetKeyDown("space")) {
 
-            if (hoverObject != null)
-            {
-                if (hoverObject.GetComponent<ActionTile>())
-                {
-                    hoverObject.GetComponent<ActionTile>().ClickAction(this.gameObject);
-                }
-                if (hoverObject.GetComponent<ActionCharacter>())
-                {
-                    hoverObject.GetComponent<ActionCharacter>().ClickAction();
-                }
-
-
-			} else {
-				Debug.Log("no action possible");
-			}
-		}
 	}
 
     public void moveTo(float _x, float _y) {
 
-        Debug.Log(_x + "____" + _y);
-        float dist = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y), new Vector2(_x, _y));
+        _targetPos = new Vector2(_x, _y);
+        //Debug.Log(_x + "____" + _y);
+        //float dist = Vector2.Distance(new Vector2(this.transform.position.x, this.transform.position.y), new Vector2(_x, _y));
 
-        Debug.Log(dist);
+        //Debug.Log(dist);
     }
 	
 	void FixedUpdate () {
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GlobalInput.verifyInput(InputType.GameMap))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -64,50 +54,111 @@ public class CharacterMovement : MonoBehaviour
                 if (hit.collider.gameObject.GetComponent<ItemBase>() != null)
                 {
                     //Debug.Log("ITEM");
+                    _targetType = ObjectType.Item;
+                    _target = hit.collider.gameObject;
 
-                } 
-                else if(hit.collider.gameObject.GetComponent<TileChanges>() != null) 
+                }
+                else if (hit.collider.gameObject.GetComponent<TileChanges>() != null) 
                 {
                     //Debug.Log("TILE");
-
+                    if (hit.collider.gameObject.GetComponent<ActionTile>() != null)
+                    {
+                        _targetType = ObjectType.Tile;
+                        _target = hit.collider.gameObject;
+                    }
                 }
                 else if (hit.collider.gameObject.GetComponent<GameCharacterController>() != null)
                 {
                     //Debug.Log("CHARACTER");
-
+                    _targetType = ObjectType.Character;
+                    _target = hit.collider.gameObject;
                 }
             }
         }
-	
-		if(Input.GetKey("left")) {
-			scriptAnim.moveLeft();
-            this.rigidbody.velocity = new Vector3(-charSpeed, this.rigidbody.velocity.y, 0);
-			
-		}
-		if(Input.GetKey("right")) {
-			scriptAnim.moveRight();
-			this.rigidbody.velocity = new Vector3(charSpeed, this.rigidbody.velocity.y, 0);
-		}
-		if(Input.GetKey("up")) {
-			scriptAnim.moveUp();
-            this.rigidbody.velocity = new Vector3(this.rigidbody.velocity.x, charSpeed, 0);
-			
-		}
-		if(Input.GetKey("down")) {
-			scriptAnim.moveDown();
-            this.rigidbody.velocity = new Vector3(this.rigidbody.velocity.x, -charSpeed, 0);
-		}
-		
-		if(!Input.GetKey("up") && !Input.GetKey("down")) {
-            this.rigidbody.velocity = new Vector3(this.rigidbody.velocity.x, 0, 0);
-		}
-		if(!Input.GetKey("right") && !Input.GetKey("left")) {
+
+        if (Mathf.Abs(_targetPos.x - this.transform.position.x) < 1)
+        {
             this.rigidbody.velocity = new Vector3(0, this.rigidbody.velocity.y, 0);
-		}
-		if(!Input.GetKey("up") && !Input.GetKey("down") && !Input.GetKey("right") && !Input.GetKey("left")) {
-			scriptAnim.hasAnim = false;
-		}
+        }
+        else
+        {
+            if (_targetPos.x - this.transform.position.x < 0)
+            {
+                this.rigidbody.velocity = new Vector3(-charSpeed, this.rigidbody.velocity.y, 0);
+                scriptAnim.moveLeft();
+            }
+            else
+            {
+                this.rigidbody.velocity = new Vector3(charSpeed, this.rigidbody.velocity.y, 0);
+                scriptAnim.moveRight();
+            }
+        }
+        if (Mathf.Abs(_targetPos.y - this.transform.position.y) < 1)
+        {
+            this.rigidbody.velocity = new Vector3(this.rigidbody.velocity.x, 0, 0);
+        }
+        else
+        {
+            if (_targetPos.y - this.transform.position.y < 0)
+            {
+                this.rigidbody.velocity = new Vector3(this.rigidbody.velocity.x, -charSpeed, 0);
+                scriptAnim.moveDown();
+            }
+            else
+            {
+                this.rigidbody.velocity = new Vector3(this.rigidbody.velocity.x, charSpeed, 0);
+                scriptAnim.moveUp();
+            }
+        }
+
+        if (this.rigidbody.velocity.x == 0 && this.rigidbody.velocity.y == 0)
+        {
+            scriptAnim.hasAnim = false;
+        }
 	}
+
+    public void verifyTarget(GameObject obj)
+    {
+        if (_targetType != ObjectType.Unknown)
+        {
+            if (obj == _target)
+            {
+                if (hoverObject != null)
+                {
+                    if (hoverObject.GetComponent<ActionTile>())
+                    {
+                        Debug.Log("item");
+                        hoverObject.GetComponent<ActionTile>().ClickAction(this.gameObject);
+                    }
+                    if (hoverObject.GetComponent<ActionCharacter>())
+                    {
+                        Debug.Log("character");
+                        hoverObject.GetComponent<ActionCharacter>().ClickAction();
+                    }
+                    hoverObject = null;
+                }
+                else
+                {
+                    Debug.Log("no action possible");
+                }
+
+                _targetPos.x = this.transform.position.x;
+                _targetPos.y = this.transform.position.y;
+                scriptAnim.hasAnim = false;
+                this.rigidbody.velocity = new Vector3(0, 0, 0);
+                _targetType = ObjectType.Unknown;
+            }
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        verifyTarget(col.gameObject);
+    }
+    void OnTriggerEnter(Collider col)
+    {
+        verifyTarget(col.gameObject);
+    }
 	
 	
 	public void setHoverObj(GameObject obj) {

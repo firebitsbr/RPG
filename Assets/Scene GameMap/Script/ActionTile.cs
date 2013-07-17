@@ -106,7 +106,7 @@ public class ActionTile: MonoBehaviour
             case ActionTileType.GotoLocation:
 
                 int[] val = (int[])(actionValue);
-
+                Debug.Log("gotolocation");
                 other.transform.position = new Vector3(16 * val[0], 16 * val[1], other.transform.position.z);
 
                 break;

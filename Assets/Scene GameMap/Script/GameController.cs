@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour {
         GlobalWorldMap.Init();
         GlobalQuests.Init();
         GlobalMap.Init();
+        GlobalInput.Init();
 
         _itens = new ArrayList();
         _npcs = new ArrayList();

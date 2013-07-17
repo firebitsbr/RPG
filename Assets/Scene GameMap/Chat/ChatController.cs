@@ -70,7 +70,7 @@ public class ChatController : MonoBehaviour {
         this.gameObject.SetActive(true);
         _initTimer = true;
 
-
+        GlobalInput.type = InputType.Chat;
     }
 
     public ArrayList SplitLines(string value)
@@ -141,6 +141,7 @@ public class ChatController : MonoBehaviour {
                 break;
             case ActionTextType.CloseText:
             default:
+                GlobalInput.type = InputType.GameMap;
                 this.gameObject.SetActive(false);
                 break;
             case ActionTextType.Battle:
