@@ -68,6 +68,10 @@
      <Compile Include="Assets\Scene GameMap\Script\MapGenerator.cs" />
      <Compile Include="Assets\Scene GameMap\Script\SpriteAnimation.cs" />
      <Compile Include="Assets\Scene GameMap\Script\TileChanges.cs" />
+     <Compile Include="Assets\Scene Hunting\Script\AnimalController.cs" />
+     <Compile Include="Assets\Scene Hunting\Script\ButtonShoot.cs" />
+     <Compile Include="Assets\Scene Hunting\Script\HuntCharController.cs" />
+     <Compile Include="Assets\Scene Hunting\Script\HuntingController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\ButtonInventory.cs" />
      <Compile Include="Assets\Scene Inventory\Script\InventoryController.cs" />
      <Compile Include="Assets\Scene Inventory\Script\ItemDetailController.cs" />
